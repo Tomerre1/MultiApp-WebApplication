@@ -1,29 +1,33 @@
 /*MAIN*/
-@import '../css/email.css';
+
+@import './email.css';
+@import './note.css';
+
 /* list-helpers */
+
 * {
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .clean-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
 .justify-content {
-  justify-content: center;
+    justify-content: center;
 }
 
 .align-items {
-  align-items: center;
+    align-items: center;
 }
 
 .space-between {
-  justify-content: space-between;
+    justify-content: space-between;
 }

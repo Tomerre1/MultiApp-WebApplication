@@ -1,4 +1,3 @@
-// import {BookPreview} from './BookPreview.jsx'
 import { noteService } from '../../services/Note/note.service.js'
 import { NoteTextPreview } from './NoteTextPreview.jsx'
 import { NoteListPreview } from './NoteListPreview.jsx'
@@ -23,6 +22,13 @@ export class NoteList extends React.Component {
     });
   };
 
+  onRemoveNote = (note) => {
+    noteService.removeNote(note.id)
+      .then(() => {
+        this.loadNotes()
+      })
+  }
+
 
   render() {
     const { notes } = this.state
@@ -32,14 +38,14 @@ export class NoteList extends React.Component {
       switch (props.note.type) {
         case 'txt':
           return <NoteTextPreview {...props} />
-        //   case 'todos':
-        //     return <NoteListPreview {...props} />
+        case 'todos':
+          return <NoteListPreview {...props} />
         case 'img':
-            return <NoteImgPreview {...props} />
+          return <NoteImgPreview {...props} />
         // case 'sound':
         //     return <NoteSoundPreview {...props} />
-        // case 'video':
-        //     return <NoteVideoPreview {...props} />
+        case 'video':
+          return <NoteVideoPreview {...props} />
         default:
           break;
       }
@@ -53,12 +59,9 @@ export class NoteList extends React.Component {
         <h1>Notes list</h1>
         <div className="note-list">
           {notes.map((note) => {
-            return <DynamicCmp key={note.id} note={note} />
+            return <DynamicCmp key={note.id} note={note} onRemoveNote={this.onRemoveNote} />
           })}
-
         </div>
-
-
       </section>
     )
   }
