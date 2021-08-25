@@ -1,3 +1,16 @@
+h2,
+p {
+    cursor: pointer;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
 .note-card {
     font-family: 'Roboto', sans-serif;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -16,6 +29,7 @@
     -webkit-text-stroke: 1px black;
     min-height: 150px;
     gap: 10px;
+    overflow: hidden;
     /* align-items: center; */
 }
 
@@ -66,7 +80,7 @@
 }
 
 .color-btn {
-    border-radius: 3rem;
+    border-radius: 5px;
     padding: 9px;
     cursor: pointer;
     border: 0.6px solid black;
@@ -103,4 +117,11 @@
 
 .unset {
     background-color: white;
+}
+
+
+/* TODO-list */
+
+.done {
+    text-decoration: line-through;
 }

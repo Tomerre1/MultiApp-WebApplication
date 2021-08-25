@@ -59,6 +59,13 @@ export class NoteList extends React.Component {
       })
   };
 
+  onToggleTodo = (todo) => {
+    noteService.toggleTodo(todo)
+      .then(() => {
+        this.loadNotes()
+      })
+  };
+
 
   render() {
     const { notes } = this.state
@@ -89,7 +96,7 @@ export class NoteList extends React.Component {
         <div className="note-list">
 
           {notes.map((note) => {
-            return <DynamicCmp key={note.id} note={note} onEditNoteTitle={this.onEditNoteTitle} onChangeColor={this.onChangeColor} onTogglePinNote={this.onTogglePinNote} onRemoveNote={this.onRemoveNote} />
+            return <DynamicCmp key={note.id} note={note} onToggleTodo={this.onToggleTodo} onEditNoteTitle={this.onEditNoteTitle} onChangeColor={this.onChangeColor} onTogglePinNote={this.onTogglePinNote} onRemoveNote={this.onRemoveNote} />
           })}
         </div>
       </section>

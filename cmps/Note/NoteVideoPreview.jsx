@@ -14,14 +14,14 @@ export class NoteVideoPreview extends React.Component {
     }
 
     //Functions for Edit mode
-    onEditMode() {
+    onEditMode = () => {
         this.setState({ isEdit: true })
     }
     handleChange = ({ target }) => {
         const value = target.type === 'number' ? +target.value : target.value
         this.setState({ title: value })
     }
-    onSaveNote(note, title) {
+    onSaveNote = (note, title) => {
         this.props.onEditNoteTitle(note, title)
         this.setState({ isEdit: false })
     }

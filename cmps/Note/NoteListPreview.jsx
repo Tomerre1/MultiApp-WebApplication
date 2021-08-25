@@ -12,14 +12,14 @@ export class NoteListPreview extends React.Component {
     }
 
     //Functions for Edit mode
-    onEditMode() {
+    onEditMode = () => {
         this.setState({ isEdit: true })
     }
     handleChange = ({ target }) => {
         const value = target.type === 'number' ? +target.value : target.value
         this.setState({ title: value })
     }
-    onSaveNote(note, title) {
+    onSaveNote = (note, title) => {
         this.props.onEditNoteTitle(note, title)
         this.setState({ isEdit: false })
     }
@@ -42,7 +42,7 @@ export class NoteListPreview extends React.Component {
                     </form>
                 }
                 {note.info.todos.map((todo) => {
-                    return <p key={todo.txt}>{todo.txt}</p>;
+                    return <p key={todo.txt} onClick={() =>{this.props.onToggleTodo(todo)}} className={`${todo.isDone ? 'done' : ''}`}>{todo.txt}</p>;
                 })}
                 <NoteActions note={note} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
 
