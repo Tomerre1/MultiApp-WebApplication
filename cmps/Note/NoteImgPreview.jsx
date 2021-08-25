@@ -1,11 +1,25 @@
-export function NoteImgPreview({ note }) {
-    return (
-       
-        <div className="note">
-            <h2>{note.info.title}</h2>
-            <img src={note.info.url} height="150" width="150"></img>
-        </div>
-    )
-}
+import { NoteActions } from './NoteActions.jsx'
 
-// style: { backgroundColor: "#00d" }
+export class NoteImgPreview extends React.Component {
+    state = {
+        note: null
+    }
+
+    componentDidMount() {
+        this.setState({ note: this.props.note })
+    }
+
+    render() {
+
+        const { note, onRemoveNote } = this.props
+
+        return (
+
+            <div className="note-card" style={{ backgroundColor: note.style.backgroundColor }}>
+                <h2>{note.info.title}</h2>
+                <img src={note.info.url} height="150" width="150"></img>
+                <NoteActions note={note} onRemoveNote={onRemoveNote} />
+            </div>
+        )
+    }
+}

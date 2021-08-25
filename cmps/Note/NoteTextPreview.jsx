@@ -1,9 +1,22 @@
-export function NoteTextPreview({ note }) {
-    return (
-       
-        <div className="note">
-            <h2>Hello my note</h2>
-            {note.info.txt}
-        </div>
-    )
+import { NoteActions } from './NoteActions.jsx'
+
+export class NoteTextPreview extends React.Component {
+    state = {
+        note: null,
+    }
+
+    componentDidMount() {
+        this.setState({ note: this.props.note })
+    }
+
+    render() {
+        const { note, onRemoveNote } = this.props
+
+        return (
+            <div className="note-card" style={{ backgroundColor: note.style.backgroundColor }}>
+                {note.info.txt}
+                <NoteActions note={note} onRemoveNote={onRemoveNote} />
+            </div >
+        )
+    }
 }

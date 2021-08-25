@@ -1,10 +1,27 @@
-export function NoteTextPreview({ note }) {
-    console.log('note',note)
-    return (
-       
-        <div className="note">
-            <h2>Hello my note</h2>
-            {note.info.txt}
-        </div>
-    )
+import { NoteActions } from './NoteActions.jsx'
+
+export class NoteVideoPreview extends React.Component {
+
+    state = {
+        note: null,
+    }
+
+    componentDidMount() {
+        this.setState({ note: this.props.note })
+    }
+
+    render() {
+        const { note, onRemoveNote } = this.props
+
+        return (
+
+            <div className="note-card" style={{ backgroundColor: note.style.backgroundColor }}>
+                <h2>{note.info.title}</h2>
+                <iframe width="200" height="155"
+                    src={note.info.url}>
+                </iframe>
+                <NoteActions note={note} onRemoveNote={onRemoveNote} />
+            </div>
+        )
+    }
 }
