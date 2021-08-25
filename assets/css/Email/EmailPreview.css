@@ -1,0 +1,38 @@
+.mail-preview {
+    margin-inline-start: 20px;
+    gap: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 3px 0px #46464640;
+    max-height: 80px;
+  }
+  
+  .mail-preview:hover .date {
+    display: none;
+  }
+  
+  .mail-preview:hover .mail-preview-btn-container {
+    display: block;
+  }
+  
+  .mail-preview-btn-container {
+    display: none;
+  }
+  .title {
+    min-width: 40vw;
+    max-width: 40vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .unread{
+    background-color: #46464640;
+  }
+  
+  .read{
+    background-color: white;
+  }
+  
+  

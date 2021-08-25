@@ -6,7 +6,9 @@ import { storageService } from "../storage-service.js"
 export const emailService = {
     createEmail,
     query,
-    getLoggedInUser
+    getLoggedInUser,
+    getEmailById,
+    setIsRead
 }
 
 
@@ -23,7 +25,7 @@ function createEmail(id = utilService.makeId(), subject, body = utilService.make
         id,
         subject,
         body,
-        isRead: false,
+        isRead: Math.random() > 0.5,
         sentAt: utilService.convertDateToFormat(new Date()),
         to: 'MultiApp@BestApp.com'
     }
@@ -48,3 +50,9 @@ function createEmails() {
     return emails
 }
 
+function getEmailById(emailId) { return Promise.resolve(gEmails.find(email => email.id === emailId)) }
+
+function setIsRead(email) {
+    email.isRead = true
+    storageService.saveToStorage(KEY, gEmails)
+}
