@@ -15,7 +15,7 @@ export class NoteListPreview extends React.Component {
         return (
 
             <div className="note-card" style={{ backgroundColor: note.style.backgroundColor }}>
-                <h2>{note.info.label}</h2>
+                <h2>{note.info.title}</h2>
                 {note.info.todos.map((todo) => {
                     return <p key={todo.txt}>{todo.txt}</p>;
                 })}

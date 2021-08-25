@@ -6,7 +6,7 @@ export class NoteActions extends React.Component {
     }
 
     toggleStyleMode = () => {
-        this.setState({ isStyleMode: !this.state.isColorChange })
+        this.setState({ isColorChange: !this.state.isColorChange })
     }
 
     onColor = (color) => {

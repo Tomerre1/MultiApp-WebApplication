@@ -14,7 +14,7 @@ export class NoteTextPreview extends React.Component {
 
         return (
             <div className="note-card" style={{ backgroundColor: note.style.backgroundColor }}>
-                {note.info.txt}
+                {note.info.title}
                 <NoteActions note={note} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
             </div >
         )

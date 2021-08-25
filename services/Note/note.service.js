@@ -41,7 +41,7 @@ storageService.saveToStorage(KEY, gNotes)
 //         id: utilService.makeId(),
 //         type: "todos",
 //         info: {
-//             label: "Get my stuff together",
+//             title: "Get my stuff together",
 //             todos: [{ txt: "Driving liscence", doneAt: null }, { txt: "Coding power", doneAt: 187111111 }]
 //         },
 //         style: { backgroundColor: utilService.getRandomColor() }
@@ -54,17 +54,33 @@ storageService.saveToStorage(KEY, gNotes)
 //     },
 // ];
 
-function query() {
+function query(filterBy) {
+    if (filterBy) {
+        let { title } = filterBy
+        const notesToShow = gNotes.filter(note => note.info.title.toLowerCase().includes(title.toLowerCase()))
+        return Promise.resolve(notesToShow)
+    }
     sortByPin()
     return Promise.resolve(gNotes)
 }
+
+
+// function query(filterBy) {
+//     if (filterBy) {
+//         let { title, price } = filterBy
+//         price = price ? price : Infinity
+//         const bookToShow = gBooks.filter(book => book.title.includes(title) && book.listPrice.amount <= price)
+//         return Promise.resolve(bookToShow)
+//     }
+//     return Promise.resolve(gBooks)
+// }
 
 function createNotes() {
     const notes = [{
             id: utilService.makeId(),
             type: "txt",
             isPinned: true,
-            info: { txt: "Fullstack Me Baby!" },
+            info: { title: "Fullstack Me Baby!" },
             style: { backgroundColor: utilService.getRandomColor() }
         },
         {
@@ -72,7 +88,7 @@ function createNotes() {
             type: "todos",
             isPinned: false,
             info: {
-                label: "Get my stuff together",
+                title: "Get my stuff together",
                 todos: [{ txt: "Driving liscence", doneAt: null }, { txt: "Coding power", doneAt: 187111111 }]
             },
             style: { backgroundColor: utilService.getRandomColor() }
@@ -89,7 +105,7 @@ function createNotes() {
             type: "todos",
             isPinned: false,
             info: {
-                label: "Get my stuff together",
+                title: "Get my stuff together",
                 todos: [{ txt: "Driving liscence", doneAt: null }, { txt: "Coding power", doneAt: 187111111 }]
             },
             style: { backgroundColor: utilService.getRandomColor() }
@@ -105,7 +121,7 @@ function createNotes() {
             id: utilService.makeId(),
             type: "txt",
             isPinned: true,
-            info: { txt: "Helloooooooo!" },
+            info: { title: "Helloooooooo!" },
             style: { backgroundColor: utilService.getRandomColor() }
         },
         {
@@ -120,7 +136,7 @@ function createNotes() {
             type: "todos",
             isPinned: false,
             info: {
-                label: "Important",
+                title: "Important",
                 todos: [{ txt: "Shopping", doneAt: null }, { txt: "Learning", doneAt: 187111111 }]
             },
             style: { backgroundColor: utilService.getRandomColor() }
@@ -137,7 +153,7 @@ function createNotes() {
             type: "todos",
             isPinned: false,
             info: {
-                label: "Get my stuff together",
+                title: "Get my stuff together",
                 todos: [{ txt: "Driving liscence", doneAt: null }, { txt: "Coding power", doneAt: 187111111 }]
             },
             style: { backgroundColor: utilService.getRandomColor() }

@@ -4,12 +4,15 @@ import { NoteListPreview } from './NoteListPreview.jsx'
 import { NoteImgPreview } from './NoteImgPreview.jsx'
 import { NoteSoundPreview } from './NoteSoundPreview.jsx'
 import { NoteVideoPreview } from './NoteVideoPreview.jsx'
+import { NoteFilter } from './NoteFilter.jsx'
+
 
 
 export class NoteList extends React.Component {
 
   state = {
     notes: null,
+    filterBy: null,
   };
 
   componentDidMount() {
@@ -17,7 +20,7 @@ export class NoteList extends React.Component {
   }
 
   loadNotes = () => {
-    noteService.query().then((notes) => {
+    noteService.query(this.state.filterBy).then((notes) => {
       this.setState({ notes });
     });
   };
@@ -29,7 +32,7 @@ export class NoteList extends React.Component {
       })
   }
 
-  
+
   onTogglePinNote = (note) => {
     noteService.togglePinNote(note)
       .then(() => {
@@ -37,12 +40,16 @@ export class NoteList extends React.Component {
       })
   }
 
-  onChangeColor = (note ,color) => {
-    noteService.changeColor(note , color)
+  onChangeColor = (note, color) => {
+    noteService.changeColor(note, color)
       .then(() => {
         this.loadNotes()
       })
   }
+
+  onSetFilter = (filterBy) => {
+    this.setState({ filterBy }, this.loadNotes);
+  };
 
 
   render() {
@@ -69,7 +76,9 @@ export class NoteList extends React.Component {
     return (
       <section className="note-container">
 
+        <NoteFilter onSetFilter={this.onSetFilter} />
         <div className="note-list">
+
           {notes.map((note) => {
             return <DynamicCmp key={note.id} note={note} onChangeColor={this.onChangeColor} onTogglePinNote={this.onTogglePinNote} onRemoveNote={this.onRemoveNote} />
           })}
@@ -78,5 +87,3 @@ export class NoteList extends React.Component {
     )
   }
 }
-
-{/* <DynamicCmp onChangeStyle={this.onChangeStyle} type={inputType} name="Popo" /> */ }
