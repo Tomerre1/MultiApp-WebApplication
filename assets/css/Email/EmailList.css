@@ -37,8 +37,8 @@
   display: none;
 }
 .title {
-  min-width: 50vw;
-  max-width: 50vw;
+  min-width: 40vw;
+  max-width: 40vw;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
