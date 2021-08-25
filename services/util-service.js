@@ -1,4 +1,3 @@
-
 export const utilService = {
     makeId,
     makeLorem,
@@ -55,7 +54,9 @@ function convertDateToFormat(date) {
 }
 
 function getRandomColor() {
-    var colors = ['red', 'unset', 'blue', 'unset', 'green', 'unset', 'yellow', 'unset', 'unset', 'purple', 'unset', 'pink', 'orange']
+    const blue = "#2196F3";
+    const green = "#8BC34A";
+    const yellow = "#F9A825";
+    const colors = ['red', 'unset', blue, 'unset', green, 'unset', yellow, 'unset', 'unset', 'purple', 'unset', 'pink', 'orange']
     return colors.splice(getRandomInt(0, 12), 1)
 }
-

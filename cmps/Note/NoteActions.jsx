@@ -7,7 +7,7 @@ export class NoteActions extends React.Component {
 
         return (
             <section className="note-actions">
-             <button>Pin</button>
+             <button onClick={() => { this.props.onTogglePinNote(note) }}>Pin</button>
              <button>Update</button>
              <button onClick={() => { this.props.onRemoveNote(note) }}>Delete</button>
              <button>Color</button>
