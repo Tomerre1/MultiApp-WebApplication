@@ -9,7 +9,6 @@ export class EmailDetails extends React.Component {
     }
 
     componentDidMount() {
-        console.log('here')
         this.loadEmail()
     }
 

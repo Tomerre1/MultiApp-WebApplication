@@ -27,7 +27,7 @@ export class EmailPreview extends React.Component {
             <Link to={`/email/${email.id}`}>
                 <div className={`mail-preview flex space-between align-items ${(!email.isRead) ? 'read' : 'unread'}`} onClick={this.setRead}  >
                     <p className="sender">{emailService.getLoggedInUser().fullName}</p>
-                    <p className="title">{email.body}</p>
+                    <p className="title">{email.subject}</p>
                     <p className="date">{email.sentAt}</p>
                     <div className="mail-preview-btn-container">
                         <button className="star-btn star-on">

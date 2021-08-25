@@ -12,10 +12,10 @@ export class EmailApp extends React.Component {
     componentDidMount() {
         this.loadEmails();
     }
-    
+
+   
     loadEmails = () => {
         emailService.query(this.state.filterBy).then((emails) => {
-            console.log(emails)
             this.setState({ emails });
         });
     }
@@ -34,7 +34,7 @@ export class EmailApp extends React.Component {
         if (!emails) return <div>Loading..</div>
         return (
             <main className="email-app">
-                <EmailNav/>
+                <EmailNav onSetFilter={this.onSetFilter} filterBy={this.filterBy}/>
                 <div className="email-container flex">
                     <EmailList emails={emails} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} />
                 </div>

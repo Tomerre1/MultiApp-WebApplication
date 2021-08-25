@@ -5,31 +5,41 @@ export class EmailFilter extends React.Component {
     }
 
     componentDidMount() {
-        const filterBy = { read: null, unread: null, text: '' }
+        const filterBy = { sortRead:'', text: ''
+    }
         this.setState({ filterBy })
-        // if (this.inputTitle.current) this.inputTitle.current.focus()
     }
 
+// componentDidUpdate(prevProps, prevState) {
+//     if (prevProps.filterBy !== this.props.filterBy) {
+//         this.onSetFilter(this.props.filterBy) 
+//     }
+// }
 
-    handleChange = (e) => {
-        const value = e.target.type === 'search' ? e.target.value : e.target.value;
-        const filterBy = { ...this.state.filterBy, [e.target.name]: value }
-        this.setState({ filterBy }, () => {
-            debugger
-            this.props.onSetFilter(filterBy)
-        })
-    }
 
-    render() {
-        if (!this.state.filterBy) return <div>Loading</div>
-        const { text } = this.state.filterBy
-        // console.log(text)
-        return (
-            <form className='book-filter'>
-                <div className="search-list flex">
-                    <input name="text" value={text} onChange={this.handleChange} type="search" placeholder='Search a mail' />
-                </div>
-            </form>
-        )
-    }
+handleChange = (e) => {
+    const value = e.target.value;
+    const filterBy = { ...this.state.filterBy, [e.target.name]: value }
+    console.log('%c  filterBy:', 'color: #0e93e0;background: #aaefe5;', filterBy);
+
+    this.setState({ filterBy }, () => {
+        this.props.onSetFilter(filterBy)
+    })
+}
+
+render() {
+    if (!this.state.filterBy) return <div>Loading</div>
+    const { text } = this.state.filterBy
+    return (
+        <form className="search-list flex">
+            <input name="text" value={text} onChange={this.handleChange} type="search" placeholder='Search a mail' />
+            <select name="sortRead" onChange={this.handleChange}>
+                <option value="">All</option>
+                <option value="read">Read</option>
+                <option value="unread">Unread</option>
+
+            </select>
+        </form>
+    )
+}
 }

@@ -1,4 +1,3 @@
-import { emailService } from "../../services/Email/email.service.js"
 import { EmailPreview } from "./EmailPreview.jsx"
 import { EmailFilter } from "./EmailFilter.jsx"
 export class EmailList extends React.Component {

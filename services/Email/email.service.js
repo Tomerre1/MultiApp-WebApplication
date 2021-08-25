@@ -21,7 +21,7 @@ const loggedinUser = { email: 'Tomer & Matan@MultiApp.com', fullName: 'Popo' }
 
 function getLoggedInUser() { return loggedinUser }
 
-function createEmail(id = utilService.makeId(), subject="Hello There", body = utilService.makeLorem()) {
+function createEmail(id = utilService.makeId(), subject = "Hello There", body = utilService.makeLorem()) {
     return {
         id,
         subject,
@@ -33,10 +33,12 @@ function createEmail(id = utilService.makeId(), subject="Hello There", body = ut
 }
 
 function query(filterBy = null) {
-    debugger
     if (filterBy) {
-        let { text } = filterBy
-        const emailsToShow = gEmails.filter(email => email.subject.includes(text))
+        let { text, sortRead } = filterBy
+        let emailsToShow
+        if (sortRead === 'read') emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isRead)
+        else if (sortRead === 'unread') emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isRead)
+        else emailsToShow = gEmails.filter(email => email.subject.includes(text))
         return Promise.resolve(emailsToShow)
     }
     return Promise.resolve(gEmails)
@@ -58,8 +60,8 @@ function setIsRead(email) {
     storageService.saveToStorage(KEY, gEmails)
 }
 
-function removeEmail(emailId) { 
-    const idx = gEmails.findIndex(email => {return email.id === emailId})
+function removeEmail(emailId) {
+    const idx = gEmails.findIndex(email => { return email.id === emailId })
     gEmails.splice(idx, 1)
-    storageService.saveToStorage(KEY, gEmails) 
+    storageService.saveToStorage(KEY, gEmails)
 }
