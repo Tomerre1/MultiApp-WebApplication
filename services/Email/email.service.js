@@ -5,13 +5,18 @@ import { storageService } from "../storage-service.js"
 
 export const emailService = {
     createEmail,
-    query
+    query,
+    getLoggedInUser
 }
 
 
 const KEY = 'emailsDB'
 const emailsFromStorage = storageService.loadFromStorage(KEY)
-let gEmails = (emailsFromStorage && emailsFromStorage.length) ? emailsFromStorage : createEmails()
+const gEmails = (emailsFromStorage && emailsFromStorage.length) ? emailsFromStorage : createEmails()
+
+const loggedinUser = { email: 'Tomer & Matan@MultiApp.com', fullName: 'Tomer & Matan' }
+
+function getLoggedInUser() { return loggedinUser }
 
 function createEmail(id = utilService.makeId(), subject, body = utilService.makeLorem()) {
     return {

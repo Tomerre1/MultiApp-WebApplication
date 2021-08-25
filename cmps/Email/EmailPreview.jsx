@@ -1,17 +1,19 @@
-export function EmailPreview(props) {
+
+import { emailService } from "../../services/Email/email.service.js"
+export function EmailPreview({ email }) {
     return (
         <div className="mail-preview flex space-between">
-            <div class="sender">Ricky Eckhardt</div>
-            <div class="title">Awesome Job</div>
-            <div className="date">Today 4:49pm</div>
-            <div class="mail-preview-btn-container">
-                <button class="star-btn star-on">
-                    <i class="far fa-star" aria-hidden="true"></i>
+            <div className="sender">{emailService.getLoggedInUser().fullName}</div>
+            <div><p className="title">{email.body}</p></div>
+            <div className="date">{email.sentAt}</div>
+            <div className="mail-preview-btn-container">
+                <button className="star-btn star-on">
+                    <i className="far fa-star" aria-hidden="true"></i>
                 </button>
-                <button class="remove-btn">
-                    <i class="far fa-trash-alt" aria-hidden="true"></i>
-                </button><button class="read-btn">
-                    <i class="fas fa-envelope-open" aria-hidden="true"></i>
+                <button className="remove-btn">
+                    <i className="far fa-trash-alt" aria-hidden="true"></i>
+                </button><button className="read-btn">
+                    <i className="fas fa-envelope-open" aria-hidden="true"></i>
                 </button></div>
         </div>
     )
