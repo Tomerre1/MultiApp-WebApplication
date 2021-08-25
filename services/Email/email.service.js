@@ -14,7 +14,7 @@ const KEY = 'emailsDB'
 const emailsFromStorage = storageService.loadFromStorage(KEY)
 const gEmails = (emailsFromStorage && emailsFromStorage.length) ? emailsFromStorage : createEmails()
 
-const loggedinUser = { email: 'Tomer & Matan@MultiApp.com', fullName: 'Tomer & Matan' }
+const loggedinUser = { email: 'Tomer & Matan@MultiApp.com', fullName: 'Popo' }
 
 function getLoggedInUser() { return loggedinUser }
 
@@ -24,7 +24,7 @@ function createEmail(id = utilService.makeId(), subject, body = utilService.make
         subject,
         body,
         isRead: false,
-        sentAt: '12-1-13',
+        sentAt: utilService.convertDateToFormat(new Date()),
         to: 'MultiApp@BestApp.com'
     }
 }

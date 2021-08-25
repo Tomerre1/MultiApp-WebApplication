@@ -4,16 +4,9 @@ export class EmailList extends React.Component {
     state = {
         emails: null
     }
-
-
+    
     componentDidMount() {
-        this.loadEmails();
-    }
-
-    loadEmails() {
-        emailService.query().then((emails) => {
-            this.setState({ emails });
-        });
+        this.setState({ emails: this.props.emails });
     }
 
     render() {

@@ -2,9 +2,9 @@
 import { emailService } from "../../services/Email/email.service.js"
 export function EmailPreview({ email }) {
     return (
-        <div className="mail-preview flex space-between">
+        <div className="mail-preview flex space-between align-items" >
             <div className="sender">{emailService.getLoggedInUser().fullName}</div>
-            <div><p className="title">{email.body}</p></div>
+            <p className="title">{email.body}</p>
             <div className="date">{email.sentAt}</div>
             <div className="mail-preview-btn-container">
                 <button className="star-btn star-on">
