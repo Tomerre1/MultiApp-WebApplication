@@ -11,7 +11,7 @@ export class NoteVideoPreview extends React.Component {
     }
 
     render() {
-        const { note, onRemoveNote, onTogglePinNote } = this.props
+        const { note, onRemoveNote, onTogglePinNote, onChangeColor } = this.props
 
         return (
 
@@ -20,7 +20,7 @@ export class NoteVideoPreview extends React.Component {
                 <iframe width="200" height="155"
                     src={note.info.url}>
                 </iframe>
-                <NoteActions note={note} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
+                <NoteActions note={note} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
             </div>
         )
     }

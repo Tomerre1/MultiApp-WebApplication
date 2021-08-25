@@ -50,3 +50,57 @@
     columns: 4;
     column-gap: 1.5vw;
 } */
+
+.action-btn {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.pin-btn:hover {
+    color: red;
+}
+
+.red-pin {
+    color: red;
+}
+
+.color-btn {
+    border-radius: 3rem;
+    padding: 9px;
+    cursor: pointer;
+    border: 0.6px solid black;
+    margin-left: 3px;
+}
+
+.red {
+    background-color: #FD3A4A;
+}
+
+.green {
+    background-color: #8BC34A;
+}
+
+.blue {
+    background-color: #2196F3;
+}
+
+.yellow {
+    background-color: #FBE870;
+}
+
+.purple {
+    background-color: #FF6EFF;
+}
+
+.orange {
+    background-color: #FF7F49;
+}
+
+.pink {
+    background-color: #F653A6;
+}
+
+.unset {
+    background-color: white;
+}

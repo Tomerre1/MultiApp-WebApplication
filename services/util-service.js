@@ -48,7 +48,11 @@ function convertDateToFormat(d) {
 function getRandomColor() {
     const blue = "#2196F3";
     const green = "#8BC34A";
-    const yellow = "#F9A825";
-    const colors = ['red', 'unset', blue, 'unset', green, 'unset', yellow, 'unset', 'unset', 'purple', 'unset', 'pink', 'orange']
+    const yellow = "#FBE870";
+    const red = '#FD3A4A';
+    const purple = '#FF6EFF'
+    const pink = '#F653A6'
+    const orange = '#FF7F49'
+    const colors = [red, 'unset', blue, 'unset', green, yellow, 'unset', purple, 'unset', pink, orange]
     return colors.splice(getRandomInt(0, 12), 1)
 }
