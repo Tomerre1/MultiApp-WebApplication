@@ -10,7 +10,7 @@ export class NoteListPreview extends React.Component {
     }
 
     render() {
-        const { note, onRemoveNote, onTogglePinNote } = this.props
+        const { note, onRemoveNote, onTogglePinNote , onChangeColor } = this.props
 
         return (
 
@@ -19,7 +19,7 @@ export class NoteListPreview extends React.Component {
                 {note.info.todos.map((todo) => {
                     return <p key={todo.txt}>{todo.txt}</p>;
                 })}
-                <NoteActions note={note} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
+                <NoteActions note={note} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
 
             </div>
         )

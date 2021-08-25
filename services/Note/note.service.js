@@ -6,7 +6,8 @@ import { utilService } from '../util-service.js'
 export const noteService = {
     query,
     removeNote,
-    togglePinNote
+    togglePinNote,
+    changeColor
 }
 
 const KEY = 'notesDB'
@@ -163,6 +164,12 @@ function togglePinNote(note) {
     if (!note.isPinned) note.isPinned = true
     else note.isPinned = false
     sortByPin()
+    storageService.saveToStorage(KEY, gNotes)
+    return Promise.resolve()
+}
+
+function changeColor(note, color) {
+    note.style.backgroundColor = color
     storageService.saveToStorage(KEY, gNotes)
     return Promise.resolve()
 }
