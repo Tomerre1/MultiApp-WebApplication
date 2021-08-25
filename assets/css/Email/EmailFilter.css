@@ -1,0 +1,16 @@
+.search-list {
+  margin-inline-start: 20px;
+  margin-block-end: 20px;
+  font-size: 1.3rem;
+  color: rgb(44, 44, 44);
+  background-color: white;
+  padding: 10px 20px;
+  border: 1px solid rgb(44, 44, 44);
+  width: 100%;
+  font-size: 1.3rem;
+  border-radius: 5px;
+}
+
+.search-list.sort {
+  flex-basis: 15%;
+}

@@ -1,7 +1,9 @@
 @import '../css/Email/side-nav.css';
 @import '../css/Email/EmailList.css';
+@import '../css/Email/EmailFilter.css';
 @import '../css/Email/EmailPreview.css';
 @import '../css/Email/EmailDetails.css';
+
 
 .email-container{
     
