@@ -10,12 +10,12 @@ export class NoteTextPreview extends React.Component {
     }
 
     render() {
-        const { note, onRemoveNote } = this.props
+        const { note, onRemoveNote , onTogglePinNote } = this.props
 
         return (
             <div className="note-card" style={{ backgroundColor: note.style.backgroundColor }}>
                 {note.info.txt}
-                <NoteActions note={note} onRemoveNote={onRemoveNote} />
+                <NoteActions note={note} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
             </div >
         )
     }
