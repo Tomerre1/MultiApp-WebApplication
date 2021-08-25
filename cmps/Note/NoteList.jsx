@@ -51,6 +51,14 @@ export class NoteList extends React.Component {
     this.setState({ filterBy }, this.loadNotes);
   };
 
+  
+  onEditNoteTitle = (note, title) => {
+    noteService.changeTitle(note, title)
+      .then(() => {
+        this.loadNotes()
+      })
+  };
+
 
   render() {
     const { notes } = this.state
@@ -76,11 +84,12 @@ export class NoteList extends React.Component {
     return (
       <section className="note-container">
 
+
         <NoteFilter onSetFilter={this.onSetFilter} />
         <div className="note-list">
 
           {notes.map((note) => {
-            return <DynamicCmp key={note.id} note={note} onChangeColor={this.onChangeColor} onTogglePinNote={this.onTogglePinNote} onRemoveNote={this.onRemoveNote} />
+            return <DynamicCmp key={note.id} note={note} onEditNoteTitle={this.onEditNoteTitle} onChangeColor={this.onChangeColor} onTogglePinNote={this.onTogglePinNote} onRemoveNote={this.onRemoveNote} />
           })}
         </div>
       </section>

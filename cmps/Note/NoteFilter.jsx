@@ -30,7 +30,7 @@ export class NoteFilter extends React.Component {
                     // ref={this.inputTitle}
                     name='title'
                     id='by-title'
-                    type='text'
+                    type='search'
                     placeholder='Search Note'
                     value={title}
                     onChange={this.handleChange}

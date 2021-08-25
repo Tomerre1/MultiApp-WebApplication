@@ -7,7 +7,8 @@ export const noteService = {
     query,
     removeNote,
     togglePinNote,
-    changeColor
+    changeColor,
+    changeTitle
 }
 
 const KEY = 'notesDB'
@@ -186,6 +187,12 @@ function togglePinNote(note) {
 
 function changeColor(note, color) {
     note.style.backgroundColor = color
+    storageService.saveToStorage(KEY, gNotes)
+    return Promise.resolve()
+}
+
+function changeTitle(note, title) {
+    note.info.title = title
     storageService.saveToStorage(KEY, gNotes)
     return Promise.resolve()
 }
