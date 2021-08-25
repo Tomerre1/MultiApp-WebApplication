@@ -1,6 +1,7 @@
 
 import { EmailNav } from "../../cmps/Email/EmailNav.jsx"
 import { emailService } from "../../services/Email/email.service.js"
+import { eventBusService } from "../../services/event-bus-service.js"
 export class EmailDetails extends React.Component {
 
     state = {
@@ -13,8 +14,8 @@ export class EmailDetails extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        // if (prevProps.match.params.emailId !== this.props.match.params.emailId)
-        //     this.loadEmail()
+        if (prevProps.match.params.emailId !== this.props.match.params.emailId)
+            this.loadEmail()
     }
 
     loadEmail = () => {
@@ -29,6 +30,14 @@ export class EmailDetails extends React.Component {
     onBack = () => {
         this.props.history.push('/email')
     }
+
+    onRemoveEmail = () => {
+        emailService.removeEmail(this.state.email.id)
+        this.onBack()
+    }
+
+
+
 
     render() {
         const { email } = this.state
@@ -67,6 +76,8 @@ export class EmailDetails extends React.Component {
                         </div>
                     </div>
                 </div>
+                <button onClick={this.onRemoveEmail}>Delete</button>
+                <button onClick={this.onBack}>Back</button>
             </main>
         )
     }

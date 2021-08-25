@@ -8,7 +8,8 @@ export const emailService = {
     query,
     getLoggedInUser,
     getEmailById,
-    setIsRead
+    setIsRead,
+    removeEmail
 }
 
 
@@ -20,7 +21,7 @@ const loggedinUser = { email: 'Tomer & Matan@MultiApp.com', fullName: 'Popo' }
 
 function getLoggedInUser() { return loggedinUser }
 
-function createEmail(id = utilService.makeId(), subject, body = utilService.makeLorem()) {
+function createEmail(id = utilService.makeId(), subject="Hello There", body = utilService.makeLorem()) {
     return {
         id,
         subject,
@@ -32,11 +33,11 @@ function createEmail(id = utilService.makeId(), subject, body = utilService.make
 }
 
 function query(filterBy = null) {
+    debugger
     if (filterBy) {
-        // let { title, price } = filterBy
-        // price = price ? price : Infinity
-        // const bookToShow = gBooks.filter(book => book.title.includes(title) && book.listPrice.amount <= price)
-        // return Promise.resolve(bookToShow)
+        let { text } = filterBy
+        const emailsToShow = gEmails.filter(email => email.subject.includes(text))
+        return Promise.resolve(emailsToShow)
     }
     return Promise.resolve(gEmails)
 }
@@ -55,4 +56,10 @@ function getEmailById(emailId) { return Promise.resolve(gEmails.find(email => em
 function setIsRead(email) {
     email.isRead = true
     storageService.saveToStorage(KEY, gEmails)
+}
+
+function removeEmail(emailId) { 
+    const idx = gEmails.findIndex(email => {return email.id === emailId})
+    gEmails.splice(idx, 1)
+    storageService.saveToStorage(KEY, gEmails) 
 }
