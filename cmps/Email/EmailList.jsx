@@ -19,10 +19,10 @@ export class EmailList extends React.Component {
         if (!emails) return <div> Loading </div>
         return (
             <section className="list">
-                <EmailFilter onSetFilter={this.props.onSetFilter}/>
+                <EmailFilter onSetFilter={this.props.onSetFilter} filterBy={this.props.filterBy}/>
                 <div className="mail-list">
                     {emails.map((mail) => {
-                        return <EmailPreview key={mail.id} email={mail} onRemoveEmail={this.props.onRemoveEmail} />
+                        return <EmailPreview key={mail.id} onSetStar={this.props.onSetStar} email={mail} onRemoveEmail={this.props.onRemoveEmail} />
                     })}
                 </div>
             </section>
