@@ -11,7 +11,8 @@ export const noteService = {
     toggleTodo,
     addTodo,
     EditTodo,
-    noteAdd
+    noteAdd,
+    noteDuplicate
 }
 
 const KEY = 'notesDB'
@@ -152,6 +153,14 @@ function noteAdd(type, input) {
     return Promise.resolve()
 }
 
+function noteDuplicate(note) {
+    const noteCopy = {...note }
+    noteCopy.id = utilService.makeId()
+    gNotes.push(noteCopy)
+    storageService.saveToStorage(KEY, gNotes)
+    return Promise.resolve()
+}
+
 function _createNotes() {
     const notes = [{
             id: utilService.makeId(),
@@ -196,6 +205,13 @@ function _createNotes() {
         },
         {
             id: utilService.makeId(),
+            type: "video",
+            isPinned: false,
+            info: { url: "https://www.youtube.com/embed/tgbNymZ7vqY", title: "Cool!" },
+            style: { backgroundColor: utilService.getRandomColor() }
+        },
+        {
+            id: utilService.makeId(),
             type: "txt",
             isPinned: true,
             info: { title: "Helloooooooo!" },
@@ -203,9 +219,12 @@ function _createNotes() {
         },
         {
             id: utilService.makeId(),
-            type: "video",
+            type: "todos",
             isPinned: false,
-            info: { url: "https://www.youtube.com/embed/tgbNymZ7vqY", title: "Nice!" },
+            info: {
+                title: "Important",
+                todos: [{ txt: "Shopping", isDone: false }, { txt: "Learning", isDone: false }]
+            },
             style: { backgroundColor: utilService.getRandomColor() }
         },
         {

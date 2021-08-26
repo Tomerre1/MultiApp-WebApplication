@@ -55,6 +55,6 @@ function getRandomColor() {
     const purple = '#FF6EFF'
     const pink = '#F653A6'
     const orange = '#FF7F49'
-    const colors = [red, 'unset', blue, 'unset', green, yellow, 'unset', purple, 'unset', pink, orange]
-    return colors.splice(getRandomInt(0, 12), 1)
+    const colors = [red, 'white', blue, 'white', green, yellow, 'white', purple, pink, orange]
+    return colors.splice(getRandomInt(0, 9), 1)
 }

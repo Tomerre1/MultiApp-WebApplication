@@ -29,7 +29,7 @@ export class NoteVideoPreview extends React.Component {
 
 
     render() {
-        const { note, onRemoveNote, onTogglePinNote, onChangeColor } = this.props
+        const { note, onRemoveNote, onTogglePinNote, onChangeColor, onNoteDuplicate } = this.props
         const { isEdit, title } = this.state
 
         return (
@@ -50,7 +50,7 @@ export class NoteVideoPreview extends React.Component {
                     <iframe width="200" height="155"
                         src={note.info.url}>
                     </iframe>
-                    <NoteActions note={note} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
+                    <NoteActions note={note} onNoteDuplicate={onNoteDuplicate} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
                 </div>
 
 
