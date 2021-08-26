@@ -3,7 +3,25 @@
 }
 
 .note-filter>input {
-    padding: 0.5rem;
+    padding: 10px 20px;
     border-radius: 5px;
-    font-size: 0.8rem;
+    border: none;
+    font-family: cursive;
+    width: 93%;
+    align-self: center;
+    font-size: 1.2rem;
+    box-shadow: 0 0 5px -1px grey;
+    color: rgb(42, 40, 40);
+}
+
+header>select {
+    cursor: pointer;
+    height: 3rem;
+    width: 6rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px -1px grey;
+    color: rgb(42, 40, 40);
+    padding-inline-start: 5px;
 }

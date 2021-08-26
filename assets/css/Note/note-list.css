@@ -11,6 +11,12 @@ h2 {
     font-size: 1.6rem;
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .note-card {
     font-family: 'Roboto', sans-serif;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -30,6 +36,7 @@ h2 {
     min-height: 150px;
     gap: 10px;
     overflow: hidden;
+    max-width: 270px;
     /* align-items: center; */
 }
 

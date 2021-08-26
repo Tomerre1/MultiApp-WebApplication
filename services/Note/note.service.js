@@ -18,14 +18,26 @@ const notesFromStorage = storageService.loadFromStorage(KEY)
 let gNotes = (notesFromStorage && notesFromStorage.length) ? notesFromStorage : _createNotes()
 storageService.saveToStorage(KEY, gNotes)
 
-function query(filterBy) {
-    if (filterBy) {
+function query(filterBy, type) {
+    orderTodos()
+    sortByPin()
+
+    if (filterBy || type) {
         let { title } = filterBy
+        //If sort by type
+        if (type && type !== 'all') {
+            let notesToShowByType = gNotes.filter(note => note.type === type)
+                //If sort by type and search
+            if (filterBy) {
+                const notesToShow = notesToShowByType.filter(note => note.info.title.toLowerCase().includes(title.toLowerCase()))
+                return Promise.resolve(notesToShow)
+            }
+        }
+        //If sort only by search
         const notesToShow = gNotes.filter(note => note.info.title.toLowerCase().includes(title.toLowerCase()))
         return Promise.resolve(notesToShow)
     }
-    orderTodos()
-    sortByPin()
+    //Not sorting
     return Promise.resolve(gNotes)
 }
 

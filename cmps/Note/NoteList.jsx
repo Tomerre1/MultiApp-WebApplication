@@ -13,6 +13,7 @@ export class NoteList extends React.Component {
   state = {
     notes: null,
     filterBy: null,
+    type:null
   };
 
   componentDidMount() {
@@ -20,7 +21,7 @@ export class NoteList extends React.Component {
   }
 
   loadNotes = () => {
-    noteService.query(this.state.filterBy).then((notes) => {
+    noteService.query(this.state.filterBy, this.state.type ).then((notes) => {
       this.setState({ notes });
     });
   };
@@ -47,8 +48,8 @@ export class NoteList extends React.Component {
       })
   }
 
-  onSetFilter = (filterBy) => {
-    this.setState({ filterBy }, this.loadNotes);
+  onSetFilter = (filterBy , type) => {
+    this.setState({ filterBy,type }, this.loadNotes);
   };
 
   
@@ -82,7 +83,6 @@ export class NoteList extends React.Component {
       })
   };
 
-
   render() {
     const { notes } = this.state
     if (!notes) return <div>Loading...</div>
@@ -106,9 +106,11 @@ export class NoteList extends React.Component {
 
     return (
       <section className="note-container">
-
-
+        <header>
         <NoteFilter onSetFilter={this.onSetFilter} />
+        {/* <AddNote /> */}
+        </header>
+
         <div className="note-list">
 
           {notes.map((note) => {
