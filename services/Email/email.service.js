@@ -45,9 +45,11 @@ function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(
 function query(filterBy = null, sortBy = null) {
     if (sortBy) sortEmails(sortBy)
     if (filterBy) {
-        let { text, isRead, isStar, isTrash } = filterBy
+        const { text, isRead, isStar, isTrash, isSent } = filterBy
         let emailsToShow
-        if (isStar)
+        if (isSent)
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isSent)
+        else if (isStar)
             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isStar && !email.isTrash)
         else if (isTrash)
             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isTrash)
@@ -132,7 +134,7 @@ function sortBySubject(isAlphaUp) {
 
 
 function addMail(email) {
-    gEmails.unshift(createEmail(utilService.makeId(), email.subject, email.body, false, Date.now(), 'Tomer_Matan@MultiApp.com', email.to, false, false, false));
+    gEmails.unshift(createEmail(utilService.makeId(), email.subject, email.body, false, Date.now(), 'Tomer_Matan@MultiApp.com', email.to, false, false, true));
     storageService.saveToStorage(KEY, gEmails)
 }
 
