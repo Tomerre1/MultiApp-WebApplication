@@ -96,6 +96,12 @@
     cursor: pointer;
 }
 
+.todos>p {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 
 /* .note-list {
     columns: 4;
