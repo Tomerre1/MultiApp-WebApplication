@@ -32,7 +32,7 @@
   cursor: pointer;
 }
 
-.active{
+.active-nav-email{
   background: rgba(255, 255, 255, 0.644);
 }
 
@@ -43,5 +43,5 @@
 }
 
 .compus-mail{
-  background: red;
+  background:rgba(255, 255, 255, 0.644);
 }

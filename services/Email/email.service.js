@@ -12,7 +12,9 @@ export const emailService = {
     setIsStar,
     setIsTrash,
     sortEmails,
-    addMail
+    addMail,
+    getNextEmailId
+
 }
 
 
@@ -132,4 +134,12 @@ function sortBySubject(isAlphaUp) {
 function addMail(email) {
     gEmails.unshift(createEmail(utilService.makeId(), email.subject, email.body, false, Date.now(), 'Tomer_Matan@MultiApp.com', email.to, false, false, false));
     storageService.saveToStorage(KEY, gEmails)
+}
+
+function getNextEmailId(emailId, diff) {
+    const emailIdx = gEmails.findIndex(email => email.id === emailId);
+    let nextEmailId = emailIdx + diff;
+    if (nextEmailId === gEmails.length) nextEmailId = 0;
+    else if (nextEmailId < 0) nextEmailId = gEmails.length - 1;
+    return gEmails[nextEmailId].id;
 }

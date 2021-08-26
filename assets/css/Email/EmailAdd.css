@@ -1,6 +1,11 @@
 .add-mail {
   flex-direction: column;
   width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 40px;
+  font-size: 48px;
 }
 
 .modal-compose-email {
@@ -12,7 +17,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  border: 1x solid black;
+  border: 1x solid #333;
   box-shadow: 0px 0px 10px black;
   z-index: 99999;
 }
@@ -27,9 +32,15 @@
   cursor: pointer;
 }
 
+.closeModal:hover {
+  color: #e34d4d;
+}
+
 .compose-email {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  font-size: 1.2rem;
 }
 
 textarea {
@@ -41,3 +52,38 @@ textarea {
   flex-direction: column;
 }
 
+.compose-email input,
+.compose-email textarea {
+  padding: 1.1rem;
+  font-size: 0.9rem;
+  border: 1px solid #333;
+}
+
+.add-mail-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.add-mail-btn {
+  border: 0;
+  background: transparent;
+  font-size: 30px;
+}
+
+.add-mail-btn.remove {
+  color: #e34d4d;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.add-mail-btn.send {
+  color: #5aa469;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.add-mail-btn.remove:hover,
+.add-mail-btn.send:hover {
+  opacity: 1;
+}

@@ -46,16 +46,11 @@ export class EmailAdd extends React.Component {
                         <textarea onChange={this.handleChange} type="text" name="body" id="textarea" placeholder='Enter Text' rows="7" cols="50" required /><br />
                     </div>
                     <div className="add-mail-btn-container">
-                        <button className="add-mail-btn-send"><i className="far fa-paper-plane" aria-hidden="true"></i></button>
-                        <button className="add-mail-btn-remove"><i className="far fa-trash-alt" aria-hidden="true"></i></button>
+                        <button type="submit" className="add-mail-btn send"><i className="far fa-paper-plane" aria-hidden="true"></i></button>
+                        <button onClick={this.props.toggleCompose} className="add-mail-btn remove"><i className="far fa-trash-alt" aria-hidden="true"></i></button>
                     </div>
-
-                    <button className="btn">Add Review</button>
                 </form>
             </section>
-
-
         )
     }
 }
-{/* <input className="search-list" name="text" value={text} onChange={this.handleChange} type="search" placeholder='Search a mail' /> */}
