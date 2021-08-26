@@ -8,7 +8,9 @@ export const noteService = {
     togglePinNote,
     changeColor,
     changeTitle,
-    toggleTodo
+    toggleTodo,
+    addTodo,
+    EditTodo
 }
 
 const KEY = 'notesDB'
@@ -22,6 +24,7 @@ function query(filterBy) {
         const notesToShow = gNotes.filter(note => note.info.title.toLowerCase().includes(title.toLowerCase()))
         return Promise.resolve(notesToShow)
     }
+    orderTodos()
     sortByPin()
     return Promise.resolve(gNotes)
 }
@@ -76,6 +79,31 @@ function getNoteById(noteId) {
     })
     return note
 }
+
+function addTodo(todos, txt) {
+    todos.unshift({ txt, isDone: false })
+    orderTodos()
+    storageService.saveToStorage(KEY, gNotes)
+    return Promise.resolve()
+}
+
+function EditTodo(todo, txt) {
+    todo.txt = txt
+    orderTodos()
+    storageService.saveToStorage(KEY, gNotes)
+    return Promise.resolve()
+}
+
+function orderTodos() {
+    gNotes.forEach(note => {
+        if (note.type === 'todos') {
+            note.info.todos.sort((a, b) => a.isDone - b.isDone)
+        }
+    });
+    return Promise.resolve()
+}
+
+
 
 function _createNotes() {
     const notes = [{

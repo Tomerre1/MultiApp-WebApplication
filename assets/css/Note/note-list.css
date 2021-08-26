@@ -34,7 +34,7 @@ h2 {
 }
 
 .note-card>img {
-    height: 120px;
+    /* height: 120px; */
     width: 100%;
 }
 
@@ -53,11 +53,12 @@ h2 {
     padding: 0 20px;
 }
 
-.note-container {
-    /* display: flex;
+
+/* .note-container {
+    display: flex;
     flex-direction: column;
-    gap: 20px; */
-}
+    gap: 20px;
+} */
 
 
 /* .note-list {
