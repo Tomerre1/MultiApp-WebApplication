@@ -17,6 +17,7 @@ export class EmailFilter extends React.Component {
             this.props.onSetFilter(filterBy)
         })
     }
+    
     setSortBy = (sortBy) => {
         eventBusService.emit('sortBy', sortBy)
         this.setState({ filterBy: { ...this.state.sortBy }, sortBy })

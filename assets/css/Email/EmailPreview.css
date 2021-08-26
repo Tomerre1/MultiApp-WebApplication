@@ -7,12 +7,9 @@
   box-shadow: 0 0 3px 0px #46464640;
   max-height: 80px;
   transition: all 0.3s ease-in-out;
+  margin-block-end:10px;
 }
 
-/* .mail-preview:hover .date {
-    opacity: 0;
-  }
-   */
 .mail-preview:hover {
   background-color: #46464640;
 }
@@ -37,7 +34,7 @@
 }
 
 .read {
-  background-color: white;
+  background-color: rgb(240, 240, 240);;
 }
 
 .star-btn,

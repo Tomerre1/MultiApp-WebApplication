@@ -11,7 +11,8 @@ export const emailService = {
     removeEmail,
     setIsStar,
     setIsTrash,
-    sortEmails
+    sortEmails,
+    addMail
 }
 
 
@@ -19,21 +20,23 @@ const KEY = 'emailsDB'
 const emailsFromStorage = storageService.loadFromStorage(KEY)
 const gEmails = (emailsFromStorage && emailsFromStorage.length) ? emailsFromStorage : createEmails()
 
-const loggedinUser = { email: 'Tomer & Matan@MultiApp.com', fullName: 'Popo' }
+const loggedinUser = { email: 'Tomer_Matan@MultiApp.com', fullName: 'Tomer&Matan' }
 
 function getLoggedInUser() { return loggedinUser }
 
-function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(10), body = utilService.makeLorem()) {
+function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(10), body = utilService.makeLorem(),
+    isRead = Math.random() > 0.5, sentAt = utilService.randomDate(), from = 'Tomer&Matan', to = 'Tomer&Matan', isTrash = false, isStar = false, isSent = false) {
     return {
         id,
         subject,
         body,
-        isRead: Math.random() > 0.5,
-        sentAt: utilService.randomDate(),
-        from: 'Popo',
-        to: 'MultiApp@BestApp.com',
-        isStar: false,
-        isTrash: false
+        isRead,
+        sentAt,
+        from,
+        to,
+        isStar,
+        isTrash,
+        isSent
     }
 }
 
@@ -125,3 +128,8 @@ function sortBySubject(isAlphaUp) {
     }
 }
 
+
+function addMail(email) {
+    gEmails.unshift(createEmail(utilService.makeId(), email.subject, email.body, false, Date.now(), 'Tomer_Matan@MultiApp.com', email.to, false, false, false));
+    storageService.saveToStorage(KEY, gEmails)
+}

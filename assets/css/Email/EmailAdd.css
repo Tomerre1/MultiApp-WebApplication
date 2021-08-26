@@ -1,0 +1,43 @@
+.add-mail {
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal-compose-email {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  padding: 2rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: 1x solid black;
+  box-shadow: 0px 0px 10px black;
+  z-index: 99999;
+}
+
+.closeModal {
+  background: transparent;
+  border: 0;
+  right: 0.5rem;
+  top: 0;
+  position: absolute;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.compose-email {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: none;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
