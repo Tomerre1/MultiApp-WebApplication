@@ -29,7 +29,7 @@ function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(
         subject,
         body,
         isRead: Math.random() > 0.5,
-        sentAt: Date.now(),
+        sentAt: utilService.randomDate(),
         from: 'Popo',
         to: 'MultiApp@BestApp.com',
         isStar: false,
@@ -43,7 +43,7 @@ function query(filterBy = null, sortBy = null) {
         let { text, isRead, isStar, isTrash } = filterBy
         let emailsToShow
         if (isStar)
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isStar && !email.isTrash) 
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isStar && !email.isTrash)
         else if (isTrash)
             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isTrash)
         else if (isRead)
@@ -90,27 +90,38 @@ function setIsTrash(email) {
 }
 
 function sortEmails(sortBy) {
-    switch (sortBy) {
-        case 'date':
-            sortByDate()
+    switch (sortBy.value) {
+        case 'numeric':
+            sortByDate(sortBy.numeric)
             break;
-        case 'subject':
-            sortBySubject()
+        case 'alpha':
+            sortBySubject(sortBy.alpha)
         default:
             break;
     }
 }
-function sortByDate(emails, sortTypeByIcon = null) {
-    debugger
-    gEmails.sort(function (a, b) {
-        return new Date(a.sentAt).getTime() - new Date(b.sentAt).getTime()
-    });
+
+function sortByDate(isNumericUp) {
+    if (isNumericUp) {
+        gEmails.sort(function (a, b) {
+            return new Date(a.sentAt).getTime() - new Date(b.sentAt).getTime()
+        });
+    } else {
+        gEmails.sort(function (a, b) {
+            return new Date(b.sentAt).getTime() - new Date(a.sentAt).getTime()
+        });
+    }
 }
 
-
-function sortBySubject(emails, sortTypeByIcon = null) {
-    return gEmails.sort(function (a, b) {
-        return a.subject.localeCompare(b.subject, "en", { sensitivity: 'variant' })
-    });
-
+function sortBySubject(isAlphaUp) {
+    if (isAlphaUp) {
+        gEmails.sort(function (a, b) {
+            return a.subject.localeCompare(b.subject, "en", { sensitivity: 'variant' })
+        });
+    } else {
+        gEmails.sort(function (a, b) {
+            return b.subject.localeCompare(a.subject, "en", { sensitivity: 'variant' })
+        });
+    }
 }
+

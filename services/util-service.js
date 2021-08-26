@@ -37,8 +37,9 @@ function getRandomInt(min, max) {
 function randomDate() {
     var start = new Date(getRandomInt(2000, 2021), 0, 1);
     var end = new Date();
-    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).valueOf();
 }
+
 
 function convertDateToFormat(d) {
     d = new Date(d);

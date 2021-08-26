@@ -14,18 +14,22 @@
   border-radius: 5px;
 }
 .fas.fa-sort-numeric-up-alt,
-.fas.fa-sort-alpha-up-alt {
+.fas.fa-sort-alpha-up-alt,
+.fas.fa-sort-numeric-down-alt,
+.fas.fa-sort-alpha-down {
   position: absolute;
   right: 0;
   cursor: pointer;
 }
 
-.fas.fa-sort-numeric-up-alt {
+.fas.fa-sort-numeric-up-alt,
+.fas.fa-sort-numeric-down-alt {
   margin: 17px 50px;
   font-size: 1.3rem;
 }
 
-.fas.fa-sort-alpha-up-alt {
+.fas.fa-sort-alpha-up-alt,
+.fas.fa-sort-alpha-down {
   margin: 17px 80px;
   font-size: 1.3rem;
 }
