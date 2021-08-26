@@ -1,17 +1,17 @@
-h2,
+.note-app h2,
 p {
     cursor: pointer;
 }
 
-p {
+.note-app p {
     font-size: 1.3rem;
 }
 
-h2 {
+.note-app h2 {
     font-size: 1.6rem;
 }
 
-header {
+.note-app header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,11 +32,11 @@ header {
     width: calc(25% - 25px);
     box-shadow: 0 0 20px -1px grey;
     color: white;
-    -webkit-text-stroke: 1px black;
     min-height: 150px;
     gap: 10px;
     overflow: hidden;
     max-width: 270px;
+    -webkit-text-stroke: 1px black;
     /* align-items: center; */
 }
 
@@ -95,41 +95,25 @@ header {
     margin-left: 3px;
 }
 
-.red {
-    background-color: #FD3A4A;
-}
-
-.green {
-    background-color: #8BC34A;
-}
-
-.blue {
-    background-color: #2196F3;
-}
-
-.yellow {
-    background-color: #FBE870;
-}
-
-.purple {
-    background-color: #FF6EFF;
-}
-
-.orange {
-    background-color: #FF7F49;
-}
-
-.pink {
-    background-color: #F653A6;
-}
-
-.unset {
-    background-color: white;
-}
-
 
 /* TODO-list */
 
 .done {
     text-decoration: line-through;
+}
+
+.todos>p {
+    margin: 0;
+}
+
+.todo-check {
+    background-color: greenyellow;
+    color: white;
+    font-size: 1rem;
+}
+
+.todo-not-check {
+    background-color: #e84022;
+    color: white;
+    font-size: 1rem;
 }

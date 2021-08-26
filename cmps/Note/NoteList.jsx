@@ -5,6 +5,7 @@ import { NoteImgPreview } from './NoteImgPreview.jsx'
 import { NoteSoundPreview } from './NoteSoundPreview.jsx'
 import { NoteVideoPreview } from './NoteVideoPreview.jsx'
 import { NoteFilter } from './NoteFilter.jsx'
+import { NoteAdd } from './NoteAdd.jsx'
 
 
 
@@ -83,6 +84,16 @@ export class NoteList extends React.Component {
       })
   };
 
+  onNoteAdd = (type,title) => {
+    if(!title) return
+    noteService.noteAdd(type,title)
+      .then(() => {
+        this.loadNotes()
+      })
+  };
+
+  
+
   render() {
     const { notes } = this.state
     if (!notes) return <div>Loading...</div>
@@ -108,8 +119,8 @@ export class NoteList extends React.Component {
       <section className="note-container">
         <header>
         <NoteFilter onSetFilter={this.onSetFilter} />
-        {/* <AddNote /> */}
         </header>
+        <NoteAdd onNoteAdd={this.onNoteAdd}/>
 
         <div className="note-list">
 

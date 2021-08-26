@@ -36,7 +36,7 @@ export class NoteTodoList extends React.Component {
                     <React.Fragment>
                         {/* <p onClick={() => { this.props.onToggleTodo(todo) }} className={`${todo.isDone ? 'done' : ''}`}>{todo.txt}</p> */}
                         <p onClick={() => { this.onEditMode() }} className={`${todo.isDone ? 'done' : ''}`}>{todo.txt}
-                        <button onClick={() => { this.props.onToggleTodo(todo) }} className="action-btn"> X</button></p>
+                            <button onClick={() => { this.props.onToggleTodo(todo) }} className="action-btn"><i className={`${todo.isDone ? 'todo-check' : 'todo-not-check'} far fa-check-square`}></i> </button></p>
                     </React.Fragment>
                 }
                 {isEdit &&

@@ -42,7 +42,7 @@ export class NoteListPreview extends React.Component {
                         <button type="button" onClick={() => { this.onSaveNote(note, title) }}>Save</button>
                     </form>
                 }
-                {note.info.todos.map((todo) => {
+                {note.info.todos && note.info.todos.map((todo) => {
                     return <NoteTodoList key={todo.txt} todo={todo} onEditTodo={onEditTodo} onToggleTodo={onToggleTodo} />
                     // return <p key={todo.txt} onClick={() =>{this.props.onToggleTodo(todo)}} className={`${todo.isDone ? 'done' : ''}`}>{todo.txt}</p>;
                 })}

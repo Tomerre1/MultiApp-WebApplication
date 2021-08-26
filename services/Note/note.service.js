@@ -10,7 +10,8 @@ export const noteService = {
     changeTitle,
     toggleTodo,
     addTodo,
-    EditTodo
+    EditTodo,
+    noteAdd
 }
 
 const KEY = 'notesDB'
@@ -109,13 +110,47 @@ function EditTodo(todo, txt) {
 function orderTodos() {
     gNotes.forEach(note => {
         if (note.type === 'todos') {
+            if (!note.info.todos) return
             note.info.todos.sort((a, b) => a.isDone - b.isDone)
         }
     });
     return Promise.resolve()
 }
 
+function noteAdd(type, input) {
+    let newNote = {
+        id: utilService.makeId(),
+        type,
+        isPinned: true,
+        style: { backgroundColor: utilService.getRandomColor() }
+    }
+    switch (type) {
+        case 'txt':
+            newNote.info = { title: input }
+            break;
 
+        case 'img':
+            newNote.info = { url: input, title: 'New Image!' }
+            break;
+
+        case 'video':
+            newNote.info = { url: input, title: 'New Video!' }
+            break;
+
+        case 'todos':
+            newNote.info = { title: 'New Todo List:', todos: [] }
+            const todosList = input.split(',')
+            todosList.forEach((todo) => {
+                newNote.info.todos.push({ txt: todo, isDone: false })
+            });
+            break;
+        default:
+            break;
+    }
+    gNotes.push(newNote)
+    storageService.saveToStorage(KEY, gNotes)
+    return Promise.resolve()
+}
 
 function _createNotes() {
     const notes = [{
