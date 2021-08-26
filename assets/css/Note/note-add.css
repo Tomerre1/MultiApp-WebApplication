@@ -1,0 +1,29 @@
+.note-add-container {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-add>input {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-family: cursive;
+    width: 100%;
+    align-self: center;
+    font-size: 1.2rem;
+    box-shadow: 0 0 5px -1px grey;
+    color: rgb(42, 40, 40);
+}
+
+.note-add-container>form {
+    flex: 1
+}
+
+.note-add-type-container {
+    margin-inline-start: 5px;
+}
+
+.note-add-type-container>button {
+    font-size: 2.2rem;
+}
