@@ -1,44 +1,73 @@
 .mail-preview {
-    margin-inline-start: 20px;
-    gap: 10px;
-    background-color: rgb(255, 255, 255);
-    padding: 10px;
-    border-radius: 2px;
-    box-shadow: 0 0 3px 0px #46464640;
-    max-height: 80px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .mail-preview:hover .date {
-    display: none;
-  }
-  
-  .mail-preview:hover{
-    background-color: #46464640;
+  margin-inline-start: 20px;
+  gap: 10px;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 0 3px 0px #46464640;
+  max-height: 80px;
+  transition: all 0.3s ease-in-out;
+}
 
+/* .mail-preview:hover .date {
+    opacity: 0;
   }
+   */
+.mail-preview:hover {
+  background-color: #46464640;
+}
 
-  .mail-preview:hover .mail-preview-btn-container {
-    display: block;
-  }
-  
-  .mail-preview-btn-container {
-    display: none;
-  }
-  .title {
-    min-width: 40vw;
-    max-width: 40vw;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  
-  .unread{
-    background-color: #46464640;
-  }
-  
-  .read{
-    background-color: white;
-  }
-  
-  
+.mail-preview:hover .mail-preview-btn-container {
+  opacity: 1;
+}
+
+.mail-preview-btn-container {
+  opacity: 0;
+}
+.title {
+  min-width: 25vw;
+  max-width: 25vw;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.unread {
+  background-color: #46464640;
+}
+
+.read {
+  background-color: white;
+}
+
+.star-btn,
+.remove-btn {
+  font-size: 24px;
+  background-color: inherit;
+  border: 0;
+}
+
+.sender {
+  gap: 10px;
+}
+.fas.fa-star,.fas.fa-trash{
+  font-size: 24px;
+  cursor: pointer;
+}
+.fas.fa-star:hover {
+  color: rgb(235, 229, 57);
+}
+
+.fas.fa-star.active {
+  color: rgb(235, 229, 57);
+}
+
+.fas.fa-trash {
+  color: #e34d4d;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.fas.fa-trash:hover {
+  opacity: 1;
+}

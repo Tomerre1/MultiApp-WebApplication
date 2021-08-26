@@ -28,7 +28,9 @@ function createEmail(id = utilService.makeId(), subject = "Hello There", body = 
         body,
         isRead: Math.random() > 0.5,
         sentAt: utilService.convertDateToFormat(new Date()),
-        to: 'MultiApp@BestApp.com'
+        from: 'Popo',
+        to: 'MultiApp@BestApp.com',
+        isStarred: false
     }
 }
 

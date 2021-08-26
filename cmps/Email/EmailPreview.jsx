@@ -25,21 +25,19 @@ export class EmailPreview extends React.Component {
         if (!email) return <div></div>
         return (
             <Link to={`/email/${email.id}`}>
-                <div className={`mail-preview flex space-between align-items ${(!email.isRead) ? 'read' : 'unread'}`} onClick={this.setRead}  >
-                    <p className="sender">{emailService.getLoggedInUser().fullName}</p>
-                    <p className="title">{email.subject}</p>
-                    <p className="date">{email.sentAt}</p>
-                    <div className="mail-preview-btn-container">
-                        <button className="star-btn star-on">
-                            <i className="far fa-star" aria-hidden="true"></i>
-                        </button>
-                        <button className="remove-btn" onClick={() => { this.props.onRemoveEmail(email.id) }}>
-                            <i className="far fa-trash-alt" aria-hidden="true"></i>
-                        </button><button className="read-btn">
-                            <i className="fas fa-envelope-open" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
+                    <section className={`mail-preview flex space-between align-items ${(!email.isRead) ? 'read' : 'unread'}`} onClick={this.setRead}  >
+                        <div className="flex sender">
+                            <button className="star-btn">
+                                <i className="fas fa-star" aria-hidden="true" ></i>
+                            </button>
+                            <button className="remove-btn" onClick={() => { this.props.onRemoveEmail(email.id) }}>
+                                <i className="fas fa-trash" aria-hidden="true"></i>
+                            </button>
+                            <p>{emailService.getLoggedInUser().fullName}</p>
+                        </div>
+                        <p className="title">{email.subject}</p>
+                        <p className="date">{email.sentAt}</p>
+                    </section>
             </Link>
 
         )
