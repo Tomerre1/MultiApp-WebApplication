@@ -1,6 +1,5 @@
 /* Email Service */
 import { utilService } from "../util-service.js"
-// import { MailData } from "../data/mail.data.js"
 import { storageService } from "../storage-service.js"
 
 export const emailService = {
@@ -9,7 +8,9 @@ export const emailService = {
     getLoggedInUser,
     getEmailById,
     setIsRead,
-    removeEmail
+    removeEmail,
+    setIsStar,
+    setIsTrash
 }
 
 
@@ -21,7 +22,7 @@ const loggedinUser = { email: 'Tomer & Matan@MultiApp.com', fullName: 'Popo' }
 
 function getLoggedInUser() { return loggedinUser }
 
-function createEmail(id = utilService.makeId(), subject = "Hello There", body = utilService.makeLorem()) {
+function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(10), body = utilService.makeLorem()) {
     return {
         id,
         subject,
@@ -30,17 +31,27 @@ function createEmail(id = utilService.makeId(), subject = "Hello There", body = 
         sentAt: utilService.convertDateToFormat(new Date()),
         from: 'Popo',
         to: 'MultiApp@BestApp.com',
-        isStarred: false
+        isStar: false,
+        isTrash: false
     }
 }
 
 function query(filterBy = null) {
     if (filterBy) {
-        let { text, sortRead } = filterBy
+        console.log(`filterBy`, filterBy)
+        debugger;
+        let { text, isRead, isStar, isTrash } = filterBy
         let emailsToShow
-        if (sortRead === 'read') emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isRead)
-        else if (sortRead === 'unread') emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isRead)
-        else emailsToShow = gEmails.filter(email => email.subject.includes(text))
+        if (isStar)
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isStar)
+        else if (isTrash)
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isTrash)
+        else if (isRead)
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isRead)
+        else if (!isRead && isRead !== null)
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isRead)
+        else
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isTrash)
         return Promise.resolve(emailsToShow)
     }
     return Promise.resolve(gEmails)
@@ -64,6 +75,17 @@ function setIsRead(email) {
 
 function removeEmail(emailId) {
     const idx = gEmails.findIndex(email => { return email.id === emailId })
-    gEmails.splice(idx, 1)
+    gEmails[idx].isTrash = !gEmails[idx].isTrash
     storageService.saveToStorage(KEY, gEmails)
 }
+
+function setIsStar(email) {
+    email.isStar = !email.isStar
+    storageService.saveToStorage(KEY, gEmails)
+}
+
+function setIsTrash(email) {
+    email.isTrash = !email.isTrash
+    storageService.saveToStorage(KEY, gEmails)
+}
+

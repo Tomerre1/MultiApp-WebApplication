@@ -1,7 +1,6 @@
 
 import { EmailNav } from "../../cmps/Email/EmailNav.jsx"
 import { emailService } from "../../services/Email/email.service.js"
-import { eventBusService } from "../../services/event-bus-service.js"
 export class EmailDetails extends React.Component {
 
     state = {
@@ -36,8 +35,6 @@ export class EmailDetails extends React.Component {
     }
 
 
-
-
     render() {
         const { email } = this.state
         if (!email) return <div></div>
@@ -46,7 +43,7 @@ export class EmailDetails extends React.Component {
                 <EmailNav />
                 <div className="mail-col-message-view">
                     <div className="message-view-from">
-                        From: {emailService.getLoggedInUser().fullName}
+                        From: {email.from}
                     </div>
                     <div className="message-view-title">
 
@@ -56,7 +53,7 @@ export class EmailDetails extends React.Component {
                     </div>
                     <hr />
                     <div className="message-view-body">
-                        <h1>Hello there!</h1>
+                        <h1>{email.subject}</h1>
                         {email.body}
                         <br />
                         <br />
@@ -64,7 +61,7 @@ export class EmailDetails extends React.Component {
                         Thanks,
                         <br />
                         <br />
-                        {emailService.getLoggedInUser().fullName}
+                        {email.from}
                     </div>
                     <div className="message-view-response-icons">
                         <div className="message-response-icon">
