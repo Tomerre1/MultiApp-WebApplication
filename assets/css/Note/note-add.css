@@ -20,6 +20,10 @@
     flex: 1
 }
 
+.note-add-type-container {
+    margin-inline-start: 5px;
+}
+
 .note-add-type-container>button {
     font-size: 2.2rem;
 }

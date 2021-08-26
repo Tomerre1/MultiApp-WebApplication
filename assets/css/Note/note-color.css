@@ -29,3 +29,20 @@
 .unset {
     background-color: white;
 }
+
+.gold {
+    color: gold;
+}
+
+.white {
+    color: white;
+}
+
+.palette {
+    color: #e8c69e;
+}
+
+.trash-color {
+    color: gainsboro;
+    background-color: gainsboro;
+}

@@ -4,7 +4,7 @@ p {
 }
 
 .note-app p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .note-app h2 {
@@ -54,24 +54,21 @@ p {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-}
-
-.note-list {
     padding: 0 20px;
+    justify-content: space-between;
 }
-
-
-/* .note-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-} */
 
 
 /* .note-list {
     columns: 4;
     column-gap: 1.5vw;
 } */
+
+.note-container {
+    max-width: 1150px;
+    text-align: center;
+    margin: 0 auto;
+}
 
 .action-btn {
     border: none;
@@ -113,7 +110,8 @@ p {
 }
 
 .todo-not-check {
-    background-color: #e84022;
-    color: white;
+    /* background-color: #e84022; */
+    color: red;
+    ;
     font-size: 1rem;
 }

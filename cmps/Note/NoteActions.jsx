@@ -19,10 +19,10 @@ export class NoteActions extends React.Component {
 
         return (
             <section className="note-actions">
-                <button className="action-btn" onClick={() => { this.props.onTogglePinNote(note) }}><i className={`fas fa-thumbtack pin-btn ${note.isPinned ? 'red-pin' : ''}`}></i></button>
-                <button className="action-btn" onClick={() => { this.props.onRemoveNote(note) }}><i className="far fa-trash-alt"></i></button>
-                <button className="action-btn" onClick={() => { this.toggleStyleMode() }}><i className="fas fa-palette"></i></button>
-                {note.type === 'todos' && <button onClick={() => { this.props.onAddTodo(note.info.todos , 'New Todo') }} className="action-btn"><i className="fas fa-plus"></i></button>}
+                <button className="action-btn" onClick={() => { this.props.onTogglePinNote(note) }}><i className={`fas fa-thumbtack pin-btn ${note.isPinned ? 'red-pin' : 'white'}`}></i></button>
+                <button className="action-btn" onClick={() => { this.props.onRemoveNote(note) }}><i className="far fa-trash-alt trash-color"></i></button>
+                <button className="action-btn" onClick={() => { this.toggleStyleMode() }}><i className="fas fa-palette palette"></i></button>
+                {note.type === 'todos' && <button onClick={() => { this.props.onAddTodo(note.info.todos , 'New Todo') }} className="action-btn gold"><i className="fas fa-plus"></i></button>}
 
                 {this.state.isColorChange && <div className="color-btn-container">
                     <button className="color-btn red" onClick={() => { this.onColor('#FD3A4A') }}></button>
