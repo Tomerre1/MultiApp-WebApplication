@@ -10,7 +10,8 @@ export const emailService = {
     setIsRead,
     removeEmail,
     setIsStar,
-    setIsTrash
+    setIsTrash,
+    sortEmails
 }
 
 
@@ -28,7 +29,7 @@ function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(
         subject,
         body,
         isRead: Math.random() > 0.5,
-        sentAt: utilService.convertDateToFormat(new Date()),
+        sentAt: Date.now(),
         from: 'Popo',
         to: 'MultiApp@BestApp.com',
         isStar: false,
@@ -36,20 +37,19 @@ function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(
     }
 }
 
-function query(filterBy = null) {
+function query(filterBy = null, sortBy = null) {
+    if (sortBy) sortEmails(sortBy)
     if (filterBy) {
-        console.log(`filterBy`, filterBy)
-        debugger;
         let { text, isRead, isStar, isTrash } = filterBy
         let emailsToShow
         if (isStar)
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isStar)
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isStar && !email.isTrash) 
         else if (isTrash)
             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isTrash)
         else if (isRead)
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isRead)
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isRead && !email.isTrash)
         else if (!isRead && isRead !== null)
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isRead)
+            emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isRead && !email.isTrash)
         else
             emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isTrash)
         return Promise.resolve(emailsToShow)
@@ -89,3 +89,28 @@ function setIsTrash(email) {
     storageService.saveToStorage(KEY, gEmails)
 }
 
+function sortEmails(sortBy) {
+    switch (sortBy) {
+        case 'date':
+            sortByDate()
+            break;
+        case 'subject':
+            sortBySubject()
+        default:
+            break;
+    }
+}
+function sortByDate(emails, sortTypeByIcon = null) {
+    debugger
+    gEmails.sort(function (a, b) {
+        return new Date(a.sentAt).getTime() - new Date(b.sentAt).getTime()
+    });
+}
+
+
+function sortBySubject(emails, sortTypeByIcon = null) {
+    return gEmails.sort(function (a, b) {
+        return a.subject.localeCompare(b.subject, "en", { sensitivity: 'variant' })
+    });
+
+}

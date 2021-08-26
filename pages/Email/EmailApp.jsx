@@ -7,21 +7,26 @@ import { eventBusService } from "../../services/event-bus-service.js"
 export class EmailApp extends React.Component {
     state = {
         emails: null,
-        filterBy: { isRead: null, isStar: null, isTrash: null, text: '' }
+        filterBy: { isRead: null, isStar: null, isTrash: null, text: '' },
+        sortBy: null
     }
-
+    removeBusEvent
     componentDidMount() {
-        // this.removeFilterEvent = eventBusService.on('mailFilter', (filterBy) => {
-        //     this.setState({ filterBy }, () => { this.loadEmails() });
-        // })
+        this.removeFilterEvent = eventBusService.on('sortBy', (sortBy) => {
+            this.setState({ sortBy }, this.loadEmails);
+        })
 
         this.loadEmails()
 
     }
 
+    componentWillUnmount() {
+        this.removeFilterEvent()
+    }
+
 
     loadEmails = () => {
-        emailService.query(this.state.filterBy).then((emails) => {
+        emailService.query(this.state.filterBy, this.state.sortBy).then((emails) => {
             this.setState({ emails });
         });
     }
@@ -39,6 +44,11 @@ export class EmailApp extends React.Component {
     onSetFilter = (filterBy) => {
         this.setState({ filterBy }, this.loadEmails);
     };
+
+    onSetSort = (sortBy) => {
+        this.setState({ sortBy }, this.loadEmails);
+        
+    }
 
 
     render() {

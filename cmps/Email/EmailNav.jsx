@@ -1,7 +1,5 @@
 
 const { NavLink } = ReactRouterDOM
-import { eventBusService } from '../../services/event-bus-service.js'
-
 
 export function EmailNav(props) {
     // const updateSelectedFilter = (value) => {

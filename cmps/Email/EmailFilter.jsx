@@ -1,4 +1,5 @@
-import { eventBusService } from '../../services/eventBusService.js';
+import { eventBusService } from '../../services/event-bus-service.js';
+import { emailService } from '../../services/Email/email.service.js';
 export class EmailFilter extends React.Component {
     state = {
         filterBy: null
@@ -22,7 +23,9 @@ export class EmailFilter extends React.Component {
         const { text } = this.props.filterBy
         return (
             <form>
-                <div className="flex search-bar">
+                <div className="search-bar flex">
+                    <i onClick={()=>{eventBusService.emit('sortBy','date')}} className="fas fa-sort-numeric-up-alt" aria-hidden="true"></i>
+                    <i onClick={()=>{eventBusService.emit('sortBy','subject')}} className="fas fa-sort-alpha-up-alt" aria-hidden="true"></i>
                     <input className="search-list" name="text" value={text} onChange={this.handleChange} type="search" placeholder='Search a mail' />
                 </div>
             </form>

@@ -1,5 +1,6 @@
 
 import { emailService } from "../../services/Email/email.service.js"
+import { utilService } from "../../services/util-service.js"
 const { Link } = ReactRouterDOM
 export class EmailPreview extends React.Component {
 
@@ -35,7 +36,7 @@ export class EmailPreview extends React.Component {
                         <p>{emailService.getLoggedInUser().fullName}</p>
                     </div>
                     <p className="title">{email.subject}</p>
-                    <p className="date">{email.sentAt}</p>
+                    <p className="date">{utilService.convertDateToFormat(email.sentAt)}</p>
                 </section>
             </Link>
 

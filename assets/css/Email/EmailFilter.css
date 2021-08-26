@@ -1,4 +1,7 @@
-.search-list {
+.search-bar {
+  position: relative;
+}
+.search-bar [type='search'] {
   margin-inline-start: 20px;
   margin-block-end: 20px;
   font-size: 1.3rem;
@@ -10,7 +13,19 @@
   font-size: 1.3rem;
   border-radius: 5px;
 }
+.fas.fa-sort-numeric-up-alt,
+.fas.fa-sort-alpha-up-alt {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
 
-.search-list.sort {
-  flex-basis: 15%;
+.fas.fa-sort-numeric-up-alt {
+  margin: 17px 50px;
+  font-size: 1.3rem;
+}
+
+.fas.fa-sort-alpha-up-alt {
+  margin: 17px 80px;
+  font-size: 1.3rem;
 }
