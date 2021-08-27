@@ -3,6 +3,7 @@
 @import './email.css';
 @import './note.css';
 @import './header.css';
+@import './footer.css';
 body {
     margin: 0;
     padding: 0;
