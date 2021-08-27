@@ -35,15 +35,14 @@ export class EmailAdd extends React.Component {
     }
 
     render() {
-        debugger;
-        const { subject,body } = this.state.newMail
+        const { subject,body,to } = this.state.newMail
         return (
             <section className="modal-compose-email">
                 <button className="closeModal" onClick={this.props.toggleCompose}>&times;</button>
                 <form className="compose-email flex" onSubmit={this.onSubmitMail} >
                     <h2 className="mail-title"> Compose </h2>
                     <div className="mail-to flex-column">
-                        <input autoFocus id="to" name="to" onChange={this.handleChange} type="email" placeholder="Enter email" required />
+                        <input autoFocus value={to} id="to" name="to" onChange={this.handleChange} type="email" placeholder="Enter email" required />
                     </div>
                     <div className="mail-subject flex-column">
                         <input value={subject} onChange={this.handleChange} id="subject" name="subject" type="text" placeholder="Enter subject" required />

@@ -3,6 +3,7 @@ import { EmailList } from "../../cmps/Email/EmailList.jsx"
 import { emailService } from "../../services/Email/email.service.js"
 import { eventBusService } from "../../services/event-bus-service.js"
 import { EmailAdd } from "../../cmps/Email/EmailAdd.jsx"
+import { EmailDetails } from "./EmailDetails.jsx"
 
 export class EmailApp extends React.Component {
     state = {
@@ -17,7 +18,6 @@ export class EmailApp extends React.Component {
         this.removeFilterEvent = eventBusService.on('sortBy', (sortBy) => {
             this.setState({ sortBy }, this.loadEmails);
         })
-
         const query = new URLSearchParams(this.props.location.search);
         const subject = query.get('subject');
         const body = query.get('body');
@@ -44,6 +44,7 @@ export class EmailApp extends React.Component {
 
     onRemoveEmail = (emailId) => {
         emailService.removeEmail(emailId);
+        this.props.history.push('/email/inbox')
         this.loadEmails();
     }
 
@@ -68,13 +69,17 @@ export class EmailApp extends React.Component {
 
     render() {
         const { emails, isCompose } = this.state
+        const { params } = this.props.match
+        console.log('%c  params:', 'color: #0e93e0;background: #aaefe5;', params);
         if (!emails) return <div>Loading.. EmailApp</div>
         return (
             <main className="email-app">
                 <EmailNav toggleCompose={this.toggleCompose} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />
                 <div className="email-container flex">
-                    <EmailList emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />
+                    {!params.emailId && <EmailList emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />}
+                    {params.emailId && <EmailDetails onRemoveEmail={this.onRemoveEmail} />}
                     {isCompose && <EmailAdd toggleCompose={this.toggleCompose} newMail={this.newMail} />}
+
                 </div>
             </main>
         )
