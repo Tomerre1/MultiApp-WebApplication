@@ -166,7 +166,24 @@ function _createNotes() {
             id: utilService.makeId(),
             type: "txt",
             isPinned: true,
-            info: { title: "Fullstack Me Baby!" },
+            info: { title: "So easy with notes!" },
+            style: { backgroundColor: '#F653A6' }
+        },
+        {
+            id: utilService.makeId(),
+            type: "img",
+            isPinned: true,
+            info: { url: "https://img4.goodfon.com/wallpaper/nbig/2/13/kofe-coffee-cup-rassvet-chashka-good-morning-hot-utro-1.jpg", title: "Nice morning!" },
+            style: { backgroundColor: '#2196F3' }
+        },
+        {
+            id: utilService.makeId(),
+            type: "todos",
+            isPinned: true,
+            info: {
+                title: "Some stuff..",
+                todos: [{ txt: "Driving liscence", isDone: true }, { txt: "Cleaning my room", isDone: false }]
+            },
             style: { backgroundColor: utilService.getRandomColor() }
         },
         {
@@ -174,22 +191,29 @@ function _createNotes() {
             type: "todos",
             isPinned: false,
             info: {
-                title: "Get my stuff together",
-                todos: [{ txt: "Driving liscence", isDone: true }, { txt: "Coding power", isDone: false }]
+                title: "For Weekend:",
+                todos: [{ txt: "Learning React", isDone: true }, { txt: "Visit my friend", isDone: false }, { txt: "Workout", isDone: false }]
             },
-            style: { backgroundColor: utilService.getRandomColor() }
+            style: { backgroundColor: '#FD3A4A' }
         },
         {
             id: utilService.makeId(),
             type: "video",
             isPinned: false,
-            info: { url: "https://www.youtube.com/embed/tgbNymZ7vqY", title: "New Video!" },
+            info: { url: "https://www.youtube.com/embed/Vy3uqYzMQ_I", title: "Relaxing..." },
+            style: { backgroundColor: '#2196F3' }
+        },
+        {
+            id: utilService.makeId(),
+            type: "img",
+            isPinned: false,
+            info: { url: "https://images.unsplash.com/photo-1596120236172-231999844ade?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80", title: "From last vacation" },
             style: { backgroundColor: utilService.getRandomColor() }
         },
         {
             id: utilService.makeId(),
             type: "todos",
-            isPinned: false,
+            isPinned: true,
             info: {
                 title: "Get my stuff together",
                 todos: [{ txt: "Driving liscence", isDone: true }, { txt: "Coding power", isDone: true }]
@@ -207,15 +231,25 @@ function _createNotes() {
             id: utilService.makeId(),
             type: "video",
             isPinned: false,
-            info: { url: "https://www.youtube.com/embed/tgbNymZ7vqY", title: "Cool!" },
+            info: { url: "https://www.youtube.com/embed/ETJHM1KmXO4", title: "Wow!" },
             style: { backgroundColor: utilService.getRandomColor() }
         },
         {
             id: utilService.makeId(),
             type: "txt",
-            isPinned: true,
-            info: { title: "Helloooooooo!" },
-            style: { backgroundColor: utilService.getRandomColor() }
+            isPinned: false,
+            info: { title: "Love our MultiApp?😍" },
+            style: { backgroundColor: '#8BC34A' }
+        },
+        {
+            id: utilService.makeId(),
+            type: "todos",
+            isPinned: false,
+            info: {
+                title: "Coding Academy",
+                todos: [{ txt: "Sprint 1", isDone: true }, { txt: "Sprint 2", isDone: true }, { txt: "Sprint 3", isDone: true }, { txt: "Sprint 4", isDone: false }]
+            },
+            style: { backgroundColor: '#FBE870' }
         },
         {
             id: utilService.makeId(),
@@ -224,33 +258,6 @@ function _createNotes() {
             info: {
                 title: "Important",
                 todos: [{ txt: "Shopping", isDone: false }, { txt: "Learning", isDone: false }]
-            },
-            style: { backgroundColor: utilService.getRandomColor() }
-        },
-        {
-            id: utilService.makeId(),
-            type: "todos",
-            isPinned: false,
-            info: {
-                title: "Important",
-                todos: [{ txt: "Shopping", isDone: false }, { txt: "Learning", isDone: false }]
-            },
-            style: { backgroundColor: utilService.getRandomColor() }
-        },
-        {
-            id: utilService.makeId(),
-            type: "img",
-            isPinned: false,
-            info: { url: "https://html.com/wp-content/uploads/very-large-flamingo.jpg", title: "Bobi and Me" },
-            style: { backgroundColor: utilService.getRandomColor() }
-        },
-        {
-            id: utilService.makeId(),
-            type: "todos",
-            isPinned: false,
-            info: {
-                title: "Get my stuff together",
-                todos: [{ txt: "Driving liscence", isDone: false }, { txt: "Coding power", isDone: true }, { txt: "Something", isDone: true }]
             },
             style: { backgroundColor: utilService.getRandomColor() }
         },
