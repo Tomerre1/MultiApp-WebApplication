@@ -7,12 +7,13 @@
   box-shadow: 0 0 3px 0px #46464640;
   max-height: 80px;
   transition: all 0.15s ease-in-out;
-  margin-block-end:10px;
+  margin-block-end: 10px;
   font-size: 1.1rem;
+  margin-inline-end: 10px;
 }
 
 .mail-preview:hover {
-  box-shadow: 0 0 3px 3px #D35D6E;
+  box-shadow: 0 0 3px 3px #d35d6e;
   z-index: 1;
 }
 
@@ -29,6 +30,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin: 0;
 }
 
 .unread {
@@ -49,7 +51,8 @@
 .sender {
   gap: 10px;
 }
-.fas.fa-star,.fas.fa-trash{
+.fas.fa-star,
+.fas.fa-trash {
   font-size: 24px;
   cursor: pointer;
 }
@@ -69,4 +72,39 @@
 
 .fas.fa-trash:hover {
   opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .mail-preview {
+    flex-direction: column;
+    align-items: unset;
+    max-height: unset;
+  }
+
+  .date {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+
+  .title {
+    min-width: unset;
+    max-width: 70vw;
+    margin: 0;
+  }
+
+  .sender > p {
+    order: -1;
+    margin: 0;
+  }
+
+  .sender {
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 800px) {
+  .mail-preview {
+    align-items: center;
+  }
 }

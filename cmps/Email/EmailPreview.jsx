@@ -29,14 +29,17 @@ export class EmailPreview extends React.Component {
         if (!email) return <div></div>
         return (
             <Link to={`/email/${email.status}/${email.id}`}>
-                <section className={`mail-preview flex space-between align-items ${(!email.isRead) ? 'read' : 'unread'}`} onClick={this.onSetRead}  >
+                <section className={`mail-preview flex space-between ${(!email.isRead) ? 'read' : 'unread'}`} onClick={this.onSetRead}  >
                     <div className="flex sender">
+                        <div>
+
                         <button className="star-btn" onClick={(event) => { event.preventDefault(); this.props.onSetStar(email) }}>
                             <i className={`fas fa-star ${(email.isStar) ? 'active' : ''}`} aria-hidden="true" ></i>
                         </button>
                         <button className="remove-btn" onClick={(event) => { event.preventDefault(); this.props.onRemoveEmail(email.id) }}>
                             <i className="fas fa-trash" aria-hidden="true"></i>
                         </button>
+                        </div>
                         <p>{emailService.getLoggedInUser().fullName}</p>
                     </div>
                     <p className="title">{email.subject}</p>

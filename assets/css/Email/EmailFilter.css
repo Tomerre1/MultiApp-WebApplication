@@ -1,5 +1,6 @@
 .search-bar {
   position: relative;
+  margin-inline-end: 10px;
 }
 .search-bar [type='search'] {
   margin-inline-start: 20px;
