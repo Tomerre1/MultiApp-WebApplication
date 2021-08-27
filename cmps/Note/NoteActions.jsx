@@ -18,11 +18,15 @@ export class NoteActions extends React.Component {
         const { note } = this.props
 
         return (
+            <React.Fragment>
+                {note.type === 'video' && <i className="fab fa-youtube style-youtube" style={{ "color": "red" }}></i>}
+                {note.type === 'img' && <i className="far fa-image style-img"></i>}
             <section className="note-actions">
-                <button className="action-btn" onClick={() => { this.props.onTogglePinNote(note) }}><i className={`fas fa-thumbtack pin-btn ${note.isPinned ? 'red-pin' : 'white'}`}></i></button>
-                <button className="action-btn" onClick={() => { this.props.onRemoveNote(note) }}><i className="far fa-trash-alt trash-color"></i></button>
-                <button className="action-btn" onClick={() => { this.toggleStyleMode() }}><i className="fas fa-palette palette"></i></button>
-                {note.type === 'todos' && <button onClick={() => { this.props.onAddTodo(note.info.todos , 'New Todo') }} className="action-btn gold"><i className="fas fa-plus"></i></button>}
+                <button className="action-btn note-action-btn" onClick={() => { this.props.onTogglePinNote(note) }}><i className={`fas fa-thumbtack pin-btn ${note.isPinned ? 'red-pin' : 'white'}`}></i></button>
+                <button className="action-btn note-action-btn" onClick={() => { this.props.onRemoveNote(note) }}><i className="fas fa-trash-alt trash-color"></i></button>
+                <button className="action-btn note-action-btn" onClick={() => { this.props.onNoteDuplicate(note) }}><i className="fas fa-copy lightpink"></i></button>
+                <button className="action-btn note-action-btn" onClick={() => { this.toggleStyleMode() }}><i className="fas fa-palette palette"></i></button>
+                {note.type === 'todos' && <button className="action-btn note-action-btn" onClick={() => { this.props.onAddTodo(note.info.todos , 'New Todo') }}><i className="fas fa-plus gold"></i></button>}
 
                 {this.state.isColorChange && <div className="color-btn-container">
                     <button className="color-btn red" onClick={() => { this.onColor('#FD3A4A') }}></button>
@@ -35,6 +39,7 @@ export class NoteActions extends React.Component {
                     <button className="color-btn unset" onClick={() => { this.onColor('white') }}></button>
                 </div>}
             </section>
+            </React.Fragment>
         )
     }
 }

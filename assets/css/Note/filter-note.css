@@ -25,3 +25,7 @@ header>select {
     color: rgb(42, 40, 40);
     padding-inline-start: 5px;
 }
+
+header>select:hover {
+    background-color: transparent;
+}

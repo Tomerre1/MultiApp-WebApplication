@@ -26,7 +26,7 @@ export class NoteListPreview extends React.Component {
     }
 
     render() {
-        const { note, onRemoveNote, onTogglePinNote, onChangeColor ,onAddTodo ,onEditTodo ,onToggleTodo } = this.props
+        const { note, onRemoveNote, onTogglePinNote, onChangeColor, onAddTodo, onEditTodo, onToggleTodo, onNoteDuplicate } = this.props
         const { isEdit, title } = this.state
 
         return (
@@ -44,9 +44,8 @@ export class NoteListPreview extends React.Component {
                 }
                 {note.info.todos && note.info.todos.map((todo) => {
                     return <NoteTodoList key={todo.txt} todo={todo} onEditTodo={onEditTodo} onToggleTodo={onToggleTodo} />
-                    // return <p key={todo.txt} onClick={() =>{this.props.onToggleTodo(todo)}} className={`${todo.isDone ? 'done' : ''}`}>{todo.txt}</p>;
                 })}
-                <NoteActions note={note} onAddTodo={onAddTodo} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
+                <NoteActions note={note} onNoteDuplicate={onNoteDuplicate} onAddTodo={onAddTodo} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
 
             </div>
         )

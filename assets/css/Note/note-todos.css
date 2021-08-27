@@ -1,0 +1,42 @@
+/* TODO-list */
+
+.done {
+    text-decoration: line-through;
+}
+
+.todos>p {
+    margin: 0;
+}
+
+.todo-check {
+    background-color: greenyellow;
+    color: white;
+    font-size: 1rem;
+}
+
+.todo-not-check {
+    color: red;
+    ;
+    font-size: 1rem;
+}
+
+.todo-edit>input {
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.todo-edit>button {
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.todos>p {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
