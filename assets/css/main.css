@@ -2,6 +2,13 @@
 
 @import './email.css';
 @import './note.css';
+@import './header.css';
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 
 /* list-helpers */
 
@@ -36,7 +43,7 @@
     cursor: pointer;
 }
 
-a{
+a {
     text-decoration: none;
-    color:inherit;
+    color: inherit;
 }
