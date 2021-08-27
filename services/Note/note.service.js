@@ -191,7 +191,7 @@ function _createNotes() {
             type: "todos",
             isPinned: false,
             info: {
-                title: "For Weekend:",
+                title: "Weekend Todos",
                 todos: [{ txt: "Learning React", isDone: true }, { txt: "Visit my friend", isDone: false }, { txt: "Workout", isDone: false }]
             },
             style: { backgroundColor: '#FD3A4A' }

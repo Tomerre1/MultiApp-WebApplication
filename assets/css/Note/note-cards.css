@@ -15,8 +15,8 @@
     gap: 10px;
     overflow: hidden;
     break-inside: avoid;
-    /* align-items: center; */
     -webkit-text-stroke: 1px black;
+    /* align-items: center; */
 }
 
 .note-card h2 {

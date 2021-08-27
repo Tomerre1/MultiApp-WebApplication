@@ -25,7 +25,7 @@ export class NoteImgPreview extends React.Component {
     }
 
     render() {
-        const { note, onRemoveNote, onTogglePinNote, onChangeColor, onNoteDuplicate } = this.props
+        const { note, onRemoveNote, onTogglePinNote, onChangeColor, onNoteDuplicate, onSendAsEmail } = this.props
         const { isEdit, title } = this.state
 
         return (
@@ -42,7 +42,7 @@ export class NoteImgPreview extends React.Component {
                     </form>
                 }
                 <img src={note.info.url} height="150" width="150"></img>
-                <NoteActions note={note} onNoteDuplicate={onNoteDuplicate} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
+                <NoteActions note={note} onSendAsEmail={onSendAsEmail} onNoteDuplicate={onNoteDuplicate} onChangeColor={onChangeColor} onTogglePinNote={onTogglePinNote} onRemoveNote={onRemoveNote} />
             </div>
         )
     }
