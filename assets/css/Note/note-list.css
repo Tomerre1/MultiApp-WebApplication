@@ -17,53 +17,12 @@
     align-items: center;
 }
 
-.note-card {
-    font-family: 'Roboto', sans-serif;
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-    padding: 10px 20px 20px;
-    margin-bottom: 1rem;
-    padding-top: 1rem;
-    border-radius: 5px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* width: calc(25% - 25px); */
-    box-shadow: 10px 12px 20px -1px grey;
-    color: white;
-    min-height: 150px;
-    gap: 10px;
-    overflow: hidden;
-    max-width: 270px;
-    break-inside: avoid;
-    /* align-items: center; */
-    -webkit-text-stroke: 1px black;
-}
-
-.note-card h2 {
-    font-size: 1.7rem;
-}
-
-.note-card p {
-    color: #000000a8;
-    font-weight: 300;
-}
-
-.note-card>img {
-    width: 100%;
-}
-
-.note-card>iframe {
-    border: none;
-    width: 100%;
-}
-
 .note-actions {
     margin-top: 5px;
 }
 
 .note-list {
-    columns: 4;
+    columns: 1;
 }
 
 .note-edit>input {
@@ -80,33 +39,6 @@
     margin: 3px;
     cursor: pointer;
 }
-
-.todo-edit>input {
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 3px;
-}
-
-.todo-edit>button {
-    border: none;
-    border-radius: 3px;
-    padding: 5px;
-    margin: 3px;
-    cursor: pointer;
-}
-
-.todos>p {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-
-/* .note-list {
-    columns: 4;
-    column-gap: 1.5vw;
-} */
 
 .note-container {
     max-width: 1150px;
@@ -129,10 +61,6 @@
     font-size: 1.1rem;
 }
 
-.note-card:hover .note-action-btn {
-    opacity: 100%;
-}
-
 .pin-btn:hover {
     color: red;
 }
@@ -149,30 +77,6 @@
     margin-left: 3px;
 }
 
-
-/* TODO-list */
-
-.done {
-    text-decoration: line-through;
-}
-
-.todos>p {
-    margin: 0;
-}
-
-.todo-check {
-    background-color: greenyellow;
-    color: white;
-    font-size: 1rem;
-}
-
-.todo-not-check {
-    /* background-color: #e84022; */
-    color: red;
-    ;
-    font-size: 1rem;
-}
-
 .style-youtube {
     color: red;
     font-size: 1.8rem;
@@ -184,3 +88,28 @@
     font-size: 1.7rem;
     -webkit-text-stroke: unset;
 }
+
+@media (min-width:550px) {
+    .note-list {
+        columns: 2;
+    }
+}
+
+@media (min-width:750px) {
+    .note-list {
+        columns: 3;
+    }
+}
+
+@media (min-width:1050px) {
+    .note-list {
+        columns: 4;
+    }
+}
+
+
+/* @media (min-width:1250px) {
+    .note-list {
+        columns: 5;
+    }
+} */
