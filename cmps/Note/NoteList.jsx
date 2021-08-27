@@ -68,8 +68,6 @@ export class NoteList extends React.Component {
       })
   };
 
-  
-
   onToggleTodo = (todo) => {
     noteService.toggleTodo(todo)
       .then(() => {
@@ -99,6 +97,27 @@ export class NoteList extends React.Component {
       })
   };
 
+  onSendAsEmail = (note) => {
+    let body = ''
+    switch (note.type) {
+      case 'txt':
+        body = note.info.title;
+        break;
+      case 'video':
+        body = 'Check out this video: ' + note.info.url;
+        break;
+      case 'img':
+        body = 'Check out this image: ' + note.info.url;
+        break;
+      case 'todos':
+        const todosToSend = note.info.todos.map((todo) => todo.txt);
+        body = 'Todos:\n\n' + todosToSend.join(', ') + '.';
+        break;
+      default:
+        break;
+    }
+    return `${note.info.title}&body=${body}`
+  };
   
 
   render() {
@@ -132,7 +151,7 @@ export class NoteList extends React.Component {
         <div className="note-list">
 
           {notes.map((note) => {
-            return <DynamicCmp key={note.id} note={note} onNoteDuplicate={this.onNoteDuplicate} onEditTodo={this.onEditTodo} onAddTodo={this.onAddTodo} onToggleTodo={this.onToggleTodo} onEditNoteTitle={this.onEditNoteTitle} onChangeColor={this.onChangeColor} onTogglePinNote={this.onTogglePinNote} onRemoveNote={this.onRemoveNote} />
+            return <DynamicCmp key={note.id} note={note} onSendAsEmail={this.onSendAsEmail} onNoteDuplicate={this.onNoteDuplicate} onEditTodo={this.onEditTodo} onAddTodo={this.onAddTodo} onToggleTodo={this.onToggleTodo} onEditNoteTitle={this.onEditNoteTitle} onChangeColor={this.onChangeColor} onTogglePinNote={this.onTogglePinNote} onRemoveNote={this.onRemoveNote} />
           })}
         </div>
       </section>

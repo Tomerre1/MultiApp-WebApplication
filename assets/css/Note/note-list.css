@@ -89,6 +89,14 @@
     -webkit-text-stroke: unset;
 }
 
+
+/* .style-youtube {
+    color: #5d5353;
+    background-color: black;
+    width: fit-content;
+    border-radius: 7px;
+} */
+
 @media (min-width:550px) {
     .note-list {
         columns: 2;
