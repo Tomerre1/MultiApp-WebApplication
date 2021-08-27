@@ -25,7 +25,6 @@ export class EmailApp extends React.Component {
             this.newMail['body'] = body
             this.newMail['subject'] = subject
             this.setState({ isCompose: true });
-            console.log('%c  newMail:', 'color: #0e93e0;background: #aaefe5;', this.newMail);
         }
         this.loadEmails()
 
@@ -79,7 +78,7 @@ export class EmailApp extends React.Component {
             <main className="email-app">
                 <EmailNav toggleCompose={this.toggleCompose} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />
                 <div className="email-container flex">
-                    {!params.emailId && <EmailList emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />}
+                    {!params.emailId && <EmailList emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} loadEmails={this.loadEmails}/>}
                     {params.emailId && <EmailDetails onRemoveEmail={this.onRemoveEmail} />}
                     {isCompose && <EmailAdd toggleCompose={this.toggleCompose} newMail={this.newMail} />}
 

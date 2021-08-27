@@ -9,10 +9,7 @@ class _EmailDetails extends React.Component {
     }
 
     componentDidMount() {
-        console.log(`this.props`, this.props)
         this.loadEmail()
-
-
     }
 
     componentDidUpdate(prevProps) {

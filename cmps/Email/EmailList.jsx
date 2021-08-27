@@ -22,7 +22,7 @@ export class EmailList extends React.Component {
                 <EmailFilter onSetFilter={this.props.onSetFilter} filterBy={this.props.filterBy}/>
                 <div className="mail-list">
                     {emails.map((mail) => {
-                        return <EmailPreview key={mail.id} onSetStar={this.props.onSetStar} email={mail} onRemoveEmail={this.props.onRemoveEmail} />
+                        return <EmailPreview key={mail.id} onSetStar={this.props.onSetStar} email={mail} loadEmails={this.props.loadEmails} onRemoveEmail={this.props.onRemoveEmail} />
                     })}
                 </div>
             </section>

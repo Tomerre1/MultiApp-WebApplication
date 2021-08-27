@@ -54,11 +54,11 @@
   cursor: pointer;
 }
 .fas.fa-star:hover {
-  color: rgb(235, 229, 57);
+  color: rgb(230, 213, 60);
 }
 
 .fas.fa-star.active {
-  color: rgb(235, 229, 57);
+  color: rgb(230, 213, 60);
 }
 
 .fas.fa-trash {

@@ -16,20 +16,20 @@ export class EmailPreview extends React.Component {
         })
     }
 
-    setRead = () => {
+    onSetRead = () => {
         if (!this.state.email.isRead) eventBusService.emit('unReadCount', -1)
         emailService.setIsRead(this.state.email)
+        this.props.loadEmails()
     }
 
 
 
     render() {
-        console.log(this.props)
         const { email } = this.state
         if (!email) return <div></div>
         return (
             <Link to={`/email/${email.status}/${email.id}`}>
-                <section className={`mail-preview flex space-between align-items ${(!email.isRead) ? 'read' : 'unread'}`} onClick={this.setRead}  >
+                <section className={`mail-preview flex space-between align-items ${(!email.isRead) ? 'read' : 'unread'}`} onClick={this.onSetRead}  >
                     <div className="flex sender">
                         <button className="star-btn" onClick={(event) => { event.preventDefault(); this.props.onSetStar(email) }}>
                             <i className={`fas fa-star ${(email.isStar) ? 'active' : ''}`} aria-hidden="true" ></i>
