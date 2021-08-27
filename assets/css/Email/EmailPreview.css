@@ -32,12 +32,12 @@
 }
 
 .unread {
-  background-color: #46464640;
+  background-color: #4646461f;
 }
 
 .read {
   background-color: rgb(240, 240, 240);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .star-btn,

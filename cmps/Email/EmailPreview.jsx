@@ -21,10 +21,11 @@ export class EmailPreview extends React.Component {
 
 
     render() {
+        console.log(this.props)
         const { email } = this.state
         if (!email) return <div></div>
         return (
-            <Link to={`/email/${email.id}`}>
+            <Link to={`/email/${email.status}/${email.id}`}>
                 <section className={`mail-preview flex space-between align-items ${(!email.isRead) ? 'read' : 'unread'}`} onClick={this.setRead}  >
                     <div className="flex sender">
                         <button className="star-btn" onClick={(event) => { event.preventDefault(); this.props.onSetStar(email) }}>

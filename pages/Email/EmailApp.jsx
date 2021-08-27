@@ -1,5 +1,3 @@
-const Router = ReactRouterDOM.HashRouter
-const { Route, Switch } = ReactRouterDOM
 import { EmailNav } from "../../cmps/Email/EmailNav.jsx"
 import { EmailList } from "../../cmps/Email/EmailList.jsx"
 import { emailService } from "../../services/Email/email.service.js"
@@ -9,16 +7,26 @@ import { EmailAdd } from "../../cmps/Email/EmailAdd.jsx"
 export class EmailApp extends React.Component {
     state = {
         emails: null,
-        filterBy: { isRead: null, isStar: null, isTrash: null, text: '' },
+        filterBy: { isRead: null, isStar: null, status: 'inbox', text: '' },
         sortBy: null,
         isCompose: false
     }
     removeBusEvent
+    newMail = {}
     componentDidMount() {
         this.removeFilterEvent = eventBusService.on('sortBy', (sortBy) => {
             this.setState({ sortBy }, this.loadEmails);
         })
 
+        const query = new URLSearchParams(this.props.location.search);
+        const subject = query.get('subject');
+        const body = query.get('body');
+        if (body && subject) {
+            this.newMail['body'] = body
+            this.newMail['subject'] = subject
+            this.setState({ isCompose: true });
+            console.log('%c  newMail:', 'color: #0e93e0;background: #aaefe5;', this.newMail);
+        }
         this.loadEmails()
 
     }
@@ -54,7 +62,7 @@ export class EmailApp extends React.Component {
     }
 
     toggleCompose = () => {
-        this.setState({ isCompose: !this.state.isCompose },this.loadEmails);
+        this.setState({ isCompose: !this.state.isCompose }, this.loadEmails);
     }
 
 
@@ -66,7 +74,7 @@ export class EmailApp extends React.Component {
                 <EmailNav toggleCompose={this.toggleCompose} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />
                 <div className="email-container flex">
                     <EmailList emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />
-                    {isCompose && <EmailAdd toggleCompose={this.toggleCompose}/>}
+                    {isCompose && <EmailAdd toggleCompose={this.toggleCompose} newMail={this.newMail} />}
                 </div>
             </main>
         )

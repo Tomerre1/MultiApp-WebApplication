@@ -28,7 +28,7 @@ const loggedinUser = { email: 'Tomer_Matan@MultiApp.com', fullName: 'Tomer&Matan
 function getLoggedInUser() { return loggedinUser }
 
 function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(10), body = utilService.makeLorem(),
-    isRead = Math.random() > 0.5, sentAt = utilService.randomDate(), from = 'Tomer&Matan', to = 'Tomer&Matan', isTrash = false, isStar = false, isSent = false) {
+    isRead = Math.random() > 0.5, sentAt = utilService.randomDate(), from = 'Tomer&Matan', to = 'Tomer&Matan', isStar = false, status = "inbox") {
     return {
         id,
         subject,
@@ -38,28 +38,49 @@ function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(
         from,
         to,
         isStar,
-        isTrash,
-        isSent,
+        status,
     }
 }
+
+// function query(filterBy = null, sortBy = null) {
+//     if (sortBy) sortEmails(sortBy)
+//     if (filterBy) {
+//         const { text, isRead, isStar, isTrash, isSent } = filterBy
+//         let emailsToShow
+//         if (isSent)
+//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isSent)
+//         else if (isStar)
+//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isStar && !email.isTrash)
+//         else if (isTrash)
+//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isTrash)
+//         else if (isRead)
+//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isRead && !email.isTrash)
+//         else if (!isRead && isRead !== null)
+//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isRead && !email.isTrash)
+//         else
+//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isTrash)
+//         return Promise.resolve(emailsToShow)
+//     }
+//     return Promise.resolve(gEmails)
+// }
 
 function query(filterBy = null, sortBy = null) {
     if (sortBy) sortEmails(sortBy)
     if (filterBy) {
-        const { text, isRead, isStar, isTrash, isSent } = filterBy
+        const { text, isRead, isStar, status } = filterBy
         let emailsToShow
-        if (isSent)
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isSent)
+        if (status === 'sent')
+            emailsToShow = gEmails.filter(email => (email.subject.includes(text) && email.status === status))
+        else if (status === 'trash')
+            emailsToShow = gEmails.filter(email => (email.subject.includes(text) && email.status === status))
+        else if (status === 'inbox')
+            emailsToShow = gEmails.filter(email => (email.subject.includes(text) && email.status === status))
         else if (isStar)
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isStar && !email.isTrash)
-        else if (isTrash)
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isTrash)
+            emailsToShow = gEmails.filter(email => (email.subject.includes(text) && email.isStar && email.status !== 'trash'))
         else if (isRead)
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isRead && !email.isTrash)
+            emailsToShow = gEmails.filter(email => (email.subject.includes(text) && email.isRead && email.status !== 'trash'))
         else if (!isRead && isRead !== null)
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isRead && !email.isTrash)
-        else
-            emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isTrash)
+            emailsToShow = gEmails.filter(email => (email.subject.includes(text) && !email.isRead && email.status !== 'trash'))
         return Promise.resolve(emailsToShow)
     }
     return Promise.resolve(gEmails)
@@ -83,7 +104,7 @@ function setIsRead(email) {
 
 function removeEmail(emailId) {
     const idx = gEmails.findIndex(email => { return email.id === emailId })
-    gEmails[idx].isTrash = !gEmails[idx].isTrash
+    gEmails[idx].status = 'trash'
     storageService.saveToStorage(KEY, gEmails)
 }
 
@@ -93,7 +114,7 @@ function setIsStar(email) {
 }
 
 function setIsTrash(email) {
-    email.isTrash = !email.isTrash
+    email.status = 'trash'  // lo oved
     storageService.saveToStorage(KEY, gEmails)
 }
 
@@ -135,7 +156,8 @@ function sortBySubject(isAlphaUp) {
 
 
 function addMail(email) {
-    gEmails.unshift(createEmail(utilService.makeId(), email.subject, email.body, false, Date.now(), 'Tomer_Matan@MultiApp.com', email.to, false, false, true));
+    console.log('%c  email:', 'color: #0e93e0;background: #aaefe5;', email);
+    gEmails.unshift(createEmail(utilService.makeId(), email.subject, email.body, false, Date.now(), 'Tomer_Matan@MultiApp.com', email.to, false, 'sent'));
     storageService.saveToStorage(KEY, gEmails)
 }
 
@@ -147,6 +169,7 @@ function getNextEmailId(emailId, diff) {
     return gEmails[nextEmailId].id;
 }
 
-function getUnreadEmailsCount(){
+function getUnreadEmailsCount() {
     return gEmails.filter(email => !email.isRead).length;
 }
+

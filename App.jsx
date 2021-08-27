@@ -18,7 +18,8 @@ export function App() {
             <main>
                 <Switch>
                     <Route path='/book' component={BookApp} />
-                    <Route path='/email/:emailId' component={EmailDetails} />
+                    <Route path="/email/:status/:emailId" component={EmailDetails} />
+                    <Route path='/email/:status' component={EmailApp} />
                     <Route path="/email" component={EmailApp} />
                     <Route path='/note' component={NoteApp} />
                     <Route path="/" component={Home} />

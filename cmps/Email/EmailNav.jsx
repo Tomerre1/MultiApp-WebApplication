@@ -24,12 +24,12 @@ export class EmailNav extends React.Component {
             <nav>
                 <ul className="email-side-nav clean-list flex align-items">
                     <NavLink activeClassName="active-nav-email" className="compus-mail" onClick={this.props.toggleCompose}><i className="fas fa-plus"></i>Compose</NavLink>
-                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: null, ['isStar']: null, ['isTrash']: null }) }} to={`/email`}><i className="fas fa-inbox"></i>Inbox</NavLink>
-                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isSent']: true, ['isTrash']: null }) }} to={`/email`}><i className="far fa-paper-plane"></i>Sent</NavLink>
-                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: true }) }} to={`/email`}><i className="fas fa-sign-out-alt"></i>Read</NavLink>
-                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: false }) }} to={`/email`}><i className="fas fa-envelope-open"></i>UnRead <span>{count}</span></NavLink>
-                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isStar']: true }) }} to={`/email`}><i className="fa fa-star"></i>Star</NavLink>
-                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isTrash']: true }) }} to={`/email`}><i className="fa fa-trash"></i>Trash</NavLink>
+                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: null, ['isStar']: null, status: 'inbox' }) }} to={`/email/inbox`}><i className="fas fa-inbox"></i>Inbox</NavLink>
+                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', status: 'sent' }) }} to={`/email/sent`}><i className="far fa-paper-plane"></i>Sent</NavLink>
+                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: true }) }} to={`/email/read`}><i className="fas fa-sign-out-alt"></i>Read</NavLink>
+                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: false }) }} to={`/email/unread`}><i className="fas fa-envelope-open"></i>UnRead <span>{count}</span></NavLink>
+                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isStar']: true }) }} to={`/email/star`}><i className="fa fa-star"></i>Star</NavLink>
+                    <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', status: 'trash' }) }} to={`/email/trash`}><i className="fa fa-trash"></i>Trash</NavLink>
                 </ul>
             </nav>
         )
