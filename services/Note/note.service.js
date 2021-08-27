@@ -225,7 +225,7 @@ function _createNotes() {
             type: "img",
             isPinned: false,
             info: { url: "https://images.unsplash.com/photo-1526660690293-bcd32dc3b123?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80", title: "Cute puppy!" },
-            style: { backgroundColor: utilService.getRandomColor() }
+            style: { backgroundColor: '#FF6EFF' }
         },
         {
             id: utilService.makeId(),
@@ -247,7 +247,7 @@ function _createNotes() {
             isPinned: false,
             info: {
                 title: "Coding Academy",
-                todos: [{ txt: "Sprint 1", isDone: true }, { txt: "Sprint 2", isDone: true }, { txt: "Sprint 3", isDone: true }, { txt: "Sprint 4", isDone: false }]
+                todos: [{ txt: "Sprint 3", isDone: true }, { txt: "Sprint 2", isDone: true }, { txt: "Sprint 1", isDone: true }, { txt: "Sprint 4", isDone: false }]
             },
             style: { backgroundColor: '#FBE870' }
         },
@@ -265,7 +265,7 @@ function _createNotes() {
             id: utilService.makeId(),
             type: "video",
             isPinned: false,
-            info: { url: "https://www.youtube.com/embed/tgbNymZ7vqY", title: "Bobi and Me" },
+            info: { url: "https://www.youtube.com/embed/dCNADdUslu0", title: "Movies for 2022" },
             style: { backgroundColor: utilService.getRandomColor() }
         },
     ];
