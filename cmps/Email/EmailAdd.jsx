@@ -4,14 +4,14 @@ import { eventBusService } from '../../services/event-bus-service.js'
 export class EmailAdd extends React.Component {
     state = {
         newMail: {
-            subject:'',
-            body:''
+            subject: '',
+            body: '', 
+            to: ''
         }
     }
 
     componentDidMount() {
         this.setState({ newMail: this.props.newMail })
-        console.log('%c  this.state.newMail:', 'color: #0e93e0;background: #aaefe5;', this.state.newMail);
     }
 
     closeModal = () => {
@@ -24,7 +24,6 @@ export class EmailAdd extends React.Component {
         const value = e.target.value;
         const newMail = { ...this.state.newMail, [e.target.name]: value }
         this.setState({ newMail })
-        console.log(1)
     }
 
     onSubmitMail = (e) => {
@@ -35,14 +34,14 @@ export class EmailAdd extends React.Component {
     }
 
     render() {
-        const { subject,body,to } = this.state.newMail
+        const { subject, body, to } = this.state.newMail
         return (
             <section className="modal-compose-email">
                 <button className="closeModal" onClick={this.props.toggleCompose}>&times;</button>
                 <form className="compose-email flex" onSubmit={this.onSubmitMail} >
                     <h2 className="mail-title"> Compose </h2>
                     <div className="mail-to flex-column">
-                        <input autoFocus value={to} id="to" name="to" onChange={this.handleChange} type="email" placeholder="Enter email" required />
+                        <input value={to} id="to" name="to" onChange={this.handleChange} type="email" placeholder="Enter email" required />
                     </div>
                     <div className="mail-subject flex-column">
                         <input value={subject} onChange={this.handleChange} id="subject" name="subject" type="text" placeholder="Enter subject" required />

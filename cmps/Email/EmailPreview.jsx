@@ -1,6 +1,8 @@
 
 import { emailService } from "../../services/Email/email.service.js"
 import { utilService } from "../../services/util-service.js"
+import { eventBusService } from "../../services/event-bus-service.js"
+
 const { Link } = ReactRouterDOM
 export class EmailPreview extends React.Component {
 
@@ -15,6 +17,7 @@ export class EmailPreview extends React.Component {
     }
 
     setRead = () => {
+        if (!this.state.email.isRead) eventBusService.emit('unReadCount', -1)
         emailService.setIsRead(this.state.email)
     }
 

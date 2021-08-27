@@ -43,9 +43,12 @@ export class EmailApp extends React.Component {
     }
 
     onRemoveEmail = (emailId) => {
-        emailService.removeEmail(emailId);
-        this.props.history.push('/email/inbox')
-        this.loadEmails();
+        emailService.getEmailById(emailId).then((email) => {
+            emailService.removeEmail(emailId)
+            if (email.status !== 'trash') eventBusService.emit('unReadCount', -1)
+            this.props.history.push(`/email/${email.status}`)
+            this.loadEmails()
+        })
     }
 
     onSetStar = (email) => {

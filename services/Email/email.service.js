@@ -104,7 +104,8 @@ function setIsRead(email) {
 
 function removeEmail(emailId) {
     const idx = gEmails.findIndex(email => { return email.id === emailId })
-    gEmails[idx].status = 'trash'
+    if (gEmails[idx].status === 'trash') gEmails.splice(idx, 1)
+    else gEmails[idx].status = 'trash'
     storageService.saveToStorage(KEY, gEmails)
 }
 

@@ -13,7 +13,8 @@ export class EmailNav extends React.Component {
 
     componentDidMount() {
         eventBusService.on('unReadCount', (value) => {
-            this.setState({ count: this.state.count + value })
+            const count = (this.state.count + value >= 0) ? this.state.count + value : 0
+            this.setState({ count })
         })
         this.setState({ count: emailService.getUnreadEmailsCount() })
     }
