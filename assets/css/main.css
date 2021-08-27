@@ -5,10 +5,6 @@
 
 /* list-helpers */
 
-body {
-    background-color: rgb(240, 240, 240);
-}
-
 * {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

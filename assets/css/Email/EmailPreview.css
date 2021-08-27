@@ -32,11 +32,10 @@
 }
 
 .unread {
-  background-color: #4646461f;
+  background-color: #7373731f;
 }
 
 .read {
-  background-color: rgb(240, 240, 240);
   font-weight: 700;
 }
 
