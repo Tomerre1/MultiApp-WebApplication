@@ -73,8 +73,8 @@ export class EmailDetails extends React.Component {
                     </div>
                 </div>
                 <div className="flex space-between back-next-btns">
-                    <Link to={`/email/${emailService.getNextEmailId(email.id, -1)}`}> <i class="fas fa-arrow-left"></i></Link>
-                    <Link to={`/email/${emailService.getNextEmailId(email.id, 1)}`}><i class="fas fa-arrow-right"></i> </Link>
+                    <Link to={`/email/${emailService.getNextEmailId(email.id, -1)}`}> <i className="fas fa-arrow-left"></i></Link>
+                    <Link to={`/email/${emailService.getNextEmailId(email.id, 1)}`}><i className="fas fa-arrow-right"></i> </Link>
                 </div>
                 <button className="btn-mail-list" onClick={this.onBack}><i className="fa fa-envelope "></i></button>
             </main>

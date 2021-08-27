@@ -1,4 +1,5 @@
-import {emailService} from '../../services/Email/email.service.js'
+import { emailService } from '../../services/Email/email.service.js'
+import { eventBusService } from '../../services/event-bus-service.js'
 
 export class EmailAdd extends React.Component {
     state = {
@@ -6,7 +7,7 @@ export class EmailAdd extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({newMail: {}})
+        this.setState({ newMail: {} })
     }
 
     closeModal = () => {
@@ -24,6 +25,7 @@ export class EmailAdd extends React.Component {
     onSubmitMail = (e) => {
         e.preventDefault()
         emailService.addMail(this.state.newMail)
+        eventBusService.emit('unReadCount', 1)
         this.props.toggleCompose()
     }
 
@@ -32,7 +34,7 @@ export class EmailAdd extends React.Component {
             <section className="modal-compose-email">
                 <button className="closeModal" onClick={this.props.toggleCompose}>&times;</button>
                 <form className="compose-email flex" onSubmit={this.onSubmitMail} >
-                    <h2 class="mail-title"> Compose </h2>
+                    <h2 className="mail-title"> Compose </h2>
                     <div className="mail-to flex-column">
                         <input autoFocus id="to" name="to" onChange={this.handleChange} type="email" placeholder="Enter email" required />
                     </div>

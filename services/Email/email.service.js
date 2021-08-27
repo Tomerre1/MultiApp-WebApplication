@@ -13,7 +13,8 @@ export const emailService = {
     setIsTrash,
     sortEmails,
     addMail,
-    getNextEmailId
+    getNextEmailId,
+    getUnreadEmailsCount
 
 }
 
@@ -38,7 +39,7 @@ function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(
         to,
         isStar,
         isTrash,
-        isSent
+        isSent,
     }
 }
 
@@ -144,4 +145,8 @@ function getNextEmailId(emailId, diff) {
     if (nextEmailId === gEmails.length) nextEmailId = 0;
     else if (nextEmailId < 0) nextEmailId = gEmails.length - 1;
     return gEmails[nextEmailId].id;
+}
+
+function getUnreadEmailsCount(){
+    return gEmails.filter(email => !email.isRead).length;
 }
