@@ -97,14 +97,12 @@ header {
   display: flex;
   list-style: none;
 }
-.nav ul li {
+
+.nav ul a {
   margin: 1em;
-}
-.nav ul li a {
   text-decoration: none;
   padding: 0.2em 1.2em 0.9em 1.2em;
   border-radius: 10px 10px 0 0;
-  color: rgb(39, 39, 39);
   transition: all 0.4s;
   position: relative;
   z-index: 1;
@@ -113,7 +111,21 @@ header {
   justify-content: flex-start;
   align-items: center;
 }
-.nav ul li a::before {
+
+.active-nav-email {
+  transform: scaleY(1.1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 41px;
+  border-radius: 10px 10px 0 0;
+  background: #853333;
+  transform-origin: bottom;
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  color:white;
+}
+
+.nav ul a::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -128,10 +140,10 @@ header {
   z-index: -1;
   transition: all 0.4s;
 }
-.nav ul li a:hover::before {
+.nav ul a:hover::before {
   transform: scaleY(1.1);
 }
-.nav ul li a:hover {
+.nav ul a:hover {
   color: white;
 }
 
