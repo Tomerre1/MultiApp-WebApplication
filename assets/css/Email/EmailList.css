@@ -4,4 +4,6 @@
   overflow-y:scroll;
 }
 
-
+.email-container {
+  flex: 1;
+}

@@ -11,15 +11,15 @@
 .modal-compose-email {
   font-family: 'Roboto', sans-serif;
   background-color: #f5f5f5;
-  padding: 2rem;
   position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  bottom:5px;
+  right:0;
+  padding:0.3rem;
   border-radius: 10px;
   border: 1x solid #333;
   box-shadow: 0px 0px 10px black;
   z-index: 99999;
+  width:325px;
 }
 
 .closeModal {
