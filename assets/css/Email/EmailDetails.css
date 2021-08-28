@@ -20,7 +20,7 @@
 }
 
 .message-view-body {
-  margin: 2rem 0;
+  margin: 4rem 0;
 }
 
 .btn-mail-details.fa.fa-envelope,
@@ -72,5 +72,9 @@
 
   .email-details {
     height: 100%;
+  }
+
+  .message-view-body {
+    margin: unset;
   }
 }
