@@ -4,7 +4,12 @@ export const utilService = {
     getRandomInt,
     randomDate,
     getRandomColor,
-    convertDateToFormat
+    convertDateToFormat,
+
+    //Books
+    getRandomIntInclusive,
+    debounce,
+    getCurrencyIcon
 }
 
 function makeId(length = 6) {
@@ -57,4 +62,43 @@ function getRandomColor() {
     const orange = '#FF7F49'
     const colors = [red, 'white', blue, 'white', green, yellow, 'white', purple, pink, orange]
     return colors.splice(getRandomInt(0, 9), 1)
+}
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+}
+
+
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
+function getCurrencyIcon(book) {
+    let icon = ''
+    switch (book.listPrice.currencyCode) {
+        case 'ILS':
+            icon = '₪'
+            break;
+        case 'EUR':
+            icon = '€'
+            break;
+        case 'USD':
+            icon = '$'
+            break;
+
+        default:
+            break;
+    }
+    return icon
 }
