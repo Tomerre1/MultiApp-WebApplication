@@ -30,6 +30,7 @@ export class BooksApp extends React.Component {
         return (
             <section className='books-app main-layout'>
                 <React.Fragment>
+                <h1 className="Logo books-logo">MultiBook</h1>
                     <BookFilter onSetFilter={this.onSetFilter} />
                     <BookList books={books} />
                 </React.Fragment>

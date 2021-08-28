@@ -76,7 +76,7 @@ export class BookDetails extends React.Component {
 
                             <div className="item-preview">
                                 {book.listPrice.isOnSale && <div className="sale-img">
-                                    <img src="../assets/img/sale-book.png" />
+                                    <img src="assets/img/sale-book.png" />
                                 </div>}
                                 <img src={book.thumbnail} />
                             </div>

@@ -143,7 +143,9 @@ export class NoteList extends React.Component {
 
     return (
       <section className="note-container">
+        <h1 className="Logo">MultiNotes</h1>
         <header className="note-header">
+
         <NoteFilter onSetFilter={this.onSetFilter} />
         </header>
         <NoteAdd onNoteAdd={this.onNoteAdd}/>
