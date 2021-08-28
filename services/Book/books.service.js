@@ -478,11 +478,19 @@ function getBooks() {
     return books
 }
 
-function addReview(book, review) {
+function addReview(bookToAddReview, review) {
+    let bookIdx = getBookIdxById(bookToAddReview.id)
+    let book = gBooks[bookIdx]
     if (!book.reviews) book.reviews = []
     review.id = utilService.makeId()
     book.reviews.push(review);
     storageService.saveToStorage(KEY, gBooks)
+}
+
+function getBookIdxById(bookId) {
+    return gBooks.findIndex((book) => {
+        return book.id === bookId
+    })
 }
 
 function removeReview(book, reviewId) {
