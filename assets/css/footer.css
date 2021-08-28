@@ -28,16 +28,26 @@ footer p a {
   color: #fff;
 }
 
-.contact-us > a,
-.app-name {
-  height: 60px;
+.contact-us > a {
   display: block;
   text-decoration: none;
-  font-size: 20px;
-  line-height: 60px;
+  font-size: 1.2rem;
   color: white;
   cursor: pointer;
   transition: transform 0.2s linear;
+}
+
+.app-name {
+  cursor: pointer;
+  transition: transform 0.2s linear;
+  font: bold 1.4rem 'Open Sans', sans-serif;
+  color: #d89909c9;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%),
+    0 1px 3px rgb(0 0 0 / 30%), 0 3px 5px rgb(0 0 0 / 20%),
+    0 5px 10px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 20%),
+    0 20px 20px rgb(0 0 0 / 15%);
+  margin: 0;
 }
 
 .contact-us {
