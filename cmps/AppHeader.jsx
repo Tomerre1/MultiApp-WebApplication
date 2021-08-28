@@ -28,18 +28,19 @@ class _AppHeader extends React.Component {
                 </div>
                 <div className="nav-icon">
                 <i onClick={ this.onToggleNav } className="fas fa-th fa-2x" aria-hidden="true"></i>
-                </div>
+                
 
                 {isNavOpen &&
                     <nav>
                         <div className="links-icons-container">
-                            <NavLink exact to="/"><li><i className="fas fa-home"></i></li></NavLink>
-                            <NavLink to="/book"><li><i className="fas fa-book"></i></li></NavLink>
-                            <NavLink to="/note"> <li><i className="fas fa-sticky-note"></i></li></NavLink>
-                            <NavLink to="/email"><li><i className="fas fa-paper-plane"></i></li></NavLink>
+                            <NavLink exact to="/"><i className="fas fa-home"></i></NavLink>
+                            <NavLink to="/note"> <i className="fas fa-sticky-note"></i></NavLink>
+                            <NavLink to="/book"><i className="fas fa-book"></i></NavLink>
+                            <NavLink to="/email"><i className="fas fa-paper-plane"></i></NavLink>
                         </div>
                     </nav>
                 }
+                </div>
             </section>
         )
     }
