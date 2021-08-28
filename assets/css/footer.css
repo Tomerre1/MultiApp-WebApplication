@@ -10,7 +10,6 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
-  text-align: center;
   color: #fff;
   background-color: #414a4f;
   justify-content: space-evenly;
@@ -29,13 +28,12 @@ footer p a {
   color: #fff;
 }
 
-.contact-us > a {
-  width: 60px;
+.contact-us > a,
+.app-name {
   height: 60px;
   display: block;
-  border-radius: 50px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 20px;
   line-height: 60px;
   color: white;
   cursor: pointer;
@@ -46,12 +44,13 @@ footer p a {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 5px;
 }
 
 .contact-us .name:hover,
 .contact-us .app-name:hover,
-.contact-us .fab.fa-linkedin:hover  {
-  color: #0E76A8;
+.contact-us .fab.fa-linkedin:hover,
+.app-name:hover {
+  color: #0e76a8;
   transform: translateY(-10px);
-  
 }
