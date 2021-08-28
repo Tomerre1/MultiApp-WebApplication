@@ -11,7 +11,7 @@ import { AppFooter } from './cmps/AppFooter.jsx'
 export function App() {
     return (
         <Router>
-            <header>
+            <header className="app-header">
                 <AppHeader />
             </header>
 
