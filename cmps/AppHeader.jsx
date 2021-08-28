@@ -16,15 +16,13 @@ class _AppHeader extends React.Component {
         this.setState({ isNavOpen: !this.state.isNavOpen })
     }
 
-
-
     render() {
         const { isNavOpen } = this.state
 
         return (
             <section className="header-container">
                 <div className="header-logo">
-                    <h1 onClick={() => props.history.push('/')}>MultiApp</h1>
+                    <h1 onClick={() => this.props.history.push('/')}>MultiApp</h1>
                 </div>
                 <div className="nav-icon">
                 <i onClick={ this.onToggleNav } className="fas fa-th fa-2x" aria-hidden="true"></i>

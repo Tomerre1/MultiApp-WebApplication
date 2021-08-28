@@ -1,3 +1,5 @@
+const { NavLink } = ReactRouterDOM
+
 export class Home extends React.Component {
     render() {
         return (
@@ -14,15 +16,15 @@ export class Home extends React.Component {
                     <div className="img-container">
                         <div className="tablets">
                             <img src="assets/img/book-tablet.png"/>
-                            <button className="try-it-now-btns">Try Books</button>
+                            <NavLink to="/book"><button className="try-it-now-btns">Try Books</button></NavLink>
                         </div>
                         <div className="tablets">
                             <img src="assets/img/gmail-tablet.png" />
-                            <button className="try-it-now-btns">Try Mail</button>
+                            <NavLink to="/email"><button className="try-it-now-btns">Try Mail</button></NavLink>
                         </div>
                         <div className="tablets">
                             <img src="assets/img/note-tablet.png" />
-                            <button className="try-it-now-btns">Try Keep</button>
+                            <NavLink to="/note"><button className="try-it-now-btns">Try Keep</button></NavLink>
                         </div>
                     </div>
                 </div>

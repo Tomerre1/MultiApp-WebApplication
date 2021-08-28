@@ -1,4 +1,5 @@
 
+const { NavLink } = ReactRouterDOM
 
 export class AppFooter extends React.Component {
     render() {
@@ -8,7 +9,7 @@ export class AppFooter extends React.Component {
                     <a target="_blank" href="https://il.linkedin.com/in/tomer-revah-software-engineering" className="fab fa-linkedin"></a>
                     <a target="_blank" href="https://il.linkedin.com/in/tomer-revah-software-engineering" className="name">Tomer</a>
                 </div>
-                <a className="app-name">MultiApp</a>
+                <NavLink exact to="/"><a className="app-name pointer">MultiApp</a></NavLink>
                 <div className="contact-us">
                     <a target="_blank" href="https://www.linkedin.com/in/matan-levi-561115199/" className="fab fa-linkedin"></a>
                     <a target="_blank" href="https://www.linkedin.com/in/matan-levi-561115199/" className="name">Matan</a>
