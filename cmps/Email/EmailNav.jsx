@@ -21,7 +21,7 @@ export class EmailNav extends React.Component {
         return (
             <header className="header-nav">
                 <p className="Logo">MultiMail</p>
-                <input type="checkbox" name="" className="hamburger" onClick={this.props.onToggleMobileMenu}></input>
+                <button className="hamburger" onClick={this.props.onToggleMobileMenu}></button>
                 <nav className="nav">
                     <ul className="clean-list">
                         <NavLink activeClassName="active-nav-email" className="compus-mail" onClick={() => { this.props.toggleCompose(); this.props.onToggleMobileMenu() }}> <i class="fa fa-plus" aria-hidden="true"></i>Compose</NavLink>
