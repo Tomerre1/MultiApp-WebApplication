@@ -10,7 +10,8 @@ export class EmailApp extends React.Component {
         emails: null,
         filterBy: { isRead: null, isStar: null, status: 'inbox', text: '' },
         sortBy: null,
-        isCompose: false
+        isCompose: false,
+        isMobileMenuOpen: false
     }
     removeBusEvent
     newMail = null
@@ -45,7 +46,7 @@ export class EmailApp extends React.Component {
         emailService.getEmailById(emailId).then((email) => {
             const prevStatus = email.status
             emailService.removeEmail(emailId)
-            if (email.status !== 'trash') 
+            if (email.status !== 'trash')
                 eventBusService.emit('unReadCount', -1)
             this.props.history.push(`/email/${prevStatus}`)
             this.loadEmails()
@@ -70,21 +71,26 @@ export class EmailApp extends React.Component {
         this.setState({ isCompose: !this.state.isCompose }, this.loadEmails);
     }
 
+    onToggleMobileMenu = (isSwitchingNavs) => {
+        this.setState({ isMobileMenuOpen: !this.state.isMobileMenuOpen });
+    };
+
 
     render() {
-        const { emails, isCompose } = this.state
+        const { emails, isCompose, isMobileMenuOpen } = this.state
         const { params } = this.props.match
         if (!emails) return <div>Loading.. EmailApp</div>
         return (
-            <main className="email-app">
-                <EmailNav toggleCompose={this.toggleCompose} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />
+            <main className={`email-app ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+                <div className="screen" onClick={this.onToggleMobileMenu}></div>
+                <EmailNav toggleCompose={this.toggleCompose} onToggleMobileMenu={this.onToggleMobileMenu} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />
                 <div className="email-container">
-                    {!params.emailId && <EmailList emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} loadEmails={this.loadEmails} />}
+                    {!params.emailId && <EmailList onClick={this.onToggleMobileMenu} emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} loadEmails={this.loadEmails} />}
                     {params.emailId && <EmailDetails onRemoveEmail={this.onRemoveEmail} />}
                     {isCompose && <EmailAdd toggleCompose={this.toggleCompose} newMail={this.newMail} />}
 
                 </div>
-            </main>
+            </main >
         )
     }
 }

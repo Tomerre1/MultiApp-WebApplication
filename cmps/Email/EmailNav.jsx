@@ -21,16 +21,16 @@ export class EmailNav extends React.Component {
         return (
             <header className="header-nav">
                 <p className="Logo">MultiMail</p>
-                <input type="checkbox" name="" className="btn" />
+                <input type="checkbox" name="" className="hamburger" onClick={this.props.onToggleMobileMenu}></input>
                 <nav className="nav">
                     <ul className="clean-list">
-                        <NavLink activeClassName="active-nav-email" className="compus-mail" onClick={this.props.toggleCompose}> Compose</NavLink>
-                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: null, ['isStar']: null, status: 'inbox' }) }} to={`/email/inbox`}><i className="fas fa-inbox"></i>Inbox</NavLink>
-                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', status: 'sent' }) }} to={`/email/sent`}><i className="far fa-paper-plane"></i>Sent</NavLink>
-                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: true }) }} to={`/email/read`}><i className="fas fa-sign-out-alt"></i>Read</NavLink>
-                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: false }) }} to={`/email/unread`}><i className="fas fa-envelope-open"></i>UnRead <span>{count}</span></NavLink>
-                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isStar']: true }) }} to={`/email/star`}><i className="fa fa-star"></i>Star</NavLink>
-                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', status: 'trash' }) }} to={`/email/trash`}><i className="fa fa-trash"></i>Trash</NavLink>
+                        <NavLink activeClassName="active-nav-email" className="compus-mail" onClick={() => { this.props.toggleCompose(); this.props.onToggleMobileMenu() }}> Compose</NavLink>
+                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: null, ['isStar']: null, status: 'inbox' }); this.props.onToggleMobileMenu() }} to={`/email/inbox`}><i className="fas fa-inbox"></i>Inbox</NavLink>
+                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', status: 'sent' }); this.props.onToggleMobileMenu() }} to={`/email/sent`}><i className="far fa-paper-plane"></i>Sent</NavLink>
+                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: true }); this.props.onToggleMobileMenu() }} to={`/email/read`}><i className="fas fa-sign-out-alt"></i>Read</NavLink>
+                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: false }); this.props.onToggleMobileMenu() }} to={`/email/unread`}><i className="fas fa-envelope-open"></i>UnRead <span>{count}</span></NavLink>
+                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isStar']: true }); this.props.onToggleMobileMenu() }} to={`/email/star`}><i className="fa fa-star"></i>Star</NavLink>
+                        <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', status: 'trash' }); this.props.onToggleMobileMenu() }} to={`/email/trash`}><i className="fa fa-trash"></i>Trash</NavLink>
                     </ul>
                 </nav>
             </header>

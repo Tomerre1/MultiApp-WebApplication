@@ -24,6 +24,7 @@ header {
 .nav ul {
   display: flex;
   list-style: none;
+  height: 100px;
 }
 
 .nav ul a {
@@ -75,16 +76,17 @@ header {
   color: white;
 }
 
-.btn {
+.hamburger {
   position: relative;
   width: 25px;
   height: 25px;
-  -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
+  border: 0;
+  background: transparent;
   display: none;
 }
-.btn::before {
+.hamburger::before {
   content: '\f0c9';
   position: absolute;
   top: 0;
@@ -93,34 +95,43 @@ header {
   font-weight: 700;
   font-size: 2em;
 }
-
 @media (max-width: 800px) {
-  .btn {
+  .hamburger {
     display: flex;
     z-index: 100;
   }
   header {
     justify-content: space-between;
   }
+  .screen {
+    inset: 0;
+    position: fixed;
+    background-color: lightgrey;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 4;
+    transition: opacity 0.2s ease-in;
+  }
+
+  .email-app.mobile-open .screen {
+    opacity: 0.8;
+    pointer-events: all;
+  }
+
+  .nav ul a {
+    background: #f0911d;
+  }
+
+  .email-app.mobile-open .nav {
+    position: fixed;
+    transform: translateX(-4%);
+  }
+
   .nav {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    background: #f8f8f8;
-    transform: translateY(-110%);
-    transition: all 0.4s;
-  }
-  input:checked ~ .nav {
-    transform: translateY(0%);
-    height: 100%;
-    opacity: 0.95;
-    background: #999a9a;
-  }
-  input:checked::before {
-    content: '\f00d';
+    position: fixed;
+    transform: translateX(-130%);
+    z-index: 5;
+    transition: transform 0.2s ease-out;
   }
   .nav ul {
     flex-direction: column;
