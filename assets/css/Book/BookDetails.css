@@ -33,16 +33,17 @@
 
 .item-preview {
     align-self: center;
+    position: relative;
 }
 
 .item-preview>img {
     width: 100%;
 }
 
-.sale-img {
-    position: relative;
-    width: 216px;
-    height: 322px;
+.sale-img>img {
+    position: absolute;
+    animation: blink-2 1.5s infinite both;
+    width: 100%;
 }
 
 .item-details>h1 {

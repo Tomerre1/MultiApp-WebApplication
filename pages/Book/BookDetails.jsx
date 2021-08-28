@@ -87,12 +87,10 @@ export class BookDetails extends React.Component {
 
 
                                 <div className="pane__section">
-                                    <p>
-                                        <LongTxt text={book.description} isLongTxtShown={this.state.isLongTxtShown} toggleTxtShown={this.toggleTxtShown} />
-                                    </p>
+                                    <LongTxt text={book.description} isLongTxtShown={this.state.isLongTxtShown} toggleTxtShown={this.toggleTxtShown} />
                                 </div>
 
-                                <div class="pane__section">
+                                <div className="pane__section">
                                     <dl>
                                         <dt>Authors</dt>
                                         <dd>{[...book.authors.join(', ')]}</dd>
@@ -110,7 +108,7 @@ export class BookDetails extends React.Component {
                                 </div>
 
                                 <div className="pane__section clearfix">
-                                    <span className="item-price">{book.listPrice.amount}<span class="item-price__units">{utilService.getCurrencyIcon(book)}</span>
+                                    <span className="item-price">{book.listPrice.amount}<span className="item-price__units">{utilService.getCurrencyIcon(book)}</span>
                                     </span><a className="buy-button" href="#">Purchase</a>
                                 </div>
 
