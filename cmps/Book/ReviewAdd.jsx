@@ -1,7 +1,7 @@
 import { bookService } from "../../services/Book/books.service.js"
 import { ReviewList } from "./ReviewList.jsx";
 import { ReviewModal } from "./ReviewModal.jsx";
-import {eventBusService } from "../../services/event-bus-service.js"
+import { eventBusService } from "../../services/event-bus-service.js"
 export class ReviewAdd extends React.Component {
 
     state = {
@@ -27,13 +27,13 @@ export class ReviewAdd extends React.Component {
         this.toggleModal()
         bookService.addReview(this.state.book, this.state.review)
         this.setState(prevState => ({ book: { ...prevState.book } }))
-        eventBusService.emit('user-msg', {txt:'Review Created', type:'success'})
+        eventBusService.emit('user-msg', { txt: 'Review Created', type: 'success' })
     }
 
     onRemoveReview = (reviewId) => {
         bookService.removeReview(this.state.book, reviewId)
         this.setState(prevState => ({ book: { ...prevState.book } }))
-        eventBusService.emit('user-msg', {txt:'Review Deleted', type:'danger'})
+        eventBusService.emit('user-msg', { txt: 'Review Deleted', type: 'danger' })
     }
 
 
@@ -51,7 +51,8 @@ export class ReviewAdd extends React.Component {
         return (
             <React.Fragment>
                 {book.reviews && <ReviewList reviews={book.reviews} onRemoveReview={this.onRemoveReview} />}
-                <button className="book-btn" onClick={this.toggleModal}>Enter Review</button>
+                    <button className="btn-add-new-book review-btn" onClick={this.toggleModal}>Write a Review</button>
+                    <button className="btn-add-new-book" onClick={this.props.onBack}>Back To Book List</button>
                 {showModal && <ReviewModal review={review} setStars={this.setStars} handleChange={this.handleChange} toggleModal={this.toggleModal} onAddReview={this.onAddReview} />}
             </React.Fragment>
         );

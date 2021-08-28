@@ -118,8 +118,10 @@ export class BookDetails extends React.Component {
                     </main>
                 </section>
                 <section className="book-details-footer">
-                    <ReviewAdd book={book} />
-                    <button className="book-btn" onClick={this.onBack}>Back To Book List</button>
+                    <div className="book-reviews">
+                        <ReviewAdd book={book} onBack={this.onBack} />
+                    </div>
+                    
                 </section>
             </React.Fragment>
         )

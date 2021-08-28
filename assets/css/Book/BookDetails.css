@@ -115,7 +115,11 @@ dd {
 .book-details-footer {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 58px;
+    margin-bottom: 40px;
+}
+
+.review-btn {
+    margin-right: 3rem;
 }
 
 .underline {
