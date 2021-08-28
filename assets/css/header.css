@@ -1,1 +1,10 @@
 /*HEADER*/
+
+.app-header {
+    display: unset;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
