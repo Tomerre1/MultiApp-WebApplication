@@ -31,10 +31,10 @@ class _AppHeader extends React.Component {
                 {isNavOpen &&
                     <nav>
                         <div className="links-icons-container">
-                            <NavLink exact to="/"><i className="fas fa-home"></i></NavLink>
-                            <NavLink to="/note"> <i className="fas fa-sticky-note"></i></NavLink>
-                            <NavLink to="/book"><i className="fas fa-book"></i></NavLink>
-                            <NavLink to="/email"><i className="fas fa-paper-plane"></i></NavLink>
+                            <NavLink onClick={this.onToggleNav} exact to="/"><i className="fas fa-home"></i></NavLink>
+                            <NavLink onClick={this.onToggleNav} to="/note"> <i className="fas fa-sticky-note"></i></NavLink>
+                            <NavLink onClick={this.onToggleNav} to="/book"><i className="fas fa-book"></i></NavLink>
+                            <NavLink onClick={this.onToggleNav} to="/email"><i className="fas fa-paper-plane"></i></NavLink>
                         </div>
                     </nav>
                 }

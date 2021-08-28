@@ -133,6 +133,13 @@ dd {
     padding: 1rem;
 }
 
+.book-reviews {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 @keyframes blink-2 {
     0% {
         opacity: 1;

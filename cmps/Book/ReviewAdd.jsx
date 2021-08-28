@@ -24,8 +24,8 @@ export class ReviewAdd extends React.Component {
         ev.preventDefault()
         const { stars } = this.state.review
         if (!stars) return
-        this.toggleModal()
         bookService.addReview(this.state.book, this.state.review)
+        this.toggleModal()
         this.setState(prevState => ({ book: { ...prevState.book } }))
         eventBusService.emit('user-msg', { txt: 'Review Created', type: 'success' })
     }
@@ -51,8 +51,10 @@ export class ReviewAdd extends React.Component {
         return (
             <React.Fragment>
                 {book.reviews && <ReviewList reviews={book.reviews} onRemoveReview={this.onRemoveReview} />}
+                <div className="book-details-btn-footer">
                     <button className="btn-add-new-book review-btn" onClick={this.toggleModal}>Write Review</button>
                     <button className="btn-add-new-book" onClick={this.props.onBack}>Books List</button>
+                </div>
                 {showModal && <ReviewModal review={review} setStars={this.setStars} handleChange={this.handleChange} toggleModal={this.toggleModal} onAddReview={this.onAddReview} />}
             </React.Fragment>
         );
