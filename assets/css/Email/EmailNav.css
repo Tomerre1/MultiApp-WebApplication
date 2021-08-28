@@ -100,7 +100,7 @@ header {
     z-index: 100;
   }
   header {
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
   .nav {
     width: 100%;

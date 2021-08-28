@@ -13,15 +13,15 @@ export class Home extends React.Component {
                     <h3 className="hero-title">Loved by over 10 million users around the world!!!</h3>
                     <div className="img-container">
                         <div className="tablets">
-                            <img src="../assets/img/book-tablet.png"/>
+                            <img src="assets/img/book-tablet.png"/>
                             <button className="try-it-now-btns">Try Books</button>
                         </div>
                         <div className="tablets">
-                            <img src="../assets/img/gmail-tablet.png" />
+                            <img src="assets/img/gmail-tablet.png" />
                             <button className="try-it-now-btns">Try Mail</button>
                         </div>
                         <div className="tablets">
-                            <img src="../assets/img/note-tablet.png" />
+                            <img src="assets/img/note-tablet.png" />
                             <button className="try-it-now-btns">Try Keep</button>
                         </div>
                     </div>
