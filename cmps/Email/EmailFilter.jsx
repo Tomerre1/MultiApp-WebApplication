@@ -33,7 +33,7 @@ export class EmailFilter extends React.Component {
                         className={`fas ${(this.state.sortBy.numeric) ? 'fa-sort-numeric-up-alt' : 'fa-sort-numeric-down-alt'}`} aria-hidden="true"></i>
                     <i onClick={() => { this.setSortBy({ ...this.state.sortBy , alpha: !this.state.sortBy.alpha , value: 'alpha' })}}
                         className={`fas ${(!this.state.sortBy.alpha) ? 'fa-sort-alpha-down' : 'fa-sort-alpha-up-alt'}`} aria-hidden="true"></i>
-                    <input className="search-list" name="text" value={text} onChange={this.handleChange} type="search" placeholder='Search a mail' />
+                    <input autoFocus className="search-list" name="text" value={text} onChange={this.handleChange} type="search" placeholder='Search a mail' />
                 </div>
             </form>
         )
