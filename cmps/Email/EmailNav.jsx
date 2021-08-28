@@ -24,7 +24,7 @@ export class EmailNav extends React.Component {
                 <input type="checkbox" name="" className="hamburger" onClick={this.props.onToggleMobileMenu}></input>
                 <nav className="nav">
                     <ul className="clean-list">
-                        <NavLink activeClassName="active-nav-email" className="compus-mail" onClick={() => { this.props.toggleCompose(); this.props.onToggleMobileMenu() }}> Compose</NavLink>
+                        <NavLink activeClassName="active-nav-email" className="compus-mail" onClick={() => { this.props.toggleCompose(); this.props.onToggleMobileMenu() }}> <i class="fa fa-plus" aria-hidden="true"></i>Compose</NavLink>
                         <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: null, ['isStar']: null, status: 'inbox' }); this.props.onToggleMobileMenu() }} to={`/email/inbox`}><i className="fas fa-inbox"></i>Inbox</NavLink>
                         <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', status: 'sent' }); this.props.onToggleMobileMenu() }} to={`/email/sent`}><i className="far fa-paper-plane"></i>Sent</NavLink>
                         <NavLink activeClassName="active-nav-email" onClick={() => { this.props.onSetFilter({ ['text']: '', ['isRead']: true }); this.props.onToggleMobileMenu() }} to={`/email/read`}><i className="fas fa-sign-out-alt"></i>Read</NavLink>
