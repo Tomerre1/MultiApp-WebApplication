@@ -61,7 +61,7 @@ export class ReviewAdd extends React.Component {
         return (
             <React.Fragment>
                 {book.reviews && <ReviewList reviews={book.reviews} onRemoveReview={this.onRemoveReview} />}
-                <div className="book-details-btn-footer">
+                <div className="book-details-btn-footer flex">
                     <button className="btn-add-new-book review-btn" onClick={this.toggleModal}>Write Review</button>
                     <button className="btn-add-new-book" onClick={this.props.onBack}>Books List</button>
                 </div>
