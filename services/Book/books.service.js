@@ -503,7 +503,7 @@ function removeReview(book, reviewId) {
 
 function getGoogleBook(googleBook) {
     const storage = storageService.loadFromStorage(googleBook.toLowerCase())
-    if (storage && storage.length) { console.log('from storage'); return Promise.resolve(storage) }
+    if (storage && storage.length) { return Promise.resolve(storage) }
     const url = `https://www.googleapis.com/books/v1/volumes?q=${googleBook}`;
     return fetch(url)
         .then(res => res.json())

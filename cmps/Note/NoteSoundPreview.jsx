@@ -1,5 +1,4 @@
 export function NoteTextPreview({ note }) {
-    console.log('note',note)
     return (
        
         <div className="note">

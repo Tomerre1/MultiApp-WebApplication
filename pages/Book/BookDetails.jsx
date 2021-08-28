@@ -28,7 +28,6 @@ export class BookDetails extends React.Component {
         const id = this.props.match.params.bookId
         bookService.getBookById(id)
             .then(book => {
-                console.log('%c  reviews:', 'color: #0e93e0;background: #aaefe5;', book.reviews);
                 if (!book) this.props.history.push('/')
                 this.setState({ book: { ...book } })
             })
