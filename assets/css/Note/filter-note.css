@@ -14,7 +14,7 @@
     color: rgb(42, 40, 40);
 }
 
-header>select {
+.note-header>select {
     cursor: pointer;
     height: 3rem;
     width: 6rem;
@@ -26,6 +26,6 @@ header>select {
     padding-inline-start: 5px;
 }
 
-header>select:hover {
-    background-color: transparent;
+.note-header>select:hover {
+    background-color: #f9f5f5;
 }

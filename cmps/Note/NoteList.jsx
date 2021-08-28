@@ -143,7 +143,7 @@ export class NoteList extends React.Component {
 
     return (
       <section className="note-container">
-        <header>
+        <header className="note-header">
         <NoteFilter onSetFilter={this.onSetFilter} />
         </header>
         <NoteAdd onNoteAdd={this.onNoteAdd}/>
