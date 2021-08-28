@@ -16,13 +16,19 @@ export function GoogleBookPreview({ book }) {
 
     return (
         <div className="card" key={book.id}>
-            <img src={book.thumbnail} />
-            <div className="card-details" >
-                <h4>{book.title}</h4>
-                <h4>Price: {book.listPrice.amount}{utilService.getCurrencyIcon(book)}</h4>
-                <button className="pointer" onClick={() => onAddBook(book)}>Add Book</button>
+            <div className="book-gallery-header">
+                <div className="heading">
+                    <h1 className="main_heading">{book.title}</h1>
+                </div>
             </div>
+            <div className="book-img-container">
+                <img className="book-img" src={book.thumbnail} alt="" />
+            </div>
+            <div className="book-price">
+                <h2>Price: {book.listPrice.amount}{utilService.getCurrencyIcon(book)}</h2>
+            </div>
+            <button className="pointer btn-add-new-book" onClick={() => onAddBook(book)}>Add</button>
+
         </div>
     )
 }
-

@@ -5,13 +5,14 @@ export class EmailAdd extends React.Component {
     state = {
         newMail: {
             subject: '',
-            body: '', 
+            body: '',
             to: ''
         }
     }
 
     componentDidMount() {
-        this.setState({ newMail: this.props.newMail })
+        const { newMail } = this.props
+        if (newMail) this.setState({ newMail })
     }
 
     closeModal = () => {
@@ -34,6 +35,7 @@ export class EmailAdd extends React.Component {
     }
 
     render() {
+        if (!this.state.newMail) return <div>Loading..</div>
         const { subject, body, to } = this.state.newMail
         return (
             <section className="modal-compose-email">

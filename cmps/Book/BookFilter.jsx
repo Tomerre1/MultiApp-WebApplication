@@ -34,7 +34,7 @@ class _BookFilter extends React.Component {
         return (
             <React.Fragment>
                 {/* <Link to={`/book/AddNewBook`}>Add New Book</Link> */}
-                <button className="book-btn" onClick={this.onAddNewBook}>Add New Book</button>
+                <button className="btn-add-book fa fa-plus" onClick={this.onAddNewBook}></button>
                 <form className='book-filter'>
                     <label htmlFor='by-title'>Title: </label>
                     <input

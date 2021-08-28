@@ -13,7 +13,7 @@ export class EmailApp extends React.Component {
         isCompose: false
     }
     removeBusEvent
-    newMail = {}
+    newMail = null
     componentDidMount() {
         this.removeFilterEvent = eventBusService.on('sortBy', (sortBy) => {
             this.setState({ sortBy }, this.loadEmails);
@@ -74,7 +74,6 @@ export class EmailApp extends React.Component {
     render() {
         const { emails, isCompose } = this.state
         const { params } = this.props.match
-        console.log('%c  params:', 'color: #0e93e0;background: #aaefe5;', params);
         if (!emails) return <div>Loading.. EmailApp</div>
         return (
             <main className="email-app">

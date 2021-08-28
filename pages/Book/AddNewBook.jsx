@@ -28,7 +28,6 @@ export class AddNewBook extends React.Component {
             <section className="add-new-book main-layout">
                 <h1>Search New book</h1>
                 <form className='new-book-search' onSubmit={(e) => { e.preventDefault() }}>
-                    <label htmlFor='by-name'>Book Name: </label>
                     <input
                         ref={this.inputBookNameRef}
                         name='bookName'
