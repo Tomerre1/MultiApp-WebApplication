@@ -4,7 +4,35 @@
     display: unset;
 }
 
+.header-logo>h1 {
+    font: bold 35px 'Open Sans', sans-serif;
+    color: #d89909c9;
+    cursor: pointer;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 30%), 0 3px 5px rgb(0 0 0 / 20%), 0 5px 10px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 20%), 0 20px 20px rgb(0 0 0 / 15%);
+}
+
 .header-container {
     display: flex;
     justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+    align-items: center;
+    color: #fff;
+    background-color: #414a4f;
+    box-shadow: 0 0 8px 1px #00000085;
+    padding: 0vw 5vw;
+}
+
+.nav-icon {
+    position: relative;
+}
+
+.nav-icon>i {
+    font-size: 45px;
+    color: #d89909c9;
+    cursor: pointer;
+}
+
+.links-icons-container {
+    position: absolute;
 }
