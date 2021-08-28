@@ -41,9 +41,9 @@
 }
 
 .sale-img>img {
+    width: 70%;
     position: absolute;
     animation: blink-2 1.5s infinite both;
-    width: 100%;
 }
 
 .item-details>h1 {

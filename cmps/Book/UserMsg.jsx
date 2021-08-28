@@ -29,7 +29,7 @@ export class UserMsg extends React.Component {
 
   render() {
     const { msg } = this.state
-    if (!msg) return <React.Fragment> </React.Fragment>
+    if (!msg) return <div>Loading... </div>
     return (
       <section className={`user-msg ${msg.type || ''}`}>
         <h1>{msg.txt}</h1>

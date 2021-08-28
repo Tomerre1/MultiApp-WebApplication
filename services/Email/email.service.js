@@ -28,7 +28,7 @@ const loggedinUser = { email: 'Tomer_Matan@MultiApp.com', fullName: 'Tomer&Matan
 
 function getLoggedInUser() { return loggedinUser }
 
-function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(10), body = utilService.makeLorem(),
+function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(5), body = utilService.makeLorem(),
     isRead = Math.random() > 0.5, sentAt = utilService.randomDate(), from = 'Tomer&Matan', to = 'Tomer&Matan', isStar = false, status = "inbox") {
     return {
         id,

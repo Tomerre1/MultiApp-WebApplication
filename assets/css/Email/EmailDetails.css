@@ -16,7 +16,11 @@
 }
 
 .message-view-to {
+  opacity: 0.7;
+}
+.message-view-date {
   opacity: 0.5;
+  font-size:0.8rem;
 }
 
 .message-view-body {
@@ -34,6 +38,12 @@
 .btn-mail-details.fa.fa-envelope {
   color: #25d366;
   opacity: 0.5;
+}
+
+.book-reviews{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .btn-mail-details.fa.fa-envelope:hover,

@@ -1,5 +1,6 @@
 import { EmailNav } from "../../cmps/Email/EmailNav.jsx"
 import { emailService } from "../../services/Email/email.service.js"
+import { utilService } from "../../services/util-service.js"
 const { withRouter } = ReactRouterDOM;
 
 const { Link } = ReactRouterDOM
@@ -44,6 +45,9 @@ class _EmailDetails extends React.Component {
                     </div>
                     <div className="message-view-to">
                         To: {emailService.getLoggedInUser().email}
+                    </div>
+                    <div className="message-view-date">
+                        {utilService.convertDateToFormat(email.sentAt)}
                     </div>
                     <hr />
                     <div className="message-view-body">
