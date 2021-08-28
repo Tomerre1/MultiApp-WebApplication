@@ -28,7 +28,7 @@ export class NoteActions extends React.Component {
                 <button className="action-btn note-action-btn" onClick={() => { this.props.onNoteDuplicate(note) }}><i className="fas fa-copy lightpink"></i></button>
                 <button className="action-btn note-action-btn" onClick={() => { this.toggleStyleMode() }}><i className="fas fa-palette palette"></i></button>
                 <Link to={`/email/inbox/?subject=${this.props.onSendAsEmail(note)}`}>
-                <button className="action-btn note-action-btn"><i class="fas fa-paper-plane"></i></button>
+                <button className="action-btn note-action-btn"><i className="fas fa-paper-plane"></i></button>
                 </Link>
                 
                 {note.type === 'todos' && <button className="action-btn note-action-btn" onClick={() => { this.props.onAddTodo(note.info.todos , 'New Todo') }}><i className="fas fa-plus gold"></i></button>}
