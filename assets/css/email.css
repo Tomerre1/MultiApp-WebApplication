@@ -9,11 +9,13 @@
   flex-direction: column;
   justify-content: space-between;
   gap:24px;
+  margin-block-start: 1rem;
+  align-items: center;
 }
 
 @media (min-width: 800px) {
   .email-app {
     flex-direction: row;
+    align-items: unset;
   }
-
 }
