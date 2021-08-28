@@ -19,12 +19,12 @@ export class EmailPreview extends React.Component {
     onToggleRead = () => {
         // debugger;
         if (!this.state.email.isRead) eventBusService.emit('unReadCount', -1)
-        else if(this.state.email.isRead) eventBusService.emit('unReadCount', +1)
+        else if (this.state.email.isRead) eventBusService.emit('unReadCount', +1)
         emailService.toggleIsRead(this.state.email)
         this.props.loadEmails()
         this.setState({ email: { ...this.state.email, isRead: this.state.email.isRead } })
     }
-    
+
     onSetRead = () => {
         // debugger;
         if (!this.state.email.isRead) eventBusService.emit('unReadCount', -1)
@@ -44,7 +44,7 @@ export class EmailPreview extends React.Component {
     }
 
 
-    
+
 
 
 
@@ -57,14 +57,14 @@ export class EmailPreview extends React.Component {
                     <div className="flex sender">
                         <div>
 
-                            <button className="star-btn" onClick={(event) => { event.preventDefault(); this.props.onSetStar(email) }}>
+                            <button className="star-btn" onClick={(event) => { event.preventDefault(); event.stopPropagation(); this.props.onSetStar(email) }}>
                                 <i className={`fas fa-star ${(email.isStar) ? 'active' : ''}`} aria-hidden="true" ></i>
                             </button>
-                            <button className="remove-btn" onClick={(event) => { event.preventDefault(); this.props.onRemoveEmail(email.id) }}>
+                            <button className="remove-btn" onClick={(event) => { event.preventDefault(); event.stopPropagation(); this.props.onRemoveEmail(email.id) }}>
                                 <i className="fas fa-trash" aria-hidden="true"></i>
                             </button>
                             <button className="mail-is-open-btn" onClick={(event) => { event.preventDefault(); event.stopPropagation(); this.onToggleRead(event) }}>
-                                <i className={`${(email.isRead) ?'fas fa-envelope-open':'fas fa-envelope'}`} aria-hidden="true"></i>
+                                <i className={`${(email.isRead) ? 'fas fa-envelope-open' : 'fas fa-envelope'}`} aria-hidden="true"></i>
                             </button>
                         </div>
                         <p>{emailService.getLoggedInUser().fullName}</p>
