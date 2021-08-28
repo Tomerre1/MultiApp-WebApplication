@@ -1,19 +1,15 @@
 
 const { withRouter } = ReactRouterDOM
-import { Loader } from './Loader.jsx'
 class _BookFilter extends React.Component {
     state = {
         filterBy: null
     }
     minRange = 0
     maxRange = 250
-    // inputTitle = React.createRef()
 
     componentDidMount() {
         const filterBy = { title: '', price: 200 }
         this.setState({ filterBy })
-        // if (this.inputTitle.current) this.inputTitle.current.focus()
-
     }
 
 
@@ -29,7 +25,7 @@ class _BookFilter extends React.Component {
         this.props.history.push('/book/AddNewBook')
     }
     render() {
-        if (!this.state.filterBy) return <Loader />
+        if (!this.state.filterBy) return <div>Loading...</div>
         const { title, price } = this.state.filterBy;
         return (
             <React.Fragment>

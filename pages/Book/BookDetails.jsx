@@ -2,7 +2,6 @@ import { utilService } from '../../services/util-service.js'
 import { LongTxt } from '../../cmps/Book/LongTxt.jsx'
 import { bookService } from '../../services/Book/books.service.js'
 import { ReviewAdd } from '../../cmps/Book/ReviewAdd.jsx'
-import { Loader } from "../../cmps/Book/Loader.jsx";
 const { Link } = ReactRouterDOM
 
 
@@ -15,9 +14,7 @@ export class BookDetails extends React.Component {
     }
 
     componentDidMount() {
-        setTimeout(() => {
-            this.loadBook()
-        }, 500);
+        this.loadBook()
     }
 
     componentDidUpdate(prevProps) {
@@ -61,7 +58,7 @@ export class BookDetails extends React.Component {
 
     render() {
         const { book } = this.state
-        if (!book) return <Loader />
+        if (!book) return <div>Loading</div>
         return (
             <React.Fragment>
 
