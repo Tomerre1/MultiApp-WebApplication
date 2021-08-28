@@ -24,28 +24,26 @@
 }
 
 .btn-mail-details.fa.fa-envelope,
-.btn-mail-details.fas.fa-trash{
+.btn-mail-details.fas.fa-trash {
   font-size: 48px;
   border: 0;
   text-align: center;
   cursor: pointer;
 }
 
-.btn-mail-details.fa.fa-envelope{
-  color: #25D366;
+.btn-mail-details.fa.fa-envelope {
+  color: #25d366;
   opacity: 0.5;
 }
 
 .btn-mail-details.fa.fa-envelope:hover,
 .btn-mail-details.fas.fa-arrow-left:hover,
-.btn-mail-details.fas.fa-arrow-right:hover
-{
+.btn-mail-details.fas.fa-arrow-right:hover {
   opacity: 1;
 }
 
 .btn-mail-details.fas.fa-arrow-left,
-.btn-mail-details.fas.fa-arrow-right
-{
+.btn-mail-details.fas.fa-arrow-right {
   opacity: 0.7;
 }
 
@@ -60,9 +58,19 @@
   text-decoration: underline;
 }
 
+.email-details {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+}
 
 @media (min-width: 800px) {
-  .back-next-btns{
+  .back-next-btns {
     position: unset;
+  }
+
+  .email-details {
+    height: 100%;
   }
 }
