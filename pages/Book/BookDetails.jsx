@@ -63,43 +63,65 @@ export class BookDetails extends React.Component {
         const { book } = this.state
         if (!book) return <Loader />
         return (
+            <React.Fragment>
 
-            <section className="book-page">
-                <div className="book-prev-next flex" >
-                    <Link to={`/book/${bookService.getNextBookId(book.id, -1)}`}> ᐸ Previous Book</Link>
-                    <Link to={`/book/${bookService.getNextBookId(book.id, 1)}`}>Next Book ᐳ</Link>
-                </div>
-
-                <main className="book-details flex">
-                    <div className="details flex">
-                        <div>
-                            <p><span className="underline">Title:</span> {book.title}</p>
-                            <p><span className="underline">Subtitle:</span> {book.subtitle}</p>
-                        </div>
-
-                        <div>
-                            <p><span className="underline">Authors:</span> {[...book.authors.join(', ')]}</p>
-                            <LongTxt text={book.description} isLongTxtShown={this.state.isLongTxtShown} toggleTxtShown={this.toggleTxtShown} />
-                        </div>
-
-                        <p><span className="underline">Price:</span> <span className={this.getPriceColor()}> {book.listPrice.amount} {utilService.getCurrencyIcon(book)} </span></p>
-                        <div>
-                            <p><span className="underline">Published Date:</span> {book.publishedDate} {this.getBookAge()}</p>
-                            <p><span className="underline">PageCount:</span> {book.pageCount} Pages {this.getLengthReading()} </p>
-                            <p><span className="underline">Categories:</span> {[...book.categories.join(', ')]}</p>
-                            <p><span className="underline">Language:</span> {book.language}</p>
-                        </div>
+                <section className="book-page">
+                    <div className="book-prev-next flex" >
+                        <Link to={`/book/${bookService.getNextBookId(book.id, -1)}`}> ᐸ Previous Book</Link>
+                        <Link to={`/book/${bookService.getNextBookId(book.id, 1)}`}>Next Book ᐳ</Link>
                     </div>
-                    <div className="book-img">
-                        {book.listPrice.isOnSale && <div className="sale-img">
-                            <img src="../assets/img/sale-book.png" />
-                        </div>}
-                        <img src={book.thumbnail} />
-                    </div>
-                </main>
-                <ReviewAdd book={book} />
-                <button className="book-btn" onClick={this.onBack}>Back To Book List</button>
-            </section>
+
+                    <main className="book-details">
+                        <div className="item-pane">
+
+                            <div className="item-preview">
+                                {book.listPrice.isOnSale && <div className="sale-img">
+                                    <img src="../assets/img/sale-book.png" />
+                                </div>}
+                                <img src={book.thumbnail} />
+                            </div>
+
+                            <div className="item-details">
+                                <h1>{book.title}</h1>
+                                <span className="subtitle">{book.subtitle}</span>
+
+
+                                <div className="pane__section">
+                                    <LongTxt text={book.description} isLongTxtShown={this.state.isLongTxtShown} toggleTxtShown={this.toggleTxtShown} />
+                                </div>
+
+                                <div className="pane__section">
+                                    <dl>
+                                        <dt>Authors</dt>
+                                        <dd>{[...book.authors.join(', ')]}</dd>
+                                        <dt>Price</dt>
+                                        <dd>{book.listPrice.amount} {utilService.getCurrencyIcon(book)}</dd>
+                                        <dt>Categories</dt>
+                                        <dd>{[...book.categories.join(', ')]}</dd>
+                                        <dt>Published</dt>
+                                        <dd>{book.publishedDate} {this.getBookAge()}</dd>
+                                        <dt>PageCount</dt>
+                                        <dd>{book.pageCount} Pages {this.getLengthReading()}</dd>
+                                        <dt>Language</dt>
+                                        <dd>{book.language}</dd>
+                                    </dl>
+                                </div>
+
+                                <div className="pane__section clearfix">
+                                    <span className="item-price">{book.listPrice.amount}<span className="item-price__units">{utilService.getCurrencyIcon(book)}</span>
+                                    </span><a className="buy-button" href="#">Purchase</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </main>
+                </section>
+                <section className="book-details-footer">
+                    <ReviewAdd book={book} />
+                    <button className="book-btn" onClick={this.onBack}>Back To Book List</button>
+                </section>
+            </React.Fragment>
         )
     }
 }

@@ -7,10 +7,10 @@ export function LongTxt(props) {
     }
     return (
         <section>
-            <p> <span className="underline"> Desc :</span> {getTextToShow()} 
+            <p> <span className="underline"> Description:</span> {getTextToShow()} 
                 {props.text.length > 100 &&
-                    <span onClick={props.toggleTxtShown}>
-                        {props.isLongTxtShown ? ' Less' : '... More'}
+                    <span className="bold pointer" onClick={props.toggleTxtShown}>
+                        {props.isLongTxtShown ? ' Less...' : ' More...'}
                     </span>}
             </p>
 

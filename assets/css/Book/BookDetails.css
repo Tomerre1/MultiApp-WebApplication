@@ -1,34 +1,121 @@
 /* Book-Details */
 
 .book-details {
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-    background: linear-gradient(to right, #e0eafc, #cfdef3);
-    padding: 1rem;
-    border-radius: 5px;
-    gap: 10px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    padding: 0 60px;
+    /* min-width: 600px; */
 }
 
-.details {
-    justify-content: space-between;
+.item-pane {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    /* max-width: 1020px; */
+    padding: 26px;
+    margin: 26px auto;
+    background: white;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 4px;
+    align-items: flex-start;
 }
 
-.book-details {
-    justify-content: space-between;
+.item-preview,
+.item-details {
+    flex-grow: 1;
 }
 
-.book-img {
-    color: black;
+.item-preview {
+    align-self: center;
     position: relative;
 }
 
-.sale-img {
-    position: absolute;
-    animation: blink-2 1.5s infinite both;
+.item-preview>img {
+    width: 100%;
 }
 
 .sale-img>img {
-    width: 50%;
+    position: absolute;
+    animation: blink-2 1.5s infinite both;
+    width: 100%;
+}
+
+.item-details>h1 {
+    font-family: "Roboto-Slab-Regular", Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    margin-bottom: 0.4em;
+    margin-top: 0.4em;
+}
+
+.subtitle {
+    font-family: "Roboto-Slab", Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 1.3em;
+}
+
+.pane__section:not(:last-child) {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.pane__section {
+    padding-top: 30px;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.pane__section>p {
+    line-height: 1.4;
+    font-family: "Roboto-Slab", Roboto, sans-serif;
+}
+
+dl {
+    columns: 2;
+    line-height: 1.8em;
+    margin: -0.4em 0;
+}
+
+dt {
+    font-weight: 500;
+}
+
+dd {
+    margin-left: 0;
+}
+
+.buy-button {
+    float: right;
+    padding: 0.6em 1em;
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    background: #80db65;
+    border-radius: 3px;
+}
+
+.item-price {
+    font-family: "Roboto-Slab", Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.book-details-footer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 58px;
 }
 
 .underline {
@@ -51,5 +138,19 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@media (min-width:800px) {
+    .item-pane {
+        flex-direction: row;
+    }
+    .item-preview {
+        margin-right: 26px;
+        padding: 26px;
+        align-self: unset;
+    }
+    .item-preview>img {
+        width: unset;
     }
 }
