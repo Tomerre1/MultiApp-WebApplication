@@ -140,6 +140,10 @@ dd {
     flex-direction: column;
 }
 
+.book-details-btn-footer {
+    display: flex;
+}
+
 @keyframes blink-2 {
     0% {
         opacity: 1;

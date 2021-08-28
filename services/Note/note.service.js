@@ -166,7 +166,7 @@ function _createNotes() {
             id: utilService.makeId(),
             type: "txt",
             isPinned: true,
-            info: { title: "So easy with notes!" },
+            info: { title: "MultiApp - By Tomer Revah & Matan Levi" },
             style: { backgroundColor: '#F653A6' }
         },
         {
@@ -237,7 +237,7 @@ function _createNotes() {
         {
             id: utilService.makeId(),
             type: "txt",
-            isPinned: false,
+            isPinned: true,
             info: { title: "Love our MultiApp?😍" },
             style: { backgroundColor: '#8BC34A' }
         },
