@@ -51,7 +51,7 @@ export class ReviewAdd extends React.Component {
         return (
             <React.Fragment>
                 {book.reviews && <ReviewList reviews={book.reviews} onRemoveReview={this.onRemoveReview} />}
-                <button className="btn" onClick={this.toggleModal}>Enter Review</button>
+                <button className="book-btn" onClick={this.toggleModal}>Enter Review</button>
                 {showModal && <ReviewModal review={review} setStars={this.setStars} handleChange={this.handleChange} toggleModal={this.toggleModal} onAddReview={this.onAddReview} />}
             </React.Fragment>
         );

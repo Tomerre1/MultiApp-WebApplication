@@ -98,7 +98,7 @@ export class BookDetails extends React.Component {
                     </div>
                 </main>
                 <ReviewAdd book={book} />
-                <button className="btn" onClick={this.onBack}>Back To Book List</button>
+                <button className="book-btn" onClick={this.onBack}>Back To Book List</button>
             </section>
         )
     }

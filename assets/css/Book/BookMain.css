@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* Review */
+
+.reviews-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.review {
+    height: 200px;
+    /* width: 200px; */
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+
+/* Home Page */
+
+.fullcontent {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    padding: 6% 10% 5% 10%;
+    background-image: url(img/b.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://raw.githubusercontent.com/Poojavpatel/BookStoreApp/master/img/b.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.headings h1 {
+    font-size: 4rem;
+    color: white;
+    margin: 3% 0% 3% 0%;
+}
+
+.headings h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* Helpers */
+
+.pointer {
+    cursor: pointer;
+}
+
+
+/* list-helpers */
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+
+/* user-msg */
+
+.user-msg {
+    position: fixed;
+    padding: 20px;
+    right: 50%;
+    bottom: 50%;
+}
+
+.user-msg.danger {
+    background-color: rgb(250, 154, 154);
+}
+
+.user-msg.success {
+    background-color: rgb(178, 250, 154);
+}
+
+
+/* Button Default */
+
+.book-btn {
+    border: none;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    font-size: 1rem;
+    text-align: center;
+    transition: background 400ms ease-in-out, transform 150ms ease;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 0.5px solid black;
+    margin: 0.5rem;
+}
+
+.book-btn:hover {
+    background: #adb3bb;
+}

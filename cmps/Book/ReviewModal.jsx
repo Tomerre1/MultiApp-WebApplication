@@ -22,7 +22,7 @@ export function ReviewModal(props) {
                             {[1, 2, 3, 4, 5].map((num) => <span key={num} onClick={() => { props.setStars(num) }} className={`fa fa-star pointer ${(stars >= num) ? 'checked' : ''}`}> </span>)}
                         </div>
                     }
-                    <button className="btn">Add Review</button>
+                    <button className="book-btn">Add Review</button>
                 </form>
             </div>
         </section>

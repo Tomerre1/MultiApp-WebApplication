@@ -1,7 +1,9 @@
 /*MAIN*/
+
 @import './home.css';
 @import './email.css';
 @import './note.css';
+@import './book.css';
 @import './header.css';
 @import './footer.css';
 body {

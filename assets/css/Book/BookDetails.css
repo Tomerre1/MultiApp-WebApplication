@@ -1,0 +1,55 @@
+/* Book-Details */
+
+.book-details {
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    padding: 1rem;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+.details {
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.book-details {
+    justify-content: space-between;
+}
+
+.book-img {
+    color: black;
+    position: relative;
+}
+
+.sale-img {
+    position: absolute;
+    animation: blink-2 1.5s infinite both;
+}
+
+.sale-img>img {
+    width: 50%;
+}
+
+.underline {
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.book-prev-next {
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+@keyframes blink-2 {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
