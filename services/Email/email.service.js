@@ -7,7 +7,8 @@ export const emailService = {
     query,
     getLoggedInUser,
     getEmailById,
-    setIsRead,
+    toggleIsRead,
+    setRead,
     removeEmail,
     setIsStar,
     setIsTrash,
@@ -42,27 +43,6 @@ function createEmail(id = utilService.makeId(), subject = utilService.makeLorem(
     }
 }
 
-// function query(filterBy = null, sortBy = null) {
-//     if (sortBy) sortEmails(sortBy)
-//     if (filterBy) {
-//         const { text, isRead, isStar, isTrash, isSent } = filterBy
-//         let emailsToShow
-//         if (isSent)
-//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isSent)
-//         else if (isStar)
-//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isStar && !email.isTrash)
-//         else if (isTrash)
-//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isTrash)
-//         else if (isRead)
-//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && email.isRead && !email.isTrash)
-//         else if (!isRead && isRead !== null)
-//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isRead && !email.isTrash)
-//         else
-//             emailsToShow = gEmails.filter(email => email.subject.includes(text) && !email.isTrash)
-//         return Promise.resolve(emailsToShow)
-//     }
-//     return Promise.resolve(gEmails)
-// }
 
 function query(filterBy = null, sortBy = null) {
     if (sortBy) sortEmails(sortBy)
@@ -97,7 +77,11 @@ function createEmails() {
 
 function getEmailById(emailId) { return Promise.resolve(gEmails.find(email => email.id === emailId)) }
 
-function setIsRead(email) {
+function toggleIsRead(email) {
+    email.isRead = !email.isRead
+    storageService.saveToStorage(KEY, gEmails)
+}
+function setRead(email) {
     email.isRead = true
     storageService.saveToStorage(KEY, gEmails)
 }
@@ -115,7 +99,7 @@ function setIsStar(email) {
 }
 
 function setIsTrash(email) {
-    email.status = 'trash'  // lo oved
+    email.status = 'trash' 
     storageService.saveToStorage(KEY, gEmails)
 }
 

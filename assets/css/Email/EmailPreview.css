@@ -42,21 +42,19 @@
 }
 
 .star-btn,
-.remove-btn {
+.remove-btn,
+.mail-is-open-btn {
   font-size: 24px;
   background-color: inherit;
   border: 0;
+  cursor: pointer;
 }
 
 .sender {
   gap: 10px;
   align-items: center;
 }
-.fas.fa-star,
-.fas.fa-trash {
-  font-size: 24px;
-  cursor: pointer;
-}
+
 .fas.fa-star:hover {
   color: rgb(230, 213, 60);
 }

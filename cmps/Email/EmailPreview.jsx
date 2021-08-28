@@ -16,10 +16,21 @@ export class EmailPreview extends React.Component {
         })
     }
 
-    onSetRead = () => {
+    onToggleRead = () => {
+        // debugger;
         if (!this.state.email.isRead) eventBusService.emit('unReadCount', -1)
-        emailService.setIsRead(this.state.email)
+        else if(this.state.email.isRead) eventBusService.emit('unReadCount', +1)
+        emailService.toggleIsRead(this.state.email)
         this.props.loadEmails()
+        this.setState({ email: { ...this.state.email, isRead: this.state.email.isRead } })
+    }
+    
+    onSetRead = () => {
+        // debugger;
+        if (!this.state.email.isRead) eventBusService.emit('unReadCount', -1)
+        emailService.setRead(this.state.email)
+        this.props.loadEmails()
+        this.setState({ email: { ...this.state.email, isRead: !this.state.email.isRead } })
     }
 
     getCurrentStatus = () => {
@@ -33,13 +44,16 @@ export class EmailPreview extends React.Component {
     }
 
 
+    
+
+
 
     render() {
         const { email } = this.state
         if (!email) return <div></div>
         return (
             <Link to={`/email/${this.getCurrentStatus()}/${email.id}`}>
-                <section className={`mail-preview flex space-between ${(!email.isRead) ? 'read' : 'unread'}`} onClick={this.onSetRead}  >
+                <section className={`mail-preview flex space-between ${(email.isRead) ? 'unread' : 'read'}`} onClick={this.onSetRead}  >
                     <div className="flex sender">
                         <div>
 
@@ -48,6 +62,9 @@ export class EmailPreview extends React.Component {
                             </button>
                             <button className="remove-btn" onClick={(event) => { event.preventDefault(); this.props.onRemoveEmail(email.id) }}>
                                 <i className="fas fa-trash" aria-hidden="true"></i>
+                            </button>
+                            <button className="mail-is-open-btn" onClick={(event) => { event.preventDefault(); event.stopPropagation(); this.onToggleRead(event) }}>
+                                <i className={`${(email.isRead) ?'fas fa-envelope-open':'fas fa-envelope'}`} aria-hidden="true"></i>
                             </button>
                         </div>
                         <p>{emailService.getLoggedInUser().fullName}</p>
