@@ -1,1 +1,56 @@
 /*FOOTER*/
+
+/*-------------
+ 	Footer
+-------------*/
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: #414a4f;
+  justify-content: space-evenly;
+  box-shadow: 0 0 8px 1px #00000085;
+  height: 5vh;
+  padding: 0vw 5vw;
+}
+
+footer p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+footer p a {
+  color: #fff;
+}
+
+.contact-us > a,
+.app-name {
+  height: 60px;
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 60px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s linear;
+}
+
+.contact-us {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.contact-us .name:hover,
+.contact-us .app-name:hover,
+.contact-us .fab.fa-linkedin:hover,
+.app-name:hover {
+  color: #0e76a8;
+  transform: translateY(-10px);
+}

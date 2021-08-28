@@ -77,7 +77,7 @@ export class EmailApp extends React.Component {
         return (
             <main className="email-app">
                 <EmailNav toggleCompose={this.toggleCompose} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />
-                <div className="email-container flex">
+                <div className="email-container">
                     {!params.emailId && <EmailList emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} loadEmails={this.loadEmails}/>}
                     {params.emailId && <EmailDetails onRemoveEmail={this.onRemoveEmail} />}
                     {isCompose && <EmailAdd toggleCompose={this.toggleCompose} newMail={this.newMail} />}

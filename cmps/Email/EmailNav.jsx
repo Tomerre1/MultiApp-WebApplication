@@ -4,9 +4,6 @@ import { eventBusService } from '../../services/event-bus-service.js'
 import { emailService } from '../../services/Email/email.service.js'
 
 export class EmailNav extends React.Component {
-    // const updateSelectedFilter = (value) => {
-    //     eventBusService.emit('mailFilter', value)
-    // }
     state = {
         count: 0
     }
@@ -23,8 +20,8 @@ export class EmailNav extends React.Component {
         const { count } = this.state
         return (
             <header className="header-nav">
-                <p class="Logo">Gmail</p>
-                <input type="checkbox" name="" class="btn" />
+                <p className="Logo">MultiMail</p>
+                <input type="checkbox" name="" className="btn" />
                 <nav className="nav">
                     <ul className="clean-list">
                         <NavLink activeClassName="active-nav-email" className="compus-mail" onClick={this.props.toggleCompose}> Compose</NavLink>
