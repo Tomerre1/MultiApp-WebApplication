@@ -10,12 +10,6 @@ export class ReviewAdd extends React.Component {
         showModal: false,
     };
 
-    componentWillUpdate(prevProps) {
-        if (prevProps.book.reviews !== this.props.book.reviews) {
-            this.setState({ book: prevProps.book })
-        }
-    }
-
     componentDidMount() {
         this.setState({ book: this.props.book, review: { fullName: '', textarea: '', stars: null }, showModal: false })
     }
