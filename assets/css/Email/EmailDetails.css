@@ -20,7 +20,7 @@
 }
 
 .message-view-body {
-  margin: 4rem 0;
+  margin-block-end: 4rem;
 }
 
 .btn-mail-details.fa.fa-envelope,
@@ -75,6 +75,6 @@
   }
 
   .message-view-body {
-    margin: unset;
+    margin-block-end: unset;
   }
 }

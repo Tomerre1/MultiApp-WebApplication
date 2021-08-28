@@ -115,6 +115,9 @@ header {
   }
   input:checked ~ .nav {
     transform: translateY(0%);
+    height: 100%;
+    opacity: 0.95;
+    background: #999a9a;
   }
   input:checked::before {
     content: '\f00d';
