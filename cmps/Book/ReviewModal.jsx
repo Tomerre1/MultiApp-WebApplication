@@ -7,11 +7,11 @@ export function ReviewModal(props) {
                 <form className="review-add" onSubmit={props.onAddReview}>
                     <h2> Review</h2>
                     <label htmlFor="fullName" >Full name:</label>
-                    <input type="text" name="fullName" id="fullName" placeholder='Enter Full Name' value={fullName} onChange={props.handleChange} required /><br/>
-                    <label htmlFor="readDate" >Read at:</label><br/>
-                    <input type="date" name="readDate" id="readDate" onChange={props.handleChange} required /><br/>
-                    <label htmlFor="textarea" >Text Area:</label><br/>
-                    <textarea type="text" name="textarea" id="textarea" placeholder='Enter Text' rows="7" cols="50" value={textarea} onChange={props.handleChange} required /><br/>
+                    <input type="text" name="fullName" id="fullName" placeholder='Enter Full Name' value={fullName} onChange={props.handleChange} required />
+                    <label htmlFor="readDate" >Read at:</label>
+                    <input type="date" name="readDate" id="readDate" onChange={props.handleChange} required />
+                    <label htmlFor="textarea" >Text Area:</label>
+                    <textarea type="text" name="textarea" id="textarea" placeholder='Enter Text' rows="7" cols="50" value={textarea} onChange={props.handleChange} required />
                     {!stars &&
                         <div className="ratings">
                             {[1, 2, 3, 4, 5].map((num) => <span key={num} onClick={() => { props.setStars(num) }} className="fa fa-star pointer"> </span>)}
@@ -22,7 +22,7 @@ export function ReviewModal(props) {
                             {[1, 2, 3, 4, 5].map((num) => <span key={num} onClick={() => { props.setStars(num) }} className={`fa fa-star pointer ${(stars >= num) ? 'checked' : ''}`}> </span>)}
                         </div>
                     }
-                    <button className="book-btn">Add Review</button>
+                    <button className="btn-add-new-book">Add Review</button>
                 </form>
             </div>
         </section>

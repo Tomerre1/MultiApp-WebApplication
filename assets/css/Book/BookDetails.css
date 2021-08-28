@@ -41,7 +41,7 @@
 }
 
 .sale-img>img {
-    width: 70%;
+    width: 50%;
     position: absolute;
     animation: blink-2 1.5s infinite both;
 }
