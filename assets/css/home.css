@@ -195,12 +195,14 @@ Section Configurations
 
 .try-it-now {
     margin-block-end: 25px;
+    margin-bottom: 12vh;
     /*maybe*/
 }
 
 .try-it-now .hero-title {
     text-transform: capitalize;
     font: bold 32px 'Open Sans', sans-serif;
+    font-family: cursive;
     margin-bottom: 30px;
     text-align: center;
 }
@@ -210,7 +212,6 @@ Section Configurations
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-items: center;
     align-items: center;
-    box-shadow: 0 0 3px 1px black;
 }
 
 .try-it-now .grid li {

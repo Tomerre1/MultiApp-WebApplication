@@ -35,4 +35,23 @@
 
 .links-icons-container {
     position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 130px;
+    height: 130px;
+    top: 23px;
+    right: 21px;
+    background-color: #161515e0;
+    border-radius: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.links-icons-container>a>i {
+    font-size: 33px;
+    padding: 10px;
+    height: 55px;
+    width: 55px;
+    color: #dfaa31c9;
 }
