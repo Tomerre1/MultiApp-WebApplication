@@ -2,7 +2,6 @@ import { utilService } from '../../services/util-service.js'
 import { LongTxt } from '../../cmps/Book/LongTxt.jsx'
 import { bookService } from '../../services/Book/books.service.js'
 import { ReviewAdd } from '../../cmps/Book/ReviewAdd.jsx'
-import { Loader } from "../../cmps/Book/Loader.jsx";
 const { Link } = ReactRouterDOM
 
 
@@ -11,13 +10,11 @@ const { Link } = ReactRouterDOM
 export class BookDetails extends React.Component {
     state = {
         isLongTxtShown: null,
-        book: null
+        book: null,
     }
 
     componentDidMount() {
-        setTimeout(() => {
-            this.loadBook()
-        }, 500);
+        this.loadBook()
     }
 
     componentDidUpdate(prevProps) {
@@ -29,7 +26,7 @@ export class BookDetails extends React.Component {
         bookService.getBookById(id)
             .then(book => {
                 if (!book) this.props.history.push('/')
-                this.setState({ book })
+                this.setState({ book: { ...book } })
             })
     }
 
@@ -61,7 +58,7 @@ export class BookDetails extends React.Component {
 
     render() {
         const { book } = this.state
-        if (!book) return <Loader />
+        if (!book) return <div>Loading</div>
         return (
             <React.Fragment>
 
@@ -119,9 +116,9 @@ export class BookDetails extends React.Component {
                 </section>
                 <section className="book-details-footer">
                     <div className="book-reviews">
-                        <ReviewAdd book={book} onBack={this.onBack} />
+                        <ReviewAdd loadBook={this.loadBook} book={book} onBack={this.onBack} />
                     </div>
-                    
+
                 </section>
             </React.Fragment>
         )

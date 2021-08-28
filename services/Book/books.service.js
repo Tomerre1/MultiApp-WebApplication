@@ -480,10 +480,9 @@ function getBooks() {
 
 function addReview(bookToAddReview, review) {
     let bookIdx = getBookIdxById(bookToAddReview.id)
-    let book = gBooks[bookIdx]
-    if (!book.reviews) book.reviews = []
+    if (!gBooks[bookIdx].reviews) gBooks[bookIdx].reviews = []
     review.id = utilService.makeId()
-    book.reviews.push(review);
+    gBooks[bookIdx].reviews.push(review);
     storageService.saveToStorage(KEY, gBooks)
 }
 
@@ -504,7 +503,7 @@ function removeReview(book, reviewId) {
 
 function getGoogleBook(googleBook) {
     const storage = storageService.loadFromStorage(googleBook.toLowerCase())
-    if (storage && storage.length) { console.log('from storage'); return Promise.resolve(storage) }
+    if (storage && storage.length) { return Promise.resolve(storage) }
     const url = `https://www.googleapis.com/books/v1/volumes?q=${googleBook}`;
     return fetch(url)
         .then(res => res.json())

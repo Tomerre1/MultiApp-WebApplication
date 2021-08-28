@@ -141,7 +141,6 @@ function sortBySubject(isAlphaUp) {
 
 
 function addMail(email) {
-    console.log('%c  email:', 'color: #0e93e0;background: #aaefe5;', email);
     gEmails.unshift(createEmail(utilService.makeId(), email.subject, email.body, false, Date.now(), 'Tomer_Matan@MultiApp.com', email.to, false, 'sent'));
     storageService.saveToStorage(KEY, gEmails)
 }

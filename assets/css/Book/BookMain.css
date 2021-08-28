@@ -88,23 +88,3 @@
 .user-msg.success {
     background-color: rgb(178, 250, 154);
 }
-
-
-/* Button Default */
-
-.book-btn {
-    border: none;
-    padding: 1rem 2rem;
-    background: #ffffff;
-    font-size: 1rem;
-    text-align: center;
-    transition: background 400ms ease-in-out, transform 150ms ease;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    border: 0.5px solid black;
-    margin: 0.5rem;
-}
-
-.book-btn:hover {
-    background: #adb3bb;
-}

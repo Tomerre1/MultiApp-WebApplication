@@ -6,8 +6,6 @@ export class NoteAdd extends React.Component {
     }
     inputTitle = React.createRef()
 
-    // if (this.inputTitle.current) this.inputTitle.current.focus()
-
 
     componentDidMount() {
         this.setState({ type: 'txt', title: '' })
@@ -16,12 +14,6 @@ export class NoteAdd extends React.Component {
     handleChange = (e) => {
         const value = e.target.type === 'number' ? +e.target.value : e.target.value;
         this.setState({ title: value })
-        // const filterBy = { ...this.state.filterBy, [e.target.name]: value }
-
-        // this.setState({ filterBy }, () => {
-        //     // console.log(filterBy.title)
-        //     this.props.onSetFilter(filterBy, this.state.type)
-        // })
     }
 
     onChangeType = (type) => {

@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
     position: fixed;
     left: 50%;
     top: 50%;
@@ -14,13 +14,22 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    height: 480px;
-    width: 450px;
     border: 1px solid black;
+}
+
+.review-add{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .review-add>* {
     margin-bottom: 1rem;
+}
+.ratings{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .review-add>.ratings>.fa-star {
@@ -29,6 +38,7 @@
 
 textarea {
     resize: none;
+    border: 1px solid black;
 }
 
 .review-add>input {
