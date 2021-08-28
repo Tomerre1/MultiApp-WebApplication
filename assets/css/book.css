@@ -4,3 +4,12 @@
 @import './Book/BookList.css';
 @import './Book/BookModal.css';
 @import './Book/BookMain.css';
+@font-face {
+    font-family: Roboto-Slab;
+    src: url(../fonts/Roboto-Slab/RobotoSlab-Light.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Slab-Regular;
+    src: url(../fonts/Roboto-Slab/RobotoSlab-Regular.ttf);
+}
