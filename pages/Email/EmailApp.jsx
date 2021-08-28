@@ -43,9 +43,11 @@ export class EmailApp extends React.Component {
 
     onRemoveEmail = (emailId) => {
         emailService.getEmailById(emailId).then((email) => {
+            const prevStatus = email.status
             emailService.removeEmail(emailId)
-            if (email.status !== 'trash') eventBusService.emit('unReadCount', -1)
-            this.props.history.push(`/email/${email.status}`)
+            if (email.status !== 'trash') 
+                eventBusService.emit('unReadCount', -1)
+            this.props.history.push(`/email/${prevStatus}`)
             this.loadEmails()
         })
     }
@@ -78,7 +80,7 @@ export class EmailApp extends React.Component {
             <main className="email-app">
                 <EmailNav toggleCompose={this.toggleCompose} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} />
                 <div className="email-container">
-                    {!params.emailId && <EmailList emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} loadEmails={this.loadEmails}/>}
+                    {!params.emailId && <EmailList emails={emails} onSetStar={this.onSetStar} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} filterBy={this.state.filterBy} loadEmails={this.loadEmails} />}
                     {params.emailId && <EmailDetails onRemoveEmail={this.onRemoveEmail} />}
                     {isCompose && <EmailAdd toggleCompose={this.toggleCompose} newMail={this.newMail} />}
 
