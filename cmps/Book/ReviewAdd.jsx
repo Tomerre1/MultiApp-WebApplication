@@ -10,21 +10,31 @@ export class ReviewAdd extends React.Component {
         showModal: false,
     };
 
-    handleChange = ({ target }) => {
-        const field = target.name
-        const value = target.type === 'number' ? +target.value : target.value
-        this.setState(prevState => ({ review: { ...prevState.review, [field]: value } }))
+    componentWillUpdate(prevProps) {
+        if (prevProps.book.reviews !== this.props.book.reviews) {
+            this.setState({ book: prevProps.book })
+        }
     }
 
     componentDidMount() {
         this.setState({ book: this.props.book, review: { fullName: '', textarea: '', stars: null }, showModal: false })
     }
 
+    handleChange = ({ target }) => {
+        const field = target.name
+        const value = target.type === 'number' ? +target.value : target.value
+        this.setState(prevState => ({ review: { ...prevState.review, [field]: value } }))
+    }
+
+
+    
+
     onAddReview = (ev) => {
         ev.preventDefault()
         const { stars } = this.state.review
         if (!stars) return
         bookService.addReview(this.state.book, this.state.review)
+        this.props.loadBook()
         this.toggleModal()
         this.setState(prevState => ({ book: { ...prevState.book } }))
         eventBusService.emit('user-msg', { txt: 'Review Created', type: 'success' })

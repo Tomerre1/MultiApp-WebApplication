@@ -11,7 +11,7 @@ const { Link } = ReactRouterDOM
 export class BookDetails extends React.Component {
     state = {
         isLongTxtShown: null,
-        book: null
+        book: null,
     }
 
     componentDidMount() {
@@ -28,8 +28,9 @@ export class BookDetails extends React.Component {
         const id = this.props.match.params.bookId
         bookService.getBookById(id)
             .then(book => {
+                console.log('%c  reviews:', 'color: #0e93e0;background: #aaefe5;', book.reviews);
                 if (!book) this.props.history.push('/')
-                this.setState({ book })
+                this.setState({ book: { ...book } })
             })
     }
 
@@ -119,9 +120,9 @@ export class BookDetails extends React.Component {
                 </section>
                 <section className="book-details-footer">
                     <div className="book-reviews">
-                        <ReviewAdd book={book} onBack={this.onBack} />
+                        <ReviewAdd loadBook={this.loadBook} book={book} onBack={this.onBack} />
                     </div>
-                    
+
                 </section>
             </React.Fragment>
         )

@@ -480,10 +480,9 @@ function getBooks() {
 
 function addReview(bookToAddReview, review) {
     let bookIdx = getBookIdxById(bookToAddReview.id)
-    let book = gBooks[bookIdx]
-    if (!book.reviews) book.reviews = []
+    if (!gBooks[bookIdx].reviews) gBooks[bookIdx].reviews = []
     review.id = utilService.makeId()
-    book.reviews.push(review);
+    gBooks[bookIdx].reviews.push(review);
     storageService.saveToStorage(KEY, gBooks)
 }
 
