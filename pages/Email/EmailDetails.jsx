@@ -34,7 +34,7 @@ class _EmailDetails extends React.Component {
         const { email } = this.state
         if (!email) return <div></div>
         return (
-            <main className="email-app">
+            <main className="email-details">
                 <div className="mail-col-message-view">
                     <div className="message-view-from">
                         From: {email.from}
@@ -59,11 +59,11 @@ class _EmailDetails extends React.Component {
                     </div>
                 </div>
                 <div className="flex space-between back-next-btns">
-                    <Link to={`/email/${email.status}/${emailService.getNextEmailId(email.id, -1)}`}> <i className="fas fa-arrow-left"></i></Link>
-                    <Link to={`/email/${email.status}/${emailService.getNextEmailId(email.id, 1)}`}><i className="fas fa-arrow-right"></i> </Link>
-                    <button onClick={() => { this.props.onRemoveEmail(this.props.match.params.emailId) }}><i className="fas fa-trash"></i> </button>
+                    <Link to={`/email/${email.status}/${emailService.getNextEmailId(email.id, -1)}`} className="btn-mail-details fas fa-arrow-left"></Link>
+                    <Link className="btn-mail-details fas fa-trash" onClick={() => { this.props.onRemoveEmail(this.props.match.params.emailId) }}></Link>
+                    <Link className="btn-mail-details fa fa-envelope" onClick={this.onBack}></Link>
+                    <Link className="btn-mail-details fas fa-arrow-right" to={`/email/${email.status}/${emailService.getNextEmailId(email.id, 1)}`}></Link>
                 </div>
-                <button className="btn-mail-list" onClick={this.onBack}><i className="fa fa-envelope "></i></button>
             </main>
         )
     }

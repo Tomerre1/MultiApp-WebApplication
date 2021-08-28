@@ -4,13 +4,16 @@
 @import '../css/Email/EmailPreview.css';
 @import '../css/Email/EmailDetails.css';
 @import '../css/Email/EmailAdd.css';
-.email-app{
-    display:flex;  
-    flex-direction: column; 
+.email-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap:24px;
 }
 
-@media (min-width: 800px){
-    .email-app{
-        flex-direction: row;
-    }
+@media (min-width: 800px) {
+  .email-app {
+    flex-direction: row;
+  }
+
 }
