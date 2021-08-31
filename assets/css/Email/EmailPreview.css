@@ -44,7 +44,7 @@
 .star-btn,
 .remove-btn,
 .mail-is-open-btn {
-  font-size: 24px;
+  font-size: 20px;
   background-color: inherit;
   border: 0;
   cursor: pointer;
@@ -105,5 +105,14 @@
 @media (min-width: 800px) {
   .mail-preview {
     align-items: center;
+  }
+
+  .star-btn,
+  .remove-btn,
+  .mail-is-open-btn {
+    font-size: 24px;
+    background-color: inherit;
+    border: 0;
+    cursor: pointer;
   }
 }
